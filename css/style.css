@@ -1,0 +1,579 @@
+/* imported font from google fonts  */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Anton|Coiny|Indie+Flower|Libre+Barcode+128+Text|Monoton|Righteous');
+/* general style for website */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-book {
+  width: 100%;
+}
+
+.navbar{
+  padding: .8rem;
+  background: #ffffff;
+  border-bottom: 1px solid #cecece;
+}
+
+.brand-icon {
+  font-size: 3vw;
+  margin-left: 5px;
+  color: #1a2b49;
+}
+
+.navbar-brand {
+  color: #1a2b49 !important;
+  font-family: 'Monoton', cursive;
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li{
+  padding-right: 20px;
+}
+
+.nav-link{
+  font-size: 1.7vw;
+}
+
+.fa-user, .fa-user-plus, .fa-ticket-alt{
+  font-size: 1.7vw;
+  padding-right: 5px;
+}
+
+.padding-text{
+  margin: 20px;
+}
+.carousel {
+  margin-top:40px;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: -100px;
+  transform: translateY(35%)
+}
+
+.booking-form{
+  background: #1a2b49;
+  padding: 10px;
+}
+
+.carousel-caption h3{
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 1px 1px 10px #000;
+  padding-bottom: 1rem;
+}
+
+.regButton{
+  color: white !important;
+}
+
+.special-color{
+  color: #e54d26;
+  font-style: normal;
+}
+
+.decoration-none a:hover{ 
+  color: #1a2b49;
+  text-decoration: none;
+}
+
+.decoration-none a { 
+  color: #02112b;
+}
+/* essential */
+
+.essential-section-style {
+  padding-top: 70px;
+}
+
+.essential-section-style h1 {
+  padding-bottom: 40px;
+}
+
+/* gateway */
+.wrapper { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  grid-auto-rows: 100px; 
+} 
+
+.box1 { 
+  grid-column-start: 1; 
+  grid-column-end: 4; 
+  grid-row-start: 1; 
+  grid-row-end: 3; 
+}
+
+.box2 { 
+  grid-column-start: 1; 
+  grid-row-start: 3; 
+  grid-row-end: 5; 
+}
+* {box-sizing: border-box;}
+
+.wrapper {
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+}
+
+.wrapper > div {
+  border: 2px solid #ffa94d;
+  border-radius: 5px;
+  background-color: #ffd8a8;
+  padding: 1em;
+  color: #d9480f;
+}
+/* gateway end  */
+.flexible-section-style {
+  padding: 60px;
+  background: #025b61;
+  color: #d7ffdc;
+}
+
+.flexible-section-style h2 {
+  padding: 10px;
+  font-size: 5vw;
+}
+.flexible-section-style p {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.subscribe-section-style h2 {
+  padding: 10px;
+  font-size: 3vw;
+}
+
+.subscribe-section-style p {
+ padding-left: 200px;
+ padding-right: 200px;
+ color: #768092;
+}
+
+.jumbotron {
+  padding: 1rem;
+  border-radius: 0;
+}
+
+.line-follow {
+  margin-top: -50px;
+  margin-bottom: -30px;
+}
+
+.padding{
+  padding-bottom: 2rem;
+}
+
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.welcome hr {
+  border-bottom: 2px solid #b4b4b4;
+  width: 55%;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+}
+
+.subscribe-section-style{
+  background: #fff5f1;
+  padding: 60px  60px 0  60px;
+}
+
+.form-subscribe{
+  display: inline-block;
+  margin: 20px;
+}
+
+.button-subscribe {
+  margin: 20px;
+}
+
+.fa-gift{
+  color: #e54d26;
+}
+
+.fa-cc-discover{
+  color: #563d7c;
+}
+
+.fa-chess-pawn {
+  color: #2163af;
+}
+
+.fa-gift, .fa-cc-discover, .fa-chess-pawn {
+  font-size: 4em;
+  margin: 1rem;
+}
+
+.social a {
+  font-size: 4.5em;
+  padding: 3rem;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-twitter {
+  color: #00aced;
+}
+
+.fa-google-plus-g {
+  color: #dd4b39;
+}
+
+.fa-instagram {
+  color: #517fa4;
+}
+
+.fa-youtube {
+  color: #bb0000;
+}
+
+.fa-youtube:hover,
+.fa-facebook:hover, 
+.fa-google-plus-g:hover, 
+.fa-instagram:hover, 
+.fa-youtube:hover,
+.fa-twitter:hover {
+  color: #d5d5d5;
+}
+
+.footer-web {
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+
+
+hr.light{
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #d5d5d5;
+}
+
+hr.light-100 {
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+.badgeApp{
+  margin-left: -5px;
+}
+
+/* styling for registration.php */
+.main_container{
+  margin-top: 130px;
+}
+.sign-up-form {
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.sign-up-form input {
+  width: 100%;
+  height: 40px;
+  padding: 0 5px;
+  margin: 10px;
+  line-height: 40px; 
+}
+
+.sign-up-form button {
+  width: 100%;
+  height: 40px;
+  padding: 0 5px;
+  margin: 10px 10px 50px 10px;
+  line-height: 40px; 
+}
+
+.sign-up-form img {
+  width: 100%;
+  height: 80px;
+  margin:0 10px 0px 10px;
+}
+
+
+#hide{
+  display: none;  
+}
+
+
+/* mobile first styling */
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  .brand-icon {
+    font-size: 2.5vw;
+    margin-left: 5px;
+    color: #1a2b49;
+  }
+  
+  .navbar-brand {
+    color: #1a2b49 !important;
+    font-family: 'Monoton', cursive;
+    font-size: 2.5vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-nav li{
+    padding-right: 20px;
+  }
+
+  .nav-link{
+    font-size: 2vw;
+  }
+  
+  .fa-user, .fa-user-plus, .fa-ticket-alt{
+    font-size: 2vw;
+    padding-right: 5px;
+  }
+
+  .social{
+    font-size: 4em;
+    padding: 2rem;
+  }
+
+  .carousel-caption {
+    top: -25%;
+  }
+
+  .social a {
+    font-size: 1.5em;
+    padding: .8rem;
+  }
+
+  
+
+  }
+@media (max-width: 768px) {
+
+  .brand-icon {
+    font-size: 4vw;
+    margin-left: 5px;
+    color: #1a2b49;
+  }
+
+  .navbar-brand {
+    color: #1a2b49 !important;
+    font-family: 'Monoton', cursive;
+    font-size: 5vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link{
+    font-size: 3vw;
+  }
+  
+  .fa-user, .fa-user-plus, .fa-ticket-alt{
+    font-size: 3vw;
+    padding-right: 5px;
+  }
+  .carousel-inner {
+    margin-top: 70px;
+  }
+
+  .booking-form {
+    margin-top: 20px;
+  }
+
+  .display-2{
+    display: none;
+  }
+
+  .carousel-caption {
+    top: -25%;
+  }
+  
+  .carousel-inner img{
+    height: 350px;
+  }
+  
+  .button-subscribe{
+    width: 60%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 350%;
+  }
+  
+  .carousel-caption h3{
+    font-size: 140%;
+    font-weight: 400;
+    padding-bottom: .2rem;
+  }
+
+  .carousel-caption .btn{
+    font-size: 95%;
+    padding: 8px 14px;
+  }
+  
+
+  .display-4{
+    font-size: 300%;
+  }
+
+  .flexible-section-style h2 {
+    padding: 10px;
+    font-size: 6vw;
+  }
+
+  .flexible-section-style p {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .subscribe-section-style p {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+.subscribe-section-style h2{
+  font-size: 6vw;
+}
+
+.social a {
+  font-size: 1.0em;
+  padding: .8rem;
+}
+
+}
+@media (max-width: 576px) {
+  .social a {
+    font-size: .5em;
+    padding: .2rem;
+  }
+  .carousel-caption {
+    top: -55%;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 180%;
+  }
+  
+  .carousel-caption h3{
+    font-size: 110%;
+    font-weight: 100;
+    padding-bottom: .1rem;
+  }
+
+  .carousel-caption .btn{
+    margin-bottom: 5px;
+    font-size: 90%;
+    padding: 4px 8px;
+  }
+
+  .carousel-indicators {
+    display: none;
+  }
+
+  .display-4{
+    font-size: 160%;
+  }
+  
+
+
+
+  .btn-book {
+    width: 100%;
+    height: 40px;
+  }
+  
+  
+}
+
+
+
+/*---Firefox Bug Fix for slider and the scrolling over image--*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+
+/* break points in bootstrap as a refrence */
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+
