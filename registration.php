@@ -1,7 +1,9 @@
 <?php
 	include_once 'header.php';
 ?>
-
+<?php
+ include_once 'chat_button.php';
+?>
 <style>
 <?php include('css/style.css');?>
 </style>

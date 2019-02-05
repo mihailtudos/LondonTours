@@ -52,7 +52,7 @@ session_start();
 					<!-- navbar elements structured in a unordered list and using ml-auto will push the elements on the right hand side of the page -->
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link active" href="index.php">Home</a>
+							<a id="active-home" class="nav-link" href="index.php">Home</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,13 +66,28 @@ session_start();
 							</div>
 						</li>			
 						<li class="nav-item">
-							<a class="nav-link" href="#ticket-section"><i class="fas fa-ticket-alt"></i>Tickets</a>
+							<a id="active-ticket" class="nav-link" href="tickets.php"><i class="fas fa-ticket-alt"></i>Tickets</a>
 						</li>
 						<?php
 							if(isset($_SESSION['userEmail'])){
-								echo '<form action="includes\sign_out.php" method="POST">
-								<button class="btn btn-primary" type="submit" name="submit">Logout</button>
-							</form>';
+								echo '<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#">Settings  <i class="fas fa-sliders-h"></i></a>
+									<a class="dropdown-item" href="#">Feedback <i class="fas fa-envelope-open"></i></a>
+									<div class="dropdown-divider "></div>
+										<form class="padding-form-sing-out" action="includes\sign_out.php" method="POST">
+											<li class="nav-item ">
+												<button class="btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+											</li>
+										</form>	
+									</div>
+								</li>
+								<form action="includes\sign_out.php" method="POST">
+									<li class="nav-item">
+										<button class="btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+									</li>
+								</form>';
 								
 							} else {
 								echo '<li class="nav-item">	

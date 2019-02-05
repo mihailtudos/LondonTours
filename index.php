@@ -1,9 +1,16 @@
 <?php
  include_once 'header.php';
 ?>
-
+<?php
+ include_once 'chat_button.php';
+?>
 <style>
 <?php include('css/style.css');?>
+
+#active-home{
+	color: #1a2b49;
+	font-weight: bold;
+}
 </style>
 
 <!--- Image Slider -->
@@ -19,27 +26,16 @@
 			<img src="img/background7.jpg" alt="main slide image Photo by Arkadiusz Radek on Unsplash">
 			<!-- carousel caption
 				 the content on the top of carousel  -->
-			<div class="carousel-caption">
-				<h3 class="display-2">Love where you're going</h3>
-				<div class="booking-form">
+			<div class="carousel-caption search-box-div">
+				<h3 id="display-2" class="display-2">Love where you're going</h3>
+				<div class="booking-form search-box">
 					<form>
 						<div class="form-row">
-							<div class="col-md-4 col-sm-6 ">
-								<select class="form-control " id="exampleFormControlSelect1">
-									<option>Select...</option>
-									<option>Rout A</option>
-									<option>Rout B</option>
-									<option>Rout A + B</option>
-								</select>
+							<div class="col-md-9 col-sm-9 ">
+								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
 							</div>
-							<div class="col-md-3 col-sm-6">
-							<input type="date" class="form-control">
-							</div>
-							<div class="col-md-3 col-sm-6">
-							<input type="date" class="form-control" placeholder="Zip">
-							</div>
-							<div class="col-md-2 col-sm-6">
-							<Button type="button" class="btn btn-outline-light btn-book">Book</Button>
+							<div class="col-md-3 col-sm-3">
+							<Button type="button" class="btn btn-outline-light btn-book">Search</Button>
 							</div>
 						</div>
 					</form>
@@ -82,6 +78,7 @@
 <div class="text-center line-follow">
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
+
 
 
 <!--- Flex Section -->
@@ -154,75 +151,59 @@
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
 
-<div class="container-fluid  text-center">
+<div class="container-fluid text-center attraction-section">
 	<h1>Top London attractions</h1>
 	<!--- Cards -->
 	<div class="container padding">
 		<div class="row padding">
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="img/team1.png" alt="">
+					<img class="card-img-top" src="img/big-ben.jpg" alt="big ben image">
 					<div class="card-body">
-						<h4 class="card-title">John Doe</h4>
+						<h4 class="card-title">Big Ben</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="img/team2.png" alt="">
+					<img class="card-img-top" src="img/B-palace-guards.jpg" alt="Buckingham Palace image">
 					<div class="card-body">
-						<h4 class="card-title">Mary Jo</h4>
+						<h4 class="card-title">Buckingham Palace </h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="img/team3.png" alt="">
+					<img class="card-img-top" src="img/london_eye.jpg" alt="The London Eye image">
 					<div class="card-body">
-						<h4 class="card-title">Phil Jo</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card">
-					<img class="card-img-top" src="img/team3.png" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Phil Jo</h4>
+						<h4 class="card-title">The London Eye</h4>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="row padding">
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="img/team1.png" alt="">
+					<img class="card-img-top" src="img/madame.jpg" alt="Madame Tussauds image">
 					<div class="card-body">
-						<h4 class="card-title">John Doe</h4>
+						<h4 class="card-title">Madame Tussauds</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="img/team2.png" alt="">
+					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
 					<div class="card-body">
-						<h4 class="card-title">Mary Jo</h4>
+						<h4 class="card-title">Piccadilly Circus</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="img/team3.png" alt="">
+					<img class="card-img-top" src="img/blog-easter-tower-image.jpg" alt="Tower of London image">
 					<div class="card-body">
-						<h4 class="card-title">Phil Jo</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card">
-					<img class="card-img-top" src="img/team3.png" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Phil Jo</h4>
+						<h4 class="card-title">PTower of London</h4>
 					</div>
 				</div>
 			</div>
@@ -282,7 +263,6 @@
 		</div>
 	</div>
 </div>
-
 
 
 <!--- Connect -->

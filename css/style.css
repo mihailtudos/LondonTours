@@ -57,6 +57,10 @@ html, body {
   height: 100%;
 }
 
+#display-2{
+  font-size: 5vw;
+}
+
 .carousel-caption {
   position: absolute;
   top: -100px;
@@ -74,6 +78,11 @@ html, body {
   text-shadow: 1px 1px 10px #000;
   padding-bottom: 1rem;
 }
+.search-box{
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
 
 .regButton{
   color: white !important;
@@ -82,6 +91,14 @@ html, body {
 .special-color{
   color: #e54d26;
   font-style: normal;
+}
+
+.fa-envelope-open {
+  margin-left: 10px;
+}
+
+.fa-sliders-h {
+  margin-left: 20px;
 }
 
 .decoration-none a:hover{ 
@@ -108,6 +125,11 @@ html, body {
   grid-template-columns: repeat(3, 1fr); 
   grid-auto-rows: 100px; 
 } 
+
+.padding-form-sing-out{
+  width: 100%;
+  margin: 0 0 0 25px;
+}
 
 .box1 { 
   grid-column-start: 1; 
@@ -321,6 +343,53 @@ hr.light-100 {
   display: none;  
 }
 
+.attraction-section{
+  margin-top: 19px;
+  margin-bottom: -30px;
+}
+
+/* Chat button */
+.btn-chat a {
+  color: #fff;
+  text-decoration: none;
+  background: #333333;
+  padding: 24px 20px 8px;
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 0 1px #03b2ff inset;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+  -ms-transform: rotate(90deg) translate(0, -20px);
+  -webkit-transform: rotate(90deg) translate(0, -20px);
+  transform: rotate(90deg) translate(0, -20px);
+  position: relative;
+  right: -30px;
+  transition: background 0.2s, right 0.2s;
+}
+.btn-chat a:hover {
+  background: #47B6F5;
+  right: -20px;
+  transition: background 0.2s, right 0.2s;
+  text-decoration: none;
+}
+
+.mandarory{
+	color: red;
+}
+
+#livechat-compact-container {
+  height: 120px;
+  position: fixed;
+  right: 5px;
+  top: 200px;
+  top: 45vh;
+  z-index: 10000;
+}
+
+::-webkit-scrollbar { 
+  display: none; 
+}
 
 /* mobile first styling */
 /*---Media Queries --*/
@@ -331,6 +400,16 @@ hr.light-100 {
     color: #1a2b49;
   }
   
+  .search-box{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #display-2{
+    font-size: 5vw;
+  }
+
   .navbar-brand {
     color: #1a2b49 !important;
     font-family: 'Monoton', cursive;
@@ -347,10 +426,7 @@ hr.light-100 {
     font-size: 2vw;
   }
   
-  .fa-user, .fa-user-plus, .fa-ticket-alt{
-    font-size: 2vw;
-    padding-right: 5px;
-  }
+  
 
   .social{
     font-size: 4em;
@@ -385,8 +461,15 @@ hr.light-100 {
     padding: 0;
   }
 
+  .search-box{
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
   .nav-link{
-    font-size: 3vw;
+    font-size: 5vw;
   }
   
   .fa-user, .fa-user-plus, .fa-ticket-alt{
@@ -401,10 +484,10 @@ hr.light-100 {
     margin-top: 20px;
   }
 
-  .display-2{
+  .hide-medium{
     display: none;
   }
-
+  
   .carousel-caption {
     top: -25%;
   }
@@ -460,6 +543,15 @@ hr.light-100 {
   padding: .8rem;
 }
 
+.search-box-div{
+  top: -15%;
+}
+
+#display-2{
+  font-size: 5vw;
+  display: inline;
+}
+
 }
 @media (max-width: 576px) {
   .social a {
@@ -494,12 +586,18 @@ hr.light-100 {
     font-size: 160%;
   }
   
-
-
-
   .btn-book {
     width: 100%;
     height: 40px;
+  }
+  
+  #display-2{
+    font-size: 5vw;
+    display: inline;
+  }
+
+  .search-box-div{
+    top: -30%;
   }
   
   
