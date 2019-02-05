@@ -45,6 +45,56 @@
 	</div>
 </div>
 
+
+<div class="container-fluid" id="ticket-section">
+	<div class="container essential-section-style">
+		<h1 class="text-center">Find the rout that suits you the most</h1>
+		</div>
+
+		<!--- Three Column Section -->
+		<div class="container-fluid padding">
+		<div class="row text-center padding">
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<i class="fab fa-cc-discover"></i>
+				<h3>Rout A</h3>
+				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<i class="fas fa-gift"></i>
+				<h3>Rout B</h3>
+				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4">
+				<i class="fas fa-chess-pawn"></i>
+				<h3>Rout A and B</h3>
+				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="text-center line-follow">
+	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
+</div>
+
+
+
+<!--- Flex Section -->
+<div class="container-fluid text-center flexible-section-style padding ">
+	<div class="row padding">
+		<div class="col-md-12 col-lg-12">
+			<h2>Keep things flexible</h2>
+			<p>
+				In case plans change, you can cancel most bookings for free up to 24 hours before they start. If you ever need us, customer service is available 24/7 in multiple languages.			
+			</p>
+		</div>
+		<!-- <div class="col-lg-6">
+			<img class="img-fluid" src="img/desk.png" alt="article image desck">
+		</div> -->
+	</div>
+</div>
+
 <!--- Three Column Section -->
 <div class="container essential-section-style">
 	<h1 class="text-center">Find your <i class="special-color">London Tours</i> product</h1>
@@ -72,54 +122,6 @@
 				<h3>Souvenirs</h3>
 			</a>
 			<p>Buy souvenirs for your family on our web site</p>
-		</div>
-	</div>
-</div>
-<div class="text-center line-follow">
-	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
-</div>
-
-
-
-<!--- Flex Section -->
-<div class="container-fluid text-center flexible-section-style padding ">
-	<div class="row padding">
-		<div class="col-md-12 col-lg-12">
-			<h2>Keep things flexible</h2>
-			<p>
-				In case plans change, you can cancel most bookings for free up to 24 hours before they start. If you ever need us, customer service is available 24/7 in multiple languages.			
-			</p>
-		</div>
-		<!-- <div class="col-lg-6">
-			<img class="img-fluid" src="img/desk.png" alt="article image desck">
-		</div> -->
-	</div>
-</div>
-
-
-<div class="container-fluid" id="ticket-section">
-	<div class="container essential-section-style">
-		<h1 class="text-center">Find the rout that suits you the most</h1>
-		</div>
-
-		<!--- Three Column Section -->
-		<div class="container-fluid padding">
-		<div class="row text-center padding">
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<i class="fab fa-cc-discover"></i>
-				<h3>Rout A</h3>
-				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<i class="fas fa-gift"></i>
-				<h3>Rout B</h3>
-				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4">
-				<i class="fas fa-chess-pawn"></i>
-				<h3>Rout A and B</h3>
-				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
-			</div>
 		</div>
 	</div>
 </div>
@@ -156,15 +158,23 @@
 	<!--- Cards -->
 	<div class="container padding">
 		<div class="row padding">
-			<div class="col-md-4">
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/big-ben.jpg" alt="big ben image">
 					<div class="card-body">
-						<h4 class="card-title">Big Ben</h4>
+						<h4 class="card-title">The Famous Big Ben</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="hide col-lg-3 col-md-4 col-sm-6">
+				<div class="card">
+					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
+					<div class="card-body">
+						<h4 class="card-title"> The Piccadilly Circus</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/B-palace-guards.jpg" alt="Buckingham Palace image">
 					<div class="card-body">
@@ -172,18 +182,18 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/london_eye.jpg" alt="The London Eye image">
 					<div class="card-body">
-						<h4 class="card-title">The London Eye</h4>
+						<h4 class="card-title">The <span class="hide">Famous</span> London Eye</h4>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="row padding">
-			<div class="col-md-4">
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/madame.jpg" alt="Madame Tussauds image">
 					<div class="card-body">
@@ -191,85 +201,39 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="hide col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
 					<div class="card-body">
-						<h4 class="card-title">Piccadilly Circus</h4>
+						<h4 class="card-title">The Piccadilly Circus</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="hide col-lg-3 col-md-4 col-sm-6">
+				<div class="card">
+					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
+					<div class="card-body">
+						<h4 class="card-title">The Piccadilly Circus</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/blog-easter-tower-image.jpg" alt="Tower of London image">
 					<div class="card-body">
-						<h4 class="card-title">PTower of London</h4>
+						<h4 class="card-title">The Tower of London</h4>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<!--- Meet the team -->
-<div class="container-fluid padding">
-	<div class="row welcome text-center">
-		<div class="col-12">
-			<h1 class="display-4">Meet the team</h1>
-		</div>
-	</div>
-</div>
-
-
-
-
-<!--- Cards -->
-<div class="container padding">
-	<div class="row padding">
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" src="img/team1.png" alt="">
-				<div class="card-body">
-					<h4 class="card-title">John Doe</h4>
-					<p class="card-text">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora fuga quam perferendis provident minus voluptatibus iusto ducimus atque 
-					</p>
-					<a class="btn btn-outline-secondary" href="#" >See profile</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" src="img/team2.png" alt="">
-				<div class="card-body">
-					<h4 class="card-title">Mary Jo</h4>
-					<p class="card-text">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora fuga quam perferendis provident minus voluptatibus iusto ducimus atque 
-					</p>
-					<a class="btn btn-outline-secondary" href="#" >See profile</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" src="img/team3.png" alt="">
-				<div class="card-body">
-					<h4 class="card-title">Phil Jo</h4>
-					<p class="card-text">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora fuga quam perferendis provident minus voluptatibus iusto ducimus atque 
-					</p>
-					<a class="btn btn-outline-secondary" href="#" >See profile</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 
 <!--- Connect -->
 <div class="container-fluid padding contact-us-section">
 	<div class="row text-center padding">
 		<div class="col-12">
-			<h2>Connect Us</h2>
+			<h1>Connect Us</h1>
 		</div>
 		<div class="col-12 social padding">
 			<a href="#"><i class="fab fa-facebook"></i></a>

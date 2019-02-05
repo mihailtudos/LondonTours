@@ -21,9 +21,9 @@
 			<input type="password" name="password" placeholder="password">
 			<input type="email" name="email" placeholder="example@example.com">
 			<input type="tel" name="phoneNumber" placeholder="0734121321">
-			<input type="text" name="street" placeholder="258 High Street">
-			<input type="text" name="city" placeholder="London">
-			<input type="text" name="postcode" placeholder="LD6 1FB">
+			<input type="text" name="street" placeholder="first line address">
+			<input type="text" name="city" placeholder="city">
+			<input type="text" name="postcode" placeholder="post code">
 
 			<button class="btn btn-primary" type="submit" name="submit">Sing up</button>
 		</form>

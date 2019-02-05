@@ -205,6 +205,13 @@ html, body {
   padding-top: 2rem;
 }
 
+.responsive-font{
+  font-size: 1.25vw;
+}
+.card-body{
+  background-color: #025b61;
+}
+
 .welcome hr {
   border-bottom: 2px solid #b4b4b4;
   width: 55%;
@@ -383,7 +390,7 @@ hr.light-100 {
   position: fixed;
   right: 5px;
   top: 200px;
-  top: 45vh;
+  top: 70vh;
   z-index: 10000;
 }
 
@@ -452,6 +459,8 @@ hr.light-100 {
     margin-left: 5px;
     color: #1a2b49;
   }
+
+
 
   .navbar-brand {
     color: #1a2b49 !important;
@@ -560,6 +569,10 @@ hr.light-100 {
   }
   .carousel-caption {
     top: -55%;
+  }
+
+  .hide{
+    display: none;  
   }
   
   .carousel-caption h1 {

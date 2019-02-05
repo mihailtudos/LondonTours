@@ -28,7 +28,7 @@
 			<div class="col-md-3 col-sm-6">
 				<h5>Company</h5>
 				<p><a href="">About us</a></p>
-				<p><a href="">Careeers</a></p>
+				<p><a href="">Careers</a></p>
 				<p><a href="">Blog</a></p>
 				<p><a href="">Gift</a></p>
 				<p><a href="">Souvenir</a></p>
@@ -39,7 +39,7 @@
 				<p><a href="">Administration</a></p>
 				<p><a href="">Affiliate Partner </a></p>
 				<p><a href="">Ways you can pay</a></p>
-				<p><a href=""></a>Contact us</p>
+				<p><a href="contact_us.php">Contact us</a></p>
 			</div>
 			<div class="col-12">
 				<h5>Copyright &copy; LondonTours.co.uk 2019</h5>
