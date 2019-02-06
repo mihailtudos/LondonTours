@@ -55,25 +55,31 @@
 		<div class="container-fluid padding">
 		<div class="row text-center padding">
 			<div class="col-xs-12 col-sm-6 col-md-4">
-				<i class="fab fa-cc-discover"></i>
-				<h3>Rout A</h3>
+				<div>
+					<img src="img/routA.png" alt="">
+				</div>
+				<h1 class="routA-style">Rout A</h1>
 				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4">
-				<i class="fas fa-gift"></i>
-				<h3>Rout B</h3>
+				<div class="padding-left">
+					<img src="img/routB.png" alt="">
+				</div>				
+				<h1 class="routB-style">Rout A and B</h1>
 				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4">
-				<i class="fas fa-chess-pawn"></i>
-				<h3>Rout A and B</h3>
+				<div>
+					<img src="img/routA.png" alt="">
+				</div>				
+				<h1 class="routAandB-style">Rout B</h1>
 				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
 			</div>
 		</div>
 	</div>
 </div>
 
-
+<!-- follow img -->
 <div class="text-center line-follow">
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
@@ -82,16 +88,18 @@
 
 <!--- Flex Section -->
 <div class="container-fluid text-center flexible-section-style padding ">
-	<div class="row padding">
-		<div class="col-md-12 col-lg-12">
-			<h2>Keep things flexible</h2>
-			<p>
-				In case plans change, you can cancel most bookings for free up to 24 hours before they start. If you ever need us, customer service is available 24/7 in multiple languages.			
-			</p>
+	<div class="container">
+		<div class="row padding">
+			<div class="col-md-12 col-lg-12">
+				<h2>Keep things flexible</h2>
+				<p>
+					In case plans change, you can cancel most bookings for free up to 24 hours before they start. If you ever need us, customer service is available 24/7 in multiple languages.			
+				</p>
+			</div>
+			<!-- <div class="col-lg-6">
+				<img class="img-fluid" src="img/desk.png" alt="article image desck">
+			</div> -->
 		</div>
-		<!-- <div class="col-lg-6">
-			<img class="img-fluid" src="img/desk.png" alt="article image desck">
-		</div> -->
 	</div>
 </div>
 
@@ -129,11 +137,12 @@
 
 <!--- Subscribe Section -->
 
-<div class="container-fluid padding text-center subscribe-section-style">
-		<div class="row padding">
-			<div class="col-xm-12">
-				<h2>We’ve got top travel tips just for you</h2>
-				<h6>Sign up for a weekly dose of travel inspiration</h6>
+<div class="container-fluid  text-center subscribe-section-style padding">
+	<div class="container">
+		<div class=" row padding">
+			<div class="col-md-12 col-lg-12">
+				<h2>We’ve got some tips for you</h2>
+				<h4>Sign up for a weekly dose of travel inspiration</h4>
 	
 				<form class="form-inline form-subscribe">
 					<input type="email" class="form-control" id="inputPassword2" placeholder="email">
@@ -143,17 +152,16 @@
 					By signing up, you agree to receive promotional emails. You can unsubscribe at any time. For more information, read our <a href="#" target="_blank">privacy statement</a>
 				</p>
 			</div>
-			<!-- <div class="col-lg-6">
-				<img class="img-fluid" src="img/bootstrap2.png" alt="article image bootstrap">
-			</div> -->
 		</div>
 	</div>
+</div>
 
+<!-- London attractions -->
 <div class="text-center line-follow">
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
 
-<div class="container-fluid text-center attraction-section">
+<div class="container text-center attraction-section">
 	<h1>Top London attractions</h1>
 	<!--- Cards -->
 	<div class="container padding">
@@ -166,15 +174,15 @@
 					</div>
 				</div>
 			</div>
-			<div class="hide col-lg-3 col-md-4 col-sm-6">
+			<div class="hide hide-sm-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
-					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
+					<img class="card-img-top" src="img/towerBrige.jpg" alt="The Tower of London image">
 					<div class="card-body">
-						<h4 class="card-title"> The Piccadilly Circus</h4>
+						<h4 class="card-title"> The Tower Bridge</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class="hide hide-sm-screen hide-md-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/B-palace-guards.jpg" alt="Buckingham Palace image">
 					<div class="card-body">
@@ -201,23 +209,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="hide col-lg-3 col-md-4 col-sm-6">
+			<div class="hide hide-sm-screen hide-md-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
-					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
-					<div class="card-body">
-						<h4 class="card-title">The Piccadilly Circus</h4>
+					<img class="card-img-top" src="img/brithishMus.jpg" alt="British Museum image">
+					<div class="card-body ">
+						<h4 class="card-title">The British Museum</h4>
 					</div>
 				</div>
 			</div>
-			<div class="hide col-lg-3 col-md-4 col-sm-6">
+			<div class="hide hide-sm-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
-					<img class="card-img-top" src="img/piccadilly_circus.jpg" alt="piccadilly circus image">
+					<img class="card-img-top" src="img/st-paul.jpg" alt="Cathedral of St. Paul image">
 					<div class="card-body">
-						<h4 class="card-title">The Piccadilly Circus</h4>
+						<h4 class="card-title">Cathedral of St. Paul</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class=" col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/blog-easter-tower-image.jpg" alt="Tower of London image">
 					<div class="card-body">

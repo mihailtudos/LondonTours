@@ -12,6 +12,26 @@ html, body {
   width: 100%;
 }
 
+.routA-style{
+  color: burlywood;
+  padding: 20px;
+}
+
+.routB-style{
+  color: rgb(0, 95, 75);
+  padding: 20px;
+}
+
+.routAandB-style{
+  color: rgb(133, 5, 145);
+  padding: 20px;
+}
+
+.padding-left{
+  padding-left: 15px;
+  padding-top: 25px;
+}
+
 .navbar{
   padding: .8rem;
   background: #ffffff;
@@ -145,6 +165,7 @@ html, body {
 }
 * {box-sizing: border-box;}
 
+
 .wrapper {
   border: 2px solid #f76707;
   border-radius: 5px;
@@ -159,6 +180,8 @@ html, body {
   color: #d9480f;
 }
 /* gateway end  */
+
+
 .flexible-section-style {
   padding: 60px;
   background: #025b61;
@@ -170,16 +193,24 @@ html, body {
   font-size: 5vw;
 }
 .flexible-section-style p {
+  font-size: 18px;
   padding-left: 150px;
   padding-right: 150px;
 }
+.subscribe-section-style{
+  text-align: center;
+  padding: auto;
+}
 
 .subscribe-section-style h2 {
+  color: #f97e4d;
   padding: 10px;
-  font-size: 3vw;
+  padding-bottom: 50px;
+  font-size: 5vw;
 }
 
 .subscribe-section-style p {
+  font-size: 18px;
  padding-left: 200px;
  padding-right: 200px;
  color: #768092;
@@ -351,8 +382,13 @@ hr.light-100 {
 }
 
 .attraction-section{
-  margin-top: 19px;
+  margin-top: 25px;
   margin-bottom: -30px;
+}
+
+.attraction-section h1{
+
+  margin-bottom: 20px;
 }
 
 /* Chat button */
@@ -449,8 +485,10 @@ hr.light-100 {
     padding: .8rem;
   }
 
+  .hide-md-screen{
+    display: none;  
+  }
   
-
   }
 @media (max-width: 768px) {
 
@@ -459,8 +497,6 @@ hr.light-100 {
     margin-left: 5px;
     color: #1a2b49;
   }
-
-
 
   .navbar-brand {
     color: #1a2b49 !important;
@@ -544,6 +580,7 @@ hr.light-100 {
     padding-right: 20px;
   }
 .subscribe-section-style h2{
+  padding: 10px;
   font-size: 6vw;
 }
 
@@ -559,6 +596,10 @@ hr.light-100 {
 #display-2{
   font-size: 5vw;
   display: inline;
+}
+
+.hide-sm-screen{
+  display: none;  
 }
 
 }
