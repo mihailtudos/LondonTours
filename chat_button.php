@@ -23,24 +23,22 @@
       <div class="modal-body">
         <div class="formForMessages">
           <!-- the form with the three required fields -->
-          <form>
+          <form  action="includes\support_req.php" method="POST" autocomplete="off">
             <div class="row">
               <div class="col">
-                <span class="mandarory">*</span>
-                <input type="text" class="form-control" placeholder="Name" required>
+                <input type="text" size="100" max name="subject" class="form-control" placeholder="Subject">
               </div>
               <div class="col">
-                <span class="mandarory">*</span>
-                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="number" name="phoneNumber" class="form-control" placeholder="phone number">
               </div>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1"><span class="mandarory">*</span></label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your message goes here..."></textarea>
+              <textarea class="form-control" size="500" name="message" id="exampleFormControlTextarea1" rows="3" placeholder="Your message goes here..." require></textarea>
             </div>
             <div class="form-group row">
               <div class="col-xl-6 col-sm-6">
-                <button type="submit" class="btn btn-secondary btn-lg btn-block active">Send</button>
+                <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block active">Send</button>
               </div>
             </div>
           </form>

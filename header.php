@@ -71,7 +71,7 @@ session_start();
 						<?php
 							if(isset($_SESSION['userEmail'])){
 								echo '<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $_SESSION['userFirstName'] .'</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="#">Settings  <i class="fas fa-sliders-h"></i></a>
 									<a class="dropdown-item" href="#">Feedback <i class="fas fa-envelope-open"></i></a>

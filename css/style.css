@@ -44,6 +44,10 @@ html, body {
   color: #1a2b49;
 }
 
+.margin-top{
+  margin-top: 100px;
+}
+
 .navbar-brand {
   color: #1a2b49 !important;
   font-family: 'Monoton', cursive;
