@@ -65,8 +65,15 @@ session_start();
 								<a class="dropdown-item" href="">Personalize</a>
 							</div>
 						</li>			
-						<li class="nav-item">
-							<a id="active-ticket" class="nav-link" href="tickets.php"><i class="fas fa-ticket-alt"></i>Tickets</a>
+						<li class="nav-item dropdown">
+							<a id="active-ticket dropdownTickets" class="nav-link dropdown-toggle" role="button" href="tickets.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ticket-alt"></i>Tickets</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownTickets">
+								<a class="dropdown-item" href="#">Info</a>
+								<a class="dropdown-item" href="#">Reserve</a>
+								<a class="dropdown-item" href="#">Check-in</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="">Cancel reservation</a>
+							</div>
 						</li>
 						<?php
 							if(isset($_SESSION['userEmail'])){

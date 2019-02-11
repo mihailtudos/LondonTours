@@ -34,9 +34,9 @@
 							<div class="col-md-4 col-sm-6 ">
 								<select class="form-control " id="exampleFormControlSelect1">
 									<option>Select...</option>
-									<option>Rout A</option>
-									<option>Rout B</option>
-									<option>Rout A + B</option>
+									<option>Route A</option>
+									<option>Route B</option>
+									<option>Route A + B</option>
 								</select>
 							</div>
 							<div class="col-md-3 col-sm-6">
@@ -100,21 +100,21 @@
 				<div>
 					<img src="img/routA.png" alt="">
 				</div>
-				<h1 class="routA-style">Rout A</h1>
+				<h1 class="routA-style">Route A</h1>
 				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="padding-left">
 					<img src="img/routB.png" alt="">
 				</div>				
-				<h1 class="routB-style">Rout A and B</h1>
+				<h1 class="routB-style">Route A and B</h1>
 				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4">
 				<div>
 					<img src="img/routA.png" alt="">
 				</div>				
-				<h1 class="routAandB-style">Rout B</h1>
+				<h1 class="routAandB-style">Route B</h1>
 				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
 			</div>
 		</div>
