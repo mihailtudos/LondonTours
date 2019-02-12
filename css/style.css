@@ -43,6 +43,10 @@ html, body {
   margin-left: 5px;
   color: #1a2b49;
 }
+.chat-with-us{
+  font-size: 20px;
+  color: #1a2b49;
+}
 
 .margin-top{
   margin-top: 100px;
@@ -64,6 +68,19 @@ html, body {
   font-size: 1.7vw;
 }
 
+#navbarDiv-bar{
+  margin-top: 65px
+}
+
+#navbarSearch {
+  color: white;
+  background: #1a2b49 ;
+}
+
+#search-box-main{
+  width: 300px;
+}
+
 .fa-user, .fa-user-plus, .fa-ticket-alt{
   font-size: 1.7vw;
   padding-right: 5px;
@@ -73,7 +90,7 @@ html, body {
   margin: 20px;
 }
 .carousel {
-  margin-top:40px;
+  margin-top: 120px;
 }
 
 .carousel-inner img {

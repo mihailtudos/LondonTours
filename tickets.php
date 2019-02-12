@@ -26,6 +26,7 @@
 				<p>
 					In case plans change, you can cancel most bookings for free up to 24 hours before they start. If you ever need us, customer service is available 24/7 in multiple languages.			
 				</p>
+				<img src="img/FilthyGranularCoral-small.gif" alt="">
 			</div>
 			<!-- <div class="col-lg-6">
 				<img class="img-fluid" src="img/desk.png" alt="article image desck">

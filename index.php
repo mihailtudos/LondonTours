@@ -1,9 +1,7 @@
 <?php
  include_once 'header.php';
 ?>
-<?php
- include_once 'chat_button.php';
-?>
+
 <style>
 <?php include('css/style.css');?>
 
@@ -32,21 +30,36 @@
 					<form>
 						<div class="form-row">
 							<div class="col-md-4 col-sm-6 ">
-								<select class="form-control " id="exampleFormControlSelect1">
-									<option>Select...</option>
-									<option>Route A</option>
-									<option>Route B</option>
-									<option>Route A + B</option>
-								</select>
+							
+							<div class="input-group">
+								<div class="input-group-prepend">
+								<div class="input-group-text"><i class="fa fa-search"></i></div>
+								</div>
+								<input type="search" class="form-control " id="inlineFormInputGroupSearch	" placeholder="Search">
+							</div>
+
 							</div>
 							<div class="col-md-3 col-sm-6">
-							<input type="date" class="form-control">
+							<div class="input-group">
+							 <!-- Date input -->
+							 <div class="input-group">
+								<div class="input-group-prepend">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+								</div>
+        						<input class="form-control" id="date" name="date" placeholder="Start day" type="text"/>
+							</div>	
+      						</div>
 							</div>
 							<div class="col-md-3 col-sm-6">
-							<input type="date" class="form-control" placeholder="Zip">
+							<div class="input-group">
+								<div class="input-group-prepend">
+								<div class="input-group-text"><i class="fas fa-male"></i></div>
+								</div>
+								<input class="form-control" id="number" name="number" type="number" placeholder="adults"/>
+							</div>
 							</div>
 							<div class="col-md-2 col-sm-6">
-							<Button type="button" class="btn btn-outline-light btn-book">Book</Button>
+								<Button type="button" class="btn btn-outline-light btn-book">Book</Button>
 							</div>
 						</div>
 					</form>
@@ -93,7 +106,7 @@
 		<h1 class="text-center">Find the rout that suits you the most</h1>
 		</div>
 
-		<!--- Three Column Section -->
+		<!-- Three Column Section -->
 		<div class="container-fluid padding">
 		<div class="row text-center padding">
 			<div class="col-xs-12 col-sm-6 col-md-4">
