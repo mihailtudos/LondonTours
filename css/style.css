@@ -454,6 +454,12 @@ hr.light-100 {
 ::-webkit-scrollbar { 
   display: none; 
 }
+/* contact us styles START */
+
+
+.margin-top-contact-us{
+  margin-top: 170px;
+}
 
 /* mobile first styling */
 /*---Media Queries --*/

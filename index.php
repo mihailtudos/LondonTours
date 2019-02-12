@@ -30,14 +30,12 @@
 					<form>
 						<div class="form-row">
 							<div class="col-md-4 col-sm-6 ">
-							
 							<div class="input-group">
 								<div class="input-group-prepend">
 								<div class="input-group-text"><i class="fa fa-search"></i></div>
 								</div>
 								<input type="search" class="form-control " id="inlineFormInputGroupSearch	" placeholder="Search">
 							</div>
-
 							</div>
 							<div class="col-md-3 col-sm-6">
 							<div class="input-group">

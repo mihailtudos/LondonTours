@@ -19,26 +19,26 @@
 			</div>
 			<div class="col-md-3 col-sm-6">
 				<h5>Support</h5>
-				<p><a href="">Contact</a></p>
-				<p><a href="">Privacy</a></p>
-				<p><a href="">Legal</a></p>
-				<p><a href="">Policy</a></p>
-				<p><a href="">Terms and Conditions</a></p>
+				<p><a href="contact_us.php">Contact</a></p>
+				<p><a href="londing_page.php">Privacy</a></p>
+				<p><a href="londing_page.php">Legal</a></p>
+				<p><a href="londing_page.php">Policy</a></p>
+				<p><a href="londing_page.php">Terms and Conditions</a></p>
 			</div>
 			<div class="col-md-3 col-sm-6">
 				<h5>Company</h5>
-				<p><a href="">About us</a></p>
-				<p><a href="">Careers</a></p>
-				<p><a href="">Blog</a></p>
+				<p><a href="contact_us.php">About us</a></p>
+				<p><a href="londing_page.php">Careers</a></p>
+				<p><a href="londing_page.php">Blog</a></p>
 				<p><a href="">Gift</a></p>
 				<p><a href="">Souvenir</a></p>
 			</div>
 			<div class="col-md-3 col-sm-6">
 				<h5>Work With Us</h5>
-				<p><a href="">Supplier </a></p>
-				<p><a href="">Administration</a></p>
-				<p><a href="">Affiliate Partner </a></p>
-				<p><a href="">Ways you can pay</a></p>
+				<p><a href="londing_page.php">Supplier </a></p>
+				<p><a href="londing_page.php">Administration</a></p>
+				<p><a href="londing_page.php">Affiliate Partner </a></p>
+				<p><a href="londing_page.php">Ways you can pay</a></p>
 				<p><a href="contact_us.php">Contact us</a></p>
 			</div>
 			<div class="col-12">

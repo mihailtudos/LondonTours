@@ -1,14 +1,11 @@
 <?php
  include_once 'header.php';
 ?>
-<?php
- include_once 'chat_button.php';
-?>
 <style>
 <?php include('css/style.css');?>
 </style>
 <!--- Meet the team -->
-<div class="container-fluid padding">
+<div class="container-fluid padding margin-top-contact-us">
 	<div class="row welcome text-center">
 		<div class="col-12">
 			<h1 class="display-4">Meet the team</h1>
@@ -26,7 +23,7 @@
 					<p class="card-text">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora fuga quam perferendis provident minus voluptatibus iusto ducimus atque 
 					</p>
-					<a class="btn btn-outline-secondary" href="#" >See profile</a>
+					<a class="btn btn-secondary" href="#" >See profile</a>
 				</div>
 			</div>
 		</div>
@@ -38,7 +35,7 @@
 					<p class="card-text">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora fuga quam perferendis provident minus voluptatibus iusto ducimus atque 
 					</p>
-					<a class="btn btn-outline-secondary" href="#" >See profile</a>
+					<a class="btn btn-secondary" href="#" >See profile</a>
 				</div>
 			</div>
 		</div>
@@ -50,7 +47,7 @@
 					<p class="card-text">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora fuga quam perferendis provident minus voluptatibus iusto ducimus atque 
 					</p>
-					<a class="btn btn-outline-secondary" href="#" >See profile</a>
+					<a class="btn btn-secondary" href="#" >See profile</a>
 				</div>
 			</div>
 		</div>
