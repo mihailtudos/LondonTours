@@ -8,8 +8,42 @@
 	color: #1a2b49;
 	font-weight: bold;
 }
-
 </style>
+
+	<!-- Search field logic  -->
+		
+    <?php
+        include 'includes/db_inc.php';
+    ?>
+    
+    <div style="margin-top: 200px" class="container-fluid">
+    <?php
+        //using a get method as the id of the tour came thtough the link
+        $toureID = mysqli_real_escape_string($connection, $_GET['id']);
+        //SQL querry
+        $query = "SELECT * FROM `_tours_` WHERE `_id_` = '$toureID'";
+        //the results from database after running the query in db
+        $results = mysqli_query($connection ,$query);
+        //number of rows returned after the query executed 
+        $queryResults = mysqli_num_rows($results);
+    
+        if($queryResults > 0){
+            while($row = mysqli_fetch_assoc($results)){
+                echo "<div>
+                    <h3>".$row['_title_']."</h3>
+                    <p>".$row['_region_']."</p>
+                </div>";
+            }
+        }else{
+            echo "nothing";
+        }
+    
+    ?>
+    
+    
+    </div>					
+    
+
 
 
 <!--- Image Slider -->

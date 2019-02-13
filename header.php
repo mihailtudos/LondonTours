@@ -36,12 +36,12 @@ session_start();
 		<div class="container">
 		<nav id="navbarSearch" class="navbar navbar-light  fixed-top">
 			<a class="chat-with-us" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i> Chat</a>
-			<form class="form-inline">
-					<div id="search-box-main" class="input-group">
+			<form class="form-inline" action="search-main.php" method="POST" autocomplete="off">
+					 <div id="search-box-main" class="input-group">
 						<div class="input-group-prepend">
-						<button><div class="input-group-text"><i class="fa fa-search"></i></div></button>
+						<button type="submit" name="btn-search-main"><div class="input-group-text"><i class="fa fa-search"></i></div></button>
 						</div>
-						<input type="search" class="form-control " id="inlineFormInputGroupSearch" placeholder="Search">
+						<input name="search-main" type="search" class="form-control " id="inlineFormInputGroupSearch" placeholder="Search" >
 					</div>
 			</form>
 		</nav>
@@ -76,7 +76,7 @@ session_start();
 								<a class="dropdown-item" href="#">Gifts</a>
 								<a class="dropdown-item" href="#">Souvenirs</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="">Personalize</a>
+								<a class="dropdown-item" href="londing_page.php">Personalize</a>
 							</div>
 						</li>			
 						<li class="nav-item dropdown">
@@ -214,5 +214,6 @@ session_start();
 		</div>
 		</div>
 
-	</header>
+
+		</header>
 		
