@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 07, 2019 at 06:41 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Host: localhost
+-- Generation Time: Feb 14, 2019 at 12:33 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,6 +47,28 @@ INSERT INTO `_support_req_` (`_id_`, `_userID_`, `_phoneNumber_`, `_subject_`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `_tours_`
+--
+
+CREATE TABLE `_tours_` (
+  `_id_` int(11) NOT NULL,
+  `_title_` varchar(500) NOT NULL,
+  `_description_` varchar(500) NOT NULL,
+  `_region_` varchar(30) NOT NULL,
+  `_color_` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_tours_`
+--
+
+INSERT INTO `_tours_` (`_id_`, `_title_`, `_description_`, `_region_`, `_color_`) VALUES
+(1, 'Route A', 'sssaaa', 'N_W', 'Red'),
+(2, 'Route B', 'wwwwww', 'S_E', 'Blue');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `_users_`
 --
 
@@ -82,6 +104,12 @@ ALTER TABLE `_support_req_`
   ADD PRIMARY KEY (`_id_`);
 
 --
+-- Indexes for table `_tours_`
+--
+ALTER TABLE `_tours_`
+  ADD PRIMARY KEY (`_id_`);
+
+--
 -- Indexes for table `_users_`
 --
 ALTER TABLE `_users_`
@@ -96,6 +124,12 @@ ALTER TABLE `_users_`
 --
 ALTER TABLE `_support_req_`
   MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `_tours_`
+--
+ALTER TABLE `_tours_`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `_users_`
