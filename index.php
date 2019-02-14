@@ -171,14 +171,14 @@
 			<p>Buy tour tickets on our web site </p>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-4 decoration-none">
-			<a href="">
+			<a name="souvenirs" href="shop.php?id=gifts">
 				<i class="fas fa-gift"></i>
 				<h3>Gifts</h3>
 			</a>
 			<p>Buy gifts for your family on our web site</p>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-4 decoration-none">
-			<a href="">
+			<a name="souvenirs" href="shop.php?id=souvenirs">
 				<i class="fas fa-chess-pawn"></i>
 				<h3>Souvenirs</h3>
 			</a>
@@ -290,21 +290,6 @@
 	</div>
 </div>
 
-<!--- Connect -->
-<div class="container-fluid padding contact-us-section">
-	<div class="row text-center padding">
-		<div class="col-12">
-			<h1>Connect Us</h1>
-		</div>
-		<div class="col-12 social padding">
-			<a href="#"><i class="fab fa-facebook"></i></a>
-			<a href="#"><i class="fab fa-twitter"></i></a>
-			<a href="#"><i class="fab fa-google-plus-g"></i></a>
-			<a href="#"><i class="fab fa-instagram"></i></a>
-			<a href="#"><i class="fab fa-youtube"></i></a>
-		</div>
-	</div>
-</div>
 
 <?php
 	include_once 'footer.php';

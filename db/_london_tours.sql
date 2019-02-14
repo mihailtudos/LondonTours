@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 14, 2019 at 12:33 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Host: 127.0.0.1
+-- Generation Time: Feb 14, 2019 at 05:11 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,66 @@ SET time_zone = "+00:00";
 --
 -- Database: `_london_tours`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_gifts_`
+--
+
+CREATE TABLE `_gifts_` (
+  `_id_` int(11) NOT NULL,
+  `_title_` varchar(256) NOT NULL,
+  `_description_` varchar(750) NOT NULL,
+  `_price_` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_gifts_`
+--
+
+INSERT INTO `_gifts_` (`_id_`, `_title_`, `_description_`, `_price_`) VALUES
+(1000, 'Mix of Nine London Icons Souvenir Key Rings\r\n', 'A mix of nine of the best selling souvenir keyrings featuring famous landmarks and made from good quality metal.', 9.99),
+(1001, 'Gift Set of Four Metal London Keyrings with Bus & Taxi\r\n', 'A set of four souvenir metal keyrings including a Double Decker bus, a post box, a telephone box and a black taxi cab key ring.', 6.11),
+(1002, 'Gift Set of Four London Stone Models\r\n', 'A set of four beautifully made miniature model landmarks of England, including London Big Ben, Buckingham Palace, the London Eye and Tower Bridge. A great souvenir idea and a superb addition to any model collection.', 7.69),
+(1003, 'Gift Set of Three Diecast Metal Mini London Models\r\n', 'Set of Three Miniature Diecast Metal souvenir models including the famous red Double Decker bus, red telephone box and gold Big Ben models.', 3.69),
+(1004, 'Gift Set of 3 Die Cast Metal London Keyrings\r\nGIFT SET OF 3 DIE CAST METAL LONDON KEYRINGS', 'A set of three Die Cast metal souvenir keyrings including a London Red Double Decker Bus Keyring, a post box Keyring and a telephone Box Keyring.', 3.49),
+(1005, 'Gift Set of 3 Union Jack Pens\r\n', 'A set of three wavy clip ballpoint pens featuring the British Union Jack flag. A timeless keepsake from a visit to Britain.', 2.95),
+(1006, 'English Tea Souvenir Selection Gift Set\r\n', 'Part of our best-selling range of British heritage mini tin gift packs containing a selection of fine English teas (loose).', 5.49),
+(1007, 'Set of Four UK Union Jack Pencils with Ruler\r\n', 'This set of four UK flag Union Jack pencils with a matching ruler is great for use in schools and offices and to give as presents.', 1.29),
+(1008, 'Gift Set of 3 London Souvenir Fridge Magnets', 'Set of three resin Fridge Magnets including a Post Box, a Telephone Box and a red Double Decker bus.', 3.29),
+(1011, 'Rubber PVC London Collage Magnet', 'An attractive, colourful rubber fridge magnet, artistically depicting famous sights of the British capital.', 1.29);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_souvenirs_`
+--
+
+CREATE TABLE `_souvenirs_` (
+  `_id_` int(11) NOT NULL,
+  `_title_` varchar(256) NOT NULL,
+  `_description_` varchar(750) NOT NULL,
+  `_price_` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_souvenirs_`
+--
+
+INSERT INTO `_souvenirs_` (`_id_`, `_title_`, `_description_`, `_price_`) VALUES
+(0, 'Aprons, Tea Towels & Kitchenware', 'A mix of nine of the best selling souvenir keyrings featuring famous landmarks and made from good quality metal.', 9.99),
+(1, 'Badges & Patches\r\n', 'A set of four souvenir metal keyrings including a Double Decker bus, a post box, a telephone box and a black taxi cab key ring.', 2.55),
+(2, 'London Union Jack Baseball Cap', 'Sturdy polyresin bottle opener sculpted in the shape of a Queens Royal Guard, with a solid steel opener. ', 3.99),
+(3, 'Bottle Openers, Lighters & Ash Trays', 'Set of Three Miniature Diecast Metal souvenir models including the famous red Double Decker bus, red telephone box and gold Big Ben models.', 3.69),
+(4, 'London Fridge Magnets 3 DIE CAST METAL LONDON KEYRINGS', 'Large metal multiscene souvenir magnet with images of popular London attractions including a post box, Phone Box, etc.', 8.49),
+(5, 'I Love London Souvenirs', 'A superb idea for a little souvenir from England. Great to stick notes on the fridge.', 4.45),
+(6, 'Money Boxes', 'Red tin Telephone Box moneybox tea caddy with 20 tagged English Breakfast teabags.', 5.12),
+(7, 'White London Souvenir School Kit', 'A white souvenir school kit with pencil case, Union Jack British Bus pencil, bus ruler, Union Jack eraser and bus sharpener.', 1.99),
+(8, 'Union Jack Paper Gift Bag', 'These strong bags are ideal for a range of uses, from gifting sweets and chocolates to small or medium sized souvenirs.', 0.15),
+(9, '17cm Light Up Gold Plated Crystal Big Ben Clock', 'An absolutely stunning treat from the capital. This gold plated Crystal Big Ben Clock has colour changing lights.', 14.99),
+(10, 'Glitter Heart Union Jack Fridge Magnet', 'Add some style to your fridge with this PVC Glitter Heart shaped Union Jack Magnet.', 1.49),
+(11, 'Union Jack T Shirt Rubber Magnet', 'This fun rubber British magnet is shaped like a Union Jack T shirt and has the name of the capital in the middle. ', 5.65);
 
 -- --------------------------------------------------------
 
@@ -98,6 +158,18 @@ INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_u
 --
 
 --
+-- Indexes for table `_gifts_`
+--
+ALTER TABLE `_gifts_`
+  ADD PRIMARY KEY (`_id_`);
+
+--
+-- Indexes for table `_souvenirs_`
+--
+ALTER TABLE `_souvenirs_`
+  ADD PRIMARY KEY (`_id_`);
+
+--
 -- Indexes for table `_support_req_`
 --
 ALTER TABLE `_support_req_`
@@ -118,6 +190,18 @@ ALTER TABLE `_users_`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `_gifts_`
+--
+ALTER TABLE `_gifts_`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
+
+--
+-- AUTO_INCREMENT for table `_souvenirs_`
+--
+ALTER TABLE `_souvenirs_`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
 
 --
 -- AUTO_INCREMENT for table `_support_req_`

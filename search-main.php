@@ -32,7 +32,7 @@
             echo '
                 <div class="container">
                     <div class="media">
-                    <img src="img/routB.png" class="align-self-start mr-3" alt="articol image icon">
+                    <img src="img/foundIcon.png" class="align-self-start mr-3" alt="articol image icon">
                     <div class="media-body">
                         <a href="ticket.php?id='.$row['_id_'].'"><h5 class="mt-0">Top-aligned media</h5></a>
                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>

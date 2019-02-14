@@ -8,7 +8,7 @@
 
 <!--- Image Slider -->
 <!-- a carousel bootstrap element that will make the site looking better by changing automatically the main image from the main page -->
-<div id="slides" class="carousel slide" data-ride="carousel">
+<div id="slides" class="carousel carousel-londing slide" data-ride="carousel">
 	<!-- carousel controller seen on the bottom of the page-->
 	<ul class="carousel-indicators">
 		<li data-target="#slides" data-slide-to="0" class="active"></li>

@@ -34,7 +34,7 @@ session_start();
 
 		<!-- Navigation -->
 		<div class="container">
-		<nav id="navbarSearch" class="navbar navbar-light  fixed-top">
+		<nav id="navbarSearch" class="navbar navbar-light fixed-top">
 			<a class="chat-with-us" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i> Chat</a>
 			<form class="form-inline" action="search-main.php" method="POST" autocomplete="off">
 					 <div id="search-box-main" class="input-group">
@@ -69,12 +69,10 @@ session_start();
 							<a id="active-home" class="nav-link" href="index.php">Home</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Shop
-							</a>
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Gifts</a>
-								<a class="dropdown-item" href="#">Souvenirs</a>
+							<a class="dropdown-item" name="gifts" href="shop.php?id=gifts">Gifts</a>
+								<a class="dropdown-item" name="souvenirs" href="shop.php?id=souvenirs">Souvenirs</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="londing_page.php">Personalize</a>
 							</div>
@@ -99,14 +97,14 @@ session_start();
 									<div class="dropdown-divider "></div>
 										<form class="padding-form-sing-out" action="includes\sign_out.php" method="POST">
 											<li class="nav-item ">
-												<button class="btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+												<button  class=" btn-logout btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
 											</li>
 										</form>	
 									</div>
 								</li>
 								<form action="includes\sign_out.php" method="POST">
 									<li class="nav-item">
-										<button class="btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+										<button class="btn btn-logout btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
 									</li>
 								</form>';
 								

@@ -64,6 +64,10 @@ html, body {
   padding-right: 20px;
 }
 
+.margin-left-gifts{
+  margin-right: 20px !important;
+}
+
 .nav-link{
   font-size: 1.7vw;
 }
@@ -78,7 +82,7 @@ html, body {
 }
 
 #search-box-main{
-  width: 300px;
+  width: 280px;
 }
 
 .fa-user, .fa-user-plus, .fa-ticket-alt{
@@ -91,6 +95,17 @@ html, body {
 }
 .carousel {
   margin-top: 120px;
+
+}
+.carousel-londing {
+  margin-top: 80px;
+}
+
+.btn-logout{
+  height: 50px;
+  font-size: 1.2vw;
+  position: relative;
+  left: 30px;
 }
 
 .carousel-inner img {
@@ -552,7 +567,6 @@ hr.light-100 {
     margin: 0 auto;
   }
 
-
   .nav-link{
     font-size: 5vw;
   }
@@ -642,6 +656,13 @@ hr.light-100 {
   display: none;  
 }
 
+.btn-logout{
+  height: 50px;
+  font-size: 3vw;
+  position: relative;
+  left: -5px;
+}
+
 }
 @media (max-width: 576px) {
   .social a {
@@ -651,6 +672,8 @@ hr.light-100 {
   .carousel-caption {
     top: -55%;
   }
+
+
 
   .hide{
     display: none;  
