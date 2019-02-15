@@ -145,6 +145,36 @@ html, body {
   margin: 0 auto;
 }
 
+.searchResultContainer{
+  margin-bottom: 100px;
+  padding: 50px 50px 50px 0;
+}
+
+.searchResult{
+  margin:30px 0 30px 0;
+  border-bottom: 1px solid #333333;
+  border-right: 1px solid #333333;
+}
+
+#toursIntroduction{
+  margin-top: -100px;
+  margin-bottom: -55px;
+
+}
+
+.container-margin-tickets{
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.londonGuidedTours{
+  margin-top: 50px;
+}
+
+.toursDescription h1{
+  margin-bottom: 50px;
+}
+
 #ticketsAndTours{
   margin-top: 40px;
 }

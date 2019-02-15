@@ -1,7 +1,9 @@
 <?php
  include_once 'header.php';
 ?>
-
+<?php
+    include 'includes/db_inc.php';
+?>
 <style>
 <?php include('css/style.css');?>
 
@@ -27,14 +29,28 @@
 			<div class="carousel-caption">
 				<h3 class="display-2 hide-medium">Love where you're going</h3>
 				<div class="booking-form">
-					<form>
+					<form  action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="POST">
 						<div class="form-row">
 							<div class="col-md-4 col-sm-6 ">
 							<div class="input-group">
 								<div class="input-group-prepend">
-								<div class="input-group-text"><i class="fa fa-search"></i></div>
+								<div class="input-group-text"><i class="fas fa-compass"></i></div>
 								</div>
-								<input type="search" class="form-control " id="inlineFormInputGroupSearch	" placeholder="Search">
+								<select name="tour" class="form-control">
+									<?php
+									$query = "SELECT _title_ FROM `_tours_`";
+									$results = mysqli_query($connection, $query);
+									//number of rows returned after the query executed 
+									$queryResults = mysqli_num_rows($results);
+									if($queryResults > 0){ 
+										while($row = mysqli_fetch_assoc($results)){
+											echo '<option name="tour">'.$row['_title_'].'</option>';
+										}
+									}else{
+										echo '<option>No rote found</option>';
+									}
+									?>
+								</select>
 							</div>
 							</div>
 							<div class="col-md-3 col-sm-6">
@@ -53,11 +69,11 @@
 								<div class="input-group-prepend">
 								<div class="input-group-text"><i class="fas fa-male"></i></div>
 								</div>
-								<input class="form-control" id="number" name="number" type="number" placeholder="adults"/>
+								<input class="form-control" id="number" name="number" type="number" placeholder="tickets"/>
 							</div>
 							</div>
 							<div class="col-md-2 col-sm-6">
-								<Button type="button" class="btn btn-outline-light btn-book">Book</Button>
+								<button type="submit" name="submitBook" class="btn btn-outline-light btn-book">Book</button>
 							</div>
 						</div>
 					</form>
@@ -66,6 +82,27 @@
 		</div>
 	</div>
 </div>
+
+<?php 
+if(isset($_POST['submitBook'])){
+
+	$ticketOption = trim(mysqli_real_escape_string($connection, $_POST['tour']));
+	$query = "SELECT _id_ FROM `_tours_` WHERE _title_ = '$ticketOption'";
+									$results = mysqli_query($connection, $query);
+									$ticketOption = mysqli_fetch_assoc($results);
+	$optionTour = $ticketOption['_id_'];
+	$reservationDate = trim(mysqli_real_escape_string($connection, $_POST['date']));
+	$numberOfReservations = trim(mysqli_real_escape_string($connection, $_POST['number']));
+	$user_id = $_SESSION['userID'];
+	$sql = "INSERT INTO `_booked_guided_tours_`
+	 (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`)VALUES 
+	 (NULL, '$optionTour', '$user_id', '$reservationDate', '$numberOfReservations');	";
+	mysqli_query($connection, $sql);
+} else {
+
+}
+
+?>
 
 <!--- Image Slider -->
 <!-- a carousel bootstrap element that will make the site looking better by changing automatically the main image from the main page -->
@@ -101,7 +138,7 @@
 
 <div class="container-fluid" id="ticket-section">
 	<div class="container essential-section-style">
-		<h1 class="text-center">Find the rout that suits you the most</h1>
+		<h1 class="text-center">Find the route that suits you the most</h1>
 		</div>
 
 		<!-- Three Column Section -->

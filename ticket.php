@@ -15,12 +15,14 @@
     <?php
         include 'includes/db_inc.php';
     ?>
-    
+		
+		
     <div style="margin-top: 200px" class="container-fluid">
     <?php
         //using a get method as the id of the tour came thtough the link
         $toureID = mysqli_real_escape_string($connection, $_GET['id']);
-        //SQL querry
+				//SQL querry
+				echo $toureID;
         $query = "SELECT * FROM `_tours_` WHERE `_id_` = '$toureID'";
         //the results from database after running the query in db
         $results = mysqli_query($connection ,$query);

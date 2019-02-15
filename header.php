@@ -80,7 +80,7 @@ session_start();
 						<li class="nav-item dropdown">
 							<a id="active-ticket dropdownTickets" class="nav-link dropdown-toggle" role="button" href="tickets.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ticket-alt"></i>Tickets</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownTickets">
-								<a class="dropdown-item" href="#">Info</a>
+								<a class="dropdown-item" href="#">London Guided Tours</a>
 								<a class="dropdown-item" href="tickets.php">Reserve</a>
 								<a class="dropdown-item" href="#">Check-in</a>
 								<div class="dropdown-divider"></div>
@@ -90,7 +90,7 @@ session_start();
 						<?php
 							if(isset($_SESSION['userEmail'])){
 								echo '<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $_SESSION['userFirstName'] .'</a>
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['userFirstName'] .'</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="#">Settings  <i class="fas fa-sliders-h"></i></a>
 									<a class="dropdown-item" href="#">Feedback <i class="fas fa-envelope-open"></i></a>

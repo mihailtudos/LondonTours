@@ -2,7 +2,7 @@
 	include_once 'header.php';
 ?>
 <?php
- include_once 'chat_button.php';
+    include 'includes/db_inc.php';
 ?>
 <style>
 <?php include('css/style.css');?>
@@ -25,8 +25,30 @@
 			<input type="text" name="city" placeholder="city">
 			<input type="text" name="postcode" placeholder="post code">
 
+			
+
 			<button class="btn btn-primary" type="submit" name="submit">Sing up</button>
 		</form>
+		<?php 
+
+			if(!isset($_GET['registration'])){
+				exit();
+			}else {
+				$regCheckError = $_GET['registration']
+				if($regCheckError=="empty"){
+					echo '<p> fill alldasdadsada fields</p>';
+				}
+			}
+
+			// $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+			// if(strpos($actual_link, "registration=empty")){
+				//exit();
+			// 	echo '<p> fill alldasdadsada fields</p>';
+			// } else{
+			// 	echo '<p> fill all fields</p>';
+			// }
+
+			?>
 	</div>
 
 </section>

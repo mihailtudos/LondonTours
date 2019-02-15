@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2019 at 05:11 AM
+-- Generation Time: Feb 15, 2019 at 06:26 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `_london_tours`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_booked_guided_tours_`
+--
+
+CREATE TABLE `_booked_guided_tours_` (
+  `_id_` int(11) NOT NULL,
+  `_tour_id_` int(11) NOT NULL,
+  `_user_id_` int(11) NOT NULL,
+  `_date_` date NOT NULL,
+  `_number_of_tickets_` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_booked_guided_tours_`
+--
+
+INSERT INTO `_booked_guided_tours_` (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`) VALUES
+(6, 1, 4, '2010-08-12', 1),
+(7, 2, 4, '2019-02-04', 3),
+(8, 2, 4, '2019-02-04', 3);
 
 -- --------------------------------------------------------
 
@@ -113,18 +136,22 @@ INSERT INTO `_support_req_` (`_id_`, `_userID_`, `_phoneNumber_`, `_subject_`, `
 CREATE TABLE `_tours_` (
   `_id_` int(11) NOT NULL,
   `_title_` varchar(500) NOT NULL,
-  `_description_` varchar(500) NOT NULL,
+  `_short_description_` varchar(500) NOT NULL,
+  `_full_description_` varchar(1500) NOT NULL,
   `_region_` varchar(30) NOT NULL,
-  `_color_` varchar(30) NOT NULL
+  `_color_` varchar(30) NOT NULL,
+  `_duration_` varchar(255) NOT NULL,
+  `_frequency_` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `_tours_`
 --
 
-INSERT INTO `_tours_` (`_id_`, `_title_`, `_description_`, `_region_`, `_color_`) VALUES
-(1, 'Route A', 'sssaaa', 'N_W', 'Red'),
-(2, 'Route B', 'wwwwww', 'S_E', 'Blue');
+INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_full_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`) VALUES
+(1, 'Route A', 'Discover the best of Central London on our A Route bus tours. Our A Route bus tours feature live, English-speaking guides on all buses - experts in sharing facts and stories about London\'s fascinating history, culture and architecture. ', 'The A Route showcases the best of London, from exclusive Belgravia in the west to Tower Bridge in the east. You\'re welcome to hop on and hop off the bus at over 20 different stops, each conveniently located close to landmarks like Big Ben, Buckingham Palace, the Tower of London, Trafalgar Square, and more.', 'West-East', 'Red', '2 hours, 40 minutes', 'Every 10-15 Minutes'),
+(2, 'Route B', 'Hop on our London B Route Tour to discover the best of North London, from elegant Kensington Palace and bustling Harrods, to stylish Notting Hill and famous Paddington station . ', 'Along the way, you\'ll enjoy an entertaining and informative digital commentary, available in 12 languages and broadcast via complimentary headphones.', 'North-South', 'B', '2 hours, 30 minutes', 'Every 10-15 Minutes'),
+(3, 'Route A & B', 'Hop on our London A & B Link Route, ', 'Connects King\'s Cross and St. Pancras stations with the heart of London, where you\'ll be able to easily all combined landmarks from A Route and B Route guided tours. The A & B guided tour features pre-recorded commentary, available in 12 languages.\r\n\r\n', 'West-East plus North-South', 'Green', '4 hours, 50 minutes', 'Every 10-15 Minutes');
 
 -- --------------------------------------------------------
 
@@ -151,11 +178,20 @@ CREATE TABLE `_users_` (
 INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_user_email_`, `_user_phone_no_`, `_user_street_`, `_user_city_`, `_user_postcode_`, `_user_password_`) VALUES
 (3, ' Mihail', 'Tudos', 'mihairmcr7@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$XpzAxj4AbkNtZry8YPOunOmil5vK6ZWtx/jcQUiHDYtlAyknspGhy'),
 (4, ' Mihail', 'Tudos', 'mihairmcr8@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.'),
-(5, ' Mihail', 'Tudos', 'mihairmcr9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$NkmPYElUeemLIA0MYzy1XupDpmwTbmz22VDQDVG..YVdvgaynlr/.');
+(5, ' Mihail', 'Tudos', 'mihairmcr9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$NkmPYElUeemLIA0MYzy1XupDpmwTbmz22VDQDVG..YVdvgaynlr/.'),
+(6, ' Mihail', 'Tudos', 'mihairmc1r9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oi/jAqiuQsPv.JhAqWTqgOYcjxUrP3p54nH7Kv17g.JMn3HNcDQOi');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `_booked_guided_tours_`
+--
+ALTER TABLE `_booked_guided_tours_`
+  ADD PRIMARY KEY (`_id_`),
+  ADD KEY `_tour_id_` (`_tour_id_`),
+  ADD KEY `_user_id_` (`_user_id_`);
 
 --
 -- Indexes for table `_gifts_`
@@ -192,6 +228,12 @@ ALTER TABLE `_users_`
 --
 
 --
+-- AUTO_INCREMENT for table `_booked_guided_tours_`
+--
+ALTER TABLE `_booked_guided_tours_`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `_gifts_`
 --
 ALTER TABLE `_gifts_`
@@ -213,13 +255,24 @@ ALTER TABLE `_support_req_`
 -- AUTO_INCREMENT for table `_tours_`
 --
 ALTER TABLE `_tours_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `_users_`
 --
 ALTER TABLE `_users_`
-  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `_booked_guided_tours_`
+--
+ALTER TABLE `_booked_guided_tours_`
+  ADD CONSTRAINT `_tour_id_` FOREIGN KEY (`_tour_id_`) REFERENCES `_tours_` (`_id_`),
+  ADD CONSTRAINT `_user_id_` FOREIGN KEY (`_user_id_`) REFERENCES `_users_` (`_user_id_`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
