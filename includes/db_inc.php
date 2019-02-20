@@ -4,9 +4,9 @@
 //server address -localhost since we work on local host
 $dbServerName = "localhost";
 //user name
-$dbUserName = "root";
+$dbUserName = "webOperator";
 //password
-$dbPassword = "";
+$dbPassword = "Roehampton123";
 //database name 
 $dbName = "_london_tours";
 

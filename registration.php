@@ -31,14 +31,14 @@
 		</form>
 		<?php 
 
-			if(!isset($_GET['registration'])){
-				exit();
-			}else {
-				$regCheckError = $_GET['registration']
-				if($regCheckError=="empty"){
-					echo '<p> fill alldasdadsada fields</p>';
-				}
-			}
+			// if(!isset($_GET['registration'])){
+			// 	exit();
+			// }else {
+			// 	$regCheckError = $_GET['registration']
+			// 	if($regCheckError=="empty"){
+			// 		echo '<p> fill alldasdadsada fields</p>';
+			// 	}
+			// }
 
 			// $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			// if(strpos($actual_link, "registration=empty")){

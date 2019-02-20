@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 15, 2019 at 06:26 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Host: localhost
+-- Generation Time: Feb 20, 2019 at 11:34 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `_london_tours`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_admins_`
+--
+
+CREATE TABLE `_admins_` (
+  `_user_id_` int(11) NOT NULL,
+  `_user_first_name_` varchar(144) NOT NULL,
+  `_user_last_name_` varchar(144) NOT NULL,
+  `_user_email_` varchar(144) NOT NULL,
+  `_user_phone_no_` varchar(56) NOT NULL,
+  `_user_street_` varchar(255) NOT NULL,
+  `_user_city_` varchar(56) NOT NULL,
+  `_user_postcode_` varchar(56) NOT NULL,
+  `_user_password_` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_admins_`
+--
+
+INSERT INTO `_admins_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_user_email_`, `_user_phone_no_`, `_user_street_`, `_user_city_`, `_user_postcode_`, `_user_password_`) VALUES
+(1, 'Mihail', 'Tudos', 'mihailtudos@outlook.com', '07491721232', 'Victoria street ', 'London', 'LO21 21DS', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.');
 
 -- --------------------------------------------------------
 
@@ -186,6 +211,12 @@ INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_u
 --
 
 --
+-- Indexes for table `_admins_`
+--
+ALTER TABLE `_admins_`
+  ADD PRIMARY KEY (`_user_id_`);
+
+--
 -- Indexes for table `_booked_guided_tours_`
 --
 ALTER TABLE `_booked_guided_tours_`
@@ -226,6 +257,12 @@ ALTER TABLE `_users_`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `_admins_`
+--
+ALTER TABLE `_admins_`
+  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `_booked_guided_tours_`
