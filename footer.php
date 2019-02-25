@@ -52,7 +52,7 @@
 			<div class="col-md-3 col-sm-6">
 				<h5>Work With Us</h5>
 				<p><a href="londing_page.php">Supplier </a></p>
-				<p><a href="londing_page.php">Administration</a></p>
+				<p><a href="admin/sign-in.php">Admin</a></p>
 				<p><a href="londing_page.php">Affiliate Partner </a></p>
 				<p><a href="londing_page.php">Ways you can pay</a></p>
 				<p><a href="contact_us.php">Contact us</a></p>

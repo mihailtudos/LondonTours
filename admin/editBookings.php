@@ -1,12 +1,16 @@
 <?php 
   include 'navigation.php';
+  session_start();
+if(!isset($_SESSION['username'])){
+   header("Location: ../");
+}
 ?>
 
 <style>
 <?php 
   include 'css/style.css';
 ?>
-.active-bookings  {
+.active-edit  {
   color: blue;
   font-weight: bold;
   font-size: 20px;
@@ -34,15 +38,6 @@
         <li class="nav-item">
           <a class="nav-link active submenu-font" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">View customer bookings <i class="fas fa-eye"></i> </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link submenu-font" href="createBooking.php">Create booking <i class="fas fa-plus-circle"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link submenu-font" href="editBookings.php">Edit booking <i class="fas fa-pencil-alt"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link submenu-font"  href="deleteBookings.php" >Delete booking <i class="fas fa-trash"></i></a>
-        </li>
       </ul>
          <hr>
         <div class="tab-content" id="pills-tabContent">
@@ -55,8 +50,7 @@
   
   </div>
   <div class="tab-pane fade show active" id="pills-view" role="tabpanel" aria-labelledby="pills-view-tab">
-    <h2>View customer bookings</h2>
-    <hr>
+    
     <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
@@ -97,7 +91,6 @@
               <td>'.$row['_number_of_tickets_'].'</td>
               <td>
                 <a class="edit-btn" href="../includes/edit.php?id='.$row['_id_'].'&action=adminEdit"><i class="fas fa-edit"></i></a>
-                <a class="delete-btn delete" href="../includes/delete.php?id='.$row['_id_'].'&action=booking"><i class="fas fa-trash-alt "></i></a>
               </td>
               </tr>';
             }

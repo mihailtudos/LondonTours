@@ -25,12 +25,13 @@
           </button>
         </div>
       </div>
-
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-      <h2>Registred users</h2>
+
+
+      <h2>Booking requests</h2>
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm text-center">
           <thead>
             <tr>
               <th>User id</th>
@@ -38,6 +39,8 @@
               <th>User email</th>
               <th>User phone</th>
               <th>User address</th>
+              <th>Date</th>
+              <th>Tickets no.</th>
             </tr>
           </thead>
           <tbody>
@@ -47,7 +50,7 @@
 
           //sanitize data that we get from the user
         //$searchKeyword = mysqli_real_escape_string($connection, $_POST['search-main']);
-        $query = "SELECT * FROM `_users_`";
+        $query = "SELECT b._id_ , CONCAT(u._user_first_name_, ' ', u._user_last_name_ ) as 'user name', u._user_email_ , u._user_phone_no_ , t._title_, b._date_, b._number_of_tickets_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_ ";
         $results = mysqli_query($connection, $query);
         //number of rows returned after the query executed 
         $queryResults = mysqli_num_rows($results);
@@ -55,11 +58,13 @@
         if($queryResults > 0){ 
         while($row = mysqli_fetch_assoc($results)){
           echo '<tr>
-            <td>'.$row['_user_id_'].'</td>
-            <td>'.$row['_user_first_name_'].' '.$row['_user_last_name_'].'</td>
+            <td>'.$row['_id_'].'</td>
+            <td>'.$row['user name'].'</td>
             <td>'.$row['_user_email_'].'</td>
             <td>'.$row['_user_phone_no_'].'</td>
-            <td>'.$row['_user_street_'].', '.$row['_user_city_'].'</td>
+            <td>'.$row['_title_'].'</td>
+            <td>'.$row['_date_'].'</td>
+            <td>'.$row['_number_of_tickets_'].'</td>
             </tr>';
           }
         } else {

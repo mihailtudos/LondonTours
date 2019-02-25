@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 20, 2019 at 11:34 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Host: 127.0.0.1
+-- Generation Time: Feb 22, 2019 at 06:18 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,31 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `_admins_`
---
-
-CREATE TABLE `_admins_` (
-  `_user_id_` int(11) NOT NULL,
-  `_user_first_name_` varchar(144) NOT NULL,
-  `_user_last_name_` varchar(144) NOT NULL,
-  `_user_email_` varchar(144) NOT NULL,
-  `_user_phone_no_` varchar(56) NOT NULL,
-  `_user_street_` varchar(255) NOT NULL,
-  `_user_city_` varchar(56) NOT NULL,
-  `_user_postcode_` varchar(56) NOT NULL,
-  `_user_password_` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `_admins_`
---
-
-INSERT INTO `_admins_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_user_email_`, `_user_phone_no_`, `_user_street_`, `_user_city_`, `_user_postcode_`, `_user_password_`) VALUES
-(1, 'Mihail', 'Tudos', 'mihailtudos@outlook.com', '07491721232', 'Victoria street ', 'London', 'LO21 21DS', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `_booked_guided_tours_`
 --
 
@@ -58,17 +33,24 @@ CREATE TABLE `_booked_guided_tours_` (
   `_tour_id_` int(11) NOT NULL,
   `_user_id_` int(11) NOT NULL,
   `_date_` date NOT NULL,
-  `_number_of_tickets_` int(2) NOT NULL
+  `_number_of_tickets_` int(2) NOT NULL,
+  `book_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `_contact_email_` varchar(144) NOT NULL,
+  `_contact_number_` int(48) NOT NULL,
+  `_address_` varchar(255) NOT NULL,
+  `_city_` varchar(56) NOT NULL,
+  `_postcode_` varchar(56) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `_booked_guided_tours_`
 --
 
-INSERT INTO `_booked_guided_tours_` (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`) VALUES
-(6, 1, 4, '2010-08-12', 1),
-(7, 2, 4, '2019-02-04', 3),
-(8, 2, 4, '2019-02-04', 3);
+INSERT INTO `_booked_guided_tours_` (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`, `book_date`, `_contact_email_`, `_contact_number_`, `_address_`, `_city_`, `_postcode_`) VALUES
+(66, 3, 7, '2019-11-30', 1, '2019-02-22 03:53:05', 'miha@gmail.com', 2147483647, 'sa21111111', 'Nisporeni', 'nll'),
+(67, 3, 7, '2019-02-28', 3, '2019-02-22 02:42:04', ' mihair@gmail.com', 0, 'sa', 'sa', 'sa'),
+(94, 1, 3, '2019-11-30', 2, '2019-02-22 04:01:24', 'mihairmcr7@gmail.com', 2147483647, 'sa21111111', 'Nisporeni', 'NS12'),
+(95, 2, 7, '2019-02-26', 2, '2019-02-22 04:08:39', ' ion@gmail.com', 421547741, '414 Lenon street', 'Luton', 'LU4 T53');
 
 -- --------------------------------------------------------
 
@@ -98,6 +80,24 @@ INSERT INTO `_gifts_` (`_id_`, `_title_`, `_description_`, `_price_`) VALUES
 (1007, 'Set of Four UK Union Jack Pencils with Ruler\r\n', 'This set of four UK flag Union Jack pencils with a matching ruler is great for use in schools and offices and to give as presents.', 1.29),
 (1008, 'Gift Set of 3 London Souvenir Fridge Magnets', 'Set of three resin Fridge Magnets including a Post Box, a Telephone Box and a red Double Decker bus.', 3.29),
 (1011, 'Rubber PVC London Collage Magnet', 'An attractive, colourful rubber fridge magnet, artistically depicting famous sights of the British capital.', 1.29);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_guess_`
+--
+
+CREATE TABLE `_guess_` (
+  `_user_id_` int(11) NOT NULL,
+  `_user_first_name_` varchar(144) NOT NULL,
+  `_user_last_name_` varchar(144) NOT NULL,
+  `_user_email_` varchar(144) NOT NULL,
+  `_user_phone_no_` varchar(56) NOT NULL,
+  `_user_street_` varchar(255) NOT NULL,
+  `_user_city_` varchar(56) NOT NULL,
+  `_user_postcode_` varchar(56) NOT NULL,
+  `_user_password_` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -193,28 +193,23 @@ CREATE TABLE `_users_` (
   `_user_street_` varchar(255) NOT NULL,
   `_user_city_` varchar(56) NOT NULL,
   `_user_postcode_` varchar(56) NOT NULL,
-  `_user_password_` varchar(255) NOT NULL
+  `_user_password_` varchar(255) NOT NULL,
+  `_privileges_` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `_users_`
 --
 
-INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_user_email_`, `_user_phone_no_`, `_user_street_`, `_user_city_`, `_user_postcode_`, `_user_password_`) VALUES
-(3, ' Mihail', 'Tudos', 'mihairmcr7@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$XpzAxj4AbkNtZry8YPOunOmil5vK6ZWtx/jcQUiHDYtlAyknspGhy'),
-(4, ' Mihail', 'Tudos', 'mihairmcr8@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.'),
-(5, ' Mihail', 'Tudos', 'mihairmcr9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$NkmPYElUeemLIA0MYzy1XupDpmwTbmz22VDQDVG..YVdvgaynlr/.'),
-(6, ' Mihail', 'Tudos', 'mihairmc1r9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oi/jAqiuQsPv.JhAqWTqgOYcjxUrP3p54nH7Kv17g.JMn3HNcDQOi');
+INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_user_email_`, `_user_phone_no_`, `_user_street_`, `_user_city_`, `_user_postcode_`, `_user_password_`, `_privileges_`) VALUES
+(3, ' Mihail', 'Tudos', 'mihairmcr7@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$XpzAxj4AbkNtZry8YPOunOmil5vK6ZWtx/jcQUiHDYtlAyknspGhy', 0),
+(4, ' Mihail', 'Tudos', 'mihairmcr8@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.', 0),
+(5, ' Mihail', 'Tudos', 'mihairmcr9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$NkmPYElUeemLIA0MYzy1XupDpmwTbmz22VDQDVG..YVdvgaynlr/.', 0),
+(7, 'Mihail', 'Tudos', 'mihailtudos@outlook.com', '07454524885', '241 South street', 'London', 'HA9 0WS', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.', 1);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `_admins_`
---
-ALTER TABLE `_admins_`
-  ADD PRIMARY KEY (`_user_id_`);
 
 --
 -- Indexes for table `_booked_guided_tours_`
@@ -229,6 +224,12 @@ ALTER TABLE `_booked_guided_tours_`
 --
 ALTER TABLE `_gifts_`
   ADD PRIMARY KEY (`_id_`);
+
+--
+-- Indexes for table `_guess_`
+--
+ALTER TABLE `_guess_`
+  ADD PRIMARY KEY (`_user_id_`);
 
 --
 -- Indexes for table `_souvenirs_`
@@ -252,23 +253,18 @@ ALTER TABLE `_tours_`
 -- Indexes for table `_users_`
 --
 ALTER TABLE `_users_`
-  ADD PRIMARY KEY (`_user_id_`);
+  ADD PRIMARY KEY (`_user_id_`),
+  ADD UNIQUE KEY `_user_email_` (`_user_email_`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `_admins_`
---
-ALTER TABLE `_admins_`
-  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `_booked_guided_tours_`
 --
 ALTER TABLE `_booked_guided_tours_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `_gifts_`
@@ -277,10 +273,16 @@ ALTER TABLE `_gifts_`
   MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
 
 --
+-- AUTO_INCREMENT for table `_guess_`
+--
+ALTER TABLE `_guess_`
+  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `_souvenirs_`
 --
 ALTER TABLE `_souvenirs_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `_support_req_`
@@ -298,7 +300,7 @@ ALTER TABLE `_tours_`
 -- AUTO_INCREMENT for table `_users_`
 --
 ALTER TABLE `_users_`
-  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

@@ -22,7 +22,7 @@
       ],
       datasets: [{
         data: [
-          26000,
+          15339,
           21345,
           18483,
           24003,
@@ -33,7 +33,7 @@
         lineTension: 0,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
-        borderWidth: 6,
+        borderWidth: 4,
         pointBackgroundColor: '#007bff'
       }]
     },

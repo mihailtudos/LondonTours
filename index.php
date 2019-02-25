@@ -29,7 +29,7 @@
 			<div class="carousel-caption">
 				<h3 class="display-2 hide-medium">Love where you're going</h3>
 				<div class="booking-form">
-					<form  action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="POST">
+					<form  action="includes/insert.php" method="POST">
 						<div class="form-row">
 							<div class="col-md-4 col-sm-6 ">
 							<div class="input-group">
@@ -73,7 +73,7 @@
 							</div>
 							</div>
 							<div class="col-md-2 col-sm-6">
-								<button type="submit" name="submitBook" class="btn btn-outline-light btn-book">Book</button>
+								<button type="submit" name="submitBookbyUser" class="btn btn-outline-light btn-book">Book</button>
 							</div>
 						</div>
 					</form>
@@ -83,26 +83,7 @@
 	</div>
 </div>
 
-<?php 
-if(isset($_POST['submitBook'])){
 
-	$ticketOption = trim(mysqli_real_escape_string($connection, $_POST['tour']));
-	$query = "SELECT _id_ FROM `_tours_` WHERE _title_ = '$ticketOption'";
-									$results = mysqli_query($connection, $query);
-									$ticketOption = mysqli_fetch_assoc($results);
-	$optionTour = $ticketOption['_id_'];
-	$reservationDate = trim(mysqli_real_escape_string($connection, $_POST['date']));
-	$numberOfReservations = trim(mysqli_real_escape_string($connection, $_POST['number']));
-	$user_id = $_SESSION['userID'];
-	$sql = "INSERT INTO `_booked_guided_tours_`
-	 (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`)VALUES 
-	 (NULL, '$optionTour', '$user_id', '$reservationDate', '$numberOfReservations');	";
-	mysqli_query($connection, $sql);
-} else {
-
-}
-
-?>
 
 <!--- Image Slider -->
 <!-- a carousel bootstrap element that will make the site looking better by changing automatically the main image from the main page -->
