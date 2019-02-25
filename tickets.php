@@ -86,6 +86,8 @@
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
 
+
+
 <?php
  $query = "SELECT * FROM `_tours_`";
  $results = mysqli_query($connection, $query);
@@ -119,8 +121,9 @@
 	 $results = mysqli_query($connection, $query);
  	//number of rows returned after the query executed 
 	 $queryResults = mysqli_num_rows($results);
-	 
-	while($row = mysqli_fetch_assoc($results)){
+	 $tourID = ''; 
+		while($row = mysqli_fetch_assoc($results)){
+			$tourID = $row['_id_'];
 		if($row['_id_'] == 1){
 			echo '
 			<div class="tab-pane fade active show" id="v-pills-'.$row['_id_'].'" role="tabpanel" aria-labelledby="v-pills-'.$row['_id_'].'-tab">
@@ -132,12 +135,35 @@
 					Frequency: <strong>'.$row['_frequency_'].'</strong>
 				</li>
 				<li class="nav-item">
-					<a type="button" name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-primary" href="ticket.php?id='.$row['_id_'].'"><strong>TIMETABLE / BUY</strong></a>
+					<a type="button" name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-primary" href="buy_tickets.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].'  <i class="fas fa-shopping-cart"></i></strong></a>
 				</li>
 			</ul>
 			<br>
-			<img src="img/tour_maps/'.$row['_id_'].'.PNG"  class="img-fluid img-thumbnail" alt="">
+			<div class="text-center">
+			<h2 class="padding">Route map</h2>
+			<img src="img/tour_maps/'.$row['_id_'].'.PNG"  class="rounded img-fluid img-thumbnail" alt="">
 			</div>';
+				
+				$query2 = "SELECT * FROM _stops_ WHERE _stops_._route_id_ = $tourID";
+				$results2 = mysqli_query($connection, $query2);
+				//number of rows returned after the query executed 
+				echo '<h2 class="padding-top text-center">Route Stations</h2>';
+				while($row2 = mysqli_fetch_assoc($results2)){
+				echo '
+				<div class="station-carts">
+					<div class="card">
+						<div class="card-body ">
+							<h6 class="card-text">Location:</h6>
+							<h4 class="card-title">'.$row2['_name_'].'</h4>
+						</div>
+							<ul class="list-inline card-header">
+							<li class="list-inline-item"><i class="far fa-compass"></i></li>
+							<li class="list-inline-item"><i class="fab fa-fort-awesome-alt"></i></li>
+							<li class="list-inline-item"><i class="fas fa-bus"></i></li>
+							</ul>
+						</div>
+				</div>';}
+			echo	'</div>';
 		} else{
 			echo '
 			<div class="tab-pane fade show" id="v-pills-'.$row['_id_'].'" role="tabpanel" aria-labelledby="v-pills-'.$row['_id_'].'-tab">
@@ -149,12 +175,43 @@
 					Frequency: <strong>'.$row['_frequency_'].'</strong>
 				</li>
 				<li class="nav-item">
-					<a type="button" name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-primary" href="ticket.php?id='.$row['_id_'].'"><strong>TIMETABLE / BUY</strong></a>
+					<a type="button" name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-primary" href="ticket.php?id='.$row['_id_'].'"><strong> Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
 				</li>
 			</ul>
 			<br>
+			<div class="text-center">
+			<h2 class="padding">Route map</h2>
 			<img src="img/tour_maps/'.$row['_id_'].'.PNG"  class="img-fluid img-thumbnail" alt="">
 			</div>';
+			$tourID = $row['_id_'];
+				$query2 = "";
+			if($tourID == 2){
+				$query2 = "SELECT * FROM _stops_ WHERE _stops_._route_id_ = $tourID";
+			}else{
+				$query2 = "SELECT * FROM _stops_";
+			}
+
+		
+			
+			$results2 = mysqli_query($connection, $query2);
+			//number of rows returned after the query executed 
+			echo '<h2 class="padding-top text-center">Route Stations</h2>';
+			while($row2 = mysqli_fetch_assoc($results2)){
+			echo '
+			<div class="station-carts">
+				<div class="card">
+					<div class="card-body ">
+						<h6 class="card-text">Location:</h6>
+						<h4 class="card-title">'.$row2['_name_'].'</h4>
+					</div>
+						<ul class="list-inline card-header">
+						<li class="list-inline-item"><i class="far fa-compass"></i></li>
+						<li class="list-inline-item"><i class="fab fa-fort-awesome-alt"></i></li>
+						<li class="list-inline-item"><i class="fas fa-bus"></i></li>
+						</ul>
+					</div>
+			</div>';}
+			echo '</div>';
 		}
 	}
 	echo '

@@ -240,7 +240,7 @@
 			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/big-ben.jpg" alt="big ben image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">The Famous Big Ben</h4>
 					</div>
 				</div>
@@ -248,7 +248,7 @@
 			<div class="hide hide-sm-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/towerBrige.jpg" alt="The Tower of London image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title"> The Tower Bridge</h4>
 					</div>
 				</div>
@@ -256,7 +256,7 @@
 			<div class="hide hide-sm-screen hide-md-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/B-palace-guards.jpg" alt="Buckingham Palace image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">Buckingham Palace </h4>
 					</div>
 				</div>
@@ -264,7 +264,7 @@
 			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/london_eye.jpg" alt="The London Eye image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">The <span class="hide">Famous</span> London Eye</h4>
 					</div>
 				</div>
@@ -275,7 +275,7 @@
 			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/madame.jpg" alt="Madame Tussauds image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">Madame Tussauds</h4>
 					</div>
 				</div>
@@ -283,7 +283,7 @@
 			<div class="hide hide-sm-screen hide-md-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/brithishMus.jpg" alt="British Museum image">
-					<div class="card-body ">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">The British Museum</h4>
 					</div>
 				</div>
@@ -291,7 +291,7 @@
 			<div class="hide hide-sm-screen col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/st-paul.jpg" alt="Cathedral of St. Paul image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">Cathedral of St. Paul</h4>
 					</div>
 				</div>
@@ -299,7 +299,7 @@
 			<div class=" col-lg-3 col-md-4 col-sm-6">
 				<div class="card">
 					<img class="card-img-top" src="img/blog-easter-tower-image.jpg" alt="Tower of London image">
-					<div class="card-body">
+					<div class="card-body card-body-color">
 						<h4 class="card-title">The Tower of London</h4>
 					</div>
 				</div>

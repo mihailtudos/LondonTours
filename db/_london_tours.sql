@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2019 at 06:18 AM
+-- Generation Time: Feb 25, 2019 at 07:37 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -47,9 +47,8 @@ CREATE TABLE `_booked_guided_tours_` (
 --
 
 INSERT INTO `_booked_guided_tours_` (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`, `book_date`, `_contact_email_`, `_contact_number_`, `_address_`, `_city_`, `_postcode_`) VALUES
-(66, 3, 7, '2019-11-30', 1, '2019-02-22 03:53:05', 'miha@gmail.com', 2147483647, 'sa21111111', 'Nisporeni', 'nll'),
 (67, 3, 7, '2019-02-28', 3, '2019-02-22 02:42:04', ' mihair@gmail.com', 0, 'sa', 'sa', 'sa'),
-(94, 1, 3, '2019-11-30', 2, '2019-02-22 04:01:24', 'mihairmcr7@gmail.com', 2147483647, 'sa21111111', 'Nisporeni', 'NS12'),
+(94, 1, 3, '2019-11-30', 2, '2019-02-25 01:04:19', 'mihairmcr7@gmail.com', 2147483647, 'sa', 'Nisporeni', 'NS12'),
 (95, 2, 7, '2019-02-26', 2, '2019-02-22 04:08:39', ' ion@gmail.com', 421547741, '414 Lenon street', 'Luton', 'LU4 T53');
 
 -- --------------------------------------------------------
@@ -133,6 +132,58 @@ INSERT INTO `_souvenirs_` (`_id_`, `_title_`, `_description_`, `_price_`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `_stops_`
+--
+
+CREATE TABLE `_stops_` (
+  `_id_` int(11) NOT NULL,
+  `_route_id_` int(11) NOT NULL,
+  `_name_` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_stops_`
+--
+
+INSERT INTO `_stops_` (`_id_`, `_route_id_`, `_name_`) VALUES
+(1, 1, 'Green Park Underground'),
+(2, 1, 'Hyde Park Corner'),
+(3, 1, 'Queen Mother Gates'),
+(4, 1, 'Marble Arch'),
+(5, 1, 'Mayfair'),
+(6, 1, 'Regent Street'),
+(7, 1, 'Piccadilly Circus'),
+(8, 1, 'Haymarket'),
+(9, 1, 'Trafalgar Square'),
+(10, 1, 'Craig\'s Court'),
+(11, 1, 'Whitehall'),
+(12, 1, 'London Eye'),
+(14, 1, 'Waterloo (Eastbound)'),
+(15, 1, 'Covent Garden'),
+(16, 1, 'St Paul\'s Cathedral'),
+(17, 1, 'Tower of London'),
+(18, 1, 'Temple Underground Station'),
+(19, 1, 'Westminster Pier'),
+(20, 1, 'Lambeth Palace'),
+(21, 1, 'Buckingham Palace'),
+(22, 1, 'Nova Complex'),
+(23, 1, 'Victoria Station'),
+(24, 2, 'Hyde Park Corner'),
+(25, 2, 'Harrods'),
+(26, 2, 'South Kensington Museums'),
+(27, 2, 'Gloucester Road'),
+(28, 2, 'Kensington Palace'),
+(29, 2, 'Notting Hill'),
+(30, 2, 'Kensington Gardens'),
+(31, 2, 'Thistle Hotel'),
+(32, 2, 'Lancaster Gate'),
+(33, 2, 'Paddington Station'),
+(34, 2, 'Praed Street'),
+(35, 2, 'Baker Street');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `_support_req_`
 --
 
@@ -150,7 +201,10 @@ CREATE TABLE `_support_req_` (
 --
 
 INSERT INTO `_support_req_` (`_id_`, `_userID_`, `_phoneNumber_`, `_subject_`, `_message_`, `_date_`) VALUES
-(13, 4, 2147483647, 'dsa', 'fdsfsf', '2019-02-07');
+(13, 4, 2147483647, 'dsa', 'fdsfsf', '2019-02-07'),
+(14, 4, 2147483647, 'Help', 'I need some help<>', '2019-02-25'),
+(15, 4, 521210, 'sa', 'mihaii', '2019-02-25'),
+(16, 4, 451165416, 'mihail', 'mihai', '2019-02-25');
 
 -- --------------------------------------------------------
 
@@ -166,17 +220,18 @@ CREATE TABLE `_tours_` (
   `_region_` varchar(30) NOT NULL,
   `_color_` varchar(30) NOT NULL,
   `_duration_` varchar(255) NOT NULL,
-  `_frequency_` varchar(255) NOT NULL
+  `_frequency_` varchar(255) NOT NULL,
+  `_price_` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `_tours_`
 --
 
-INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_full_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`) VALUES
-(1, 'Route A', 'Discover the best of Central London on our A Route bus tours. Our A Route bus tours feature live, English-speaking guides on all buses - experts in sharing facts and stories about London\'s fascinating history, culture and architecture. ', 'The A Route showcases the best of London, from exclusive Belgravia in the west to Tower Bridge in the east. You\'re welcome to hop on and hop off the bus at over 20 different stops, each conveniently located close to landmarks like Big Ben, Buckingham Palace, the Tower of London, Trafalgar Square, and more.', 'West-East', 'Red', '2 hours, 40 minutes', 'Every 10-15 Minutes'),
-(2, 'Route B', 'Hop on our London B Route Tour to discover the best of North London, from elegant Kensington Palace and bustling Harrods, to stylish Notting Hill and famous Paddington station . ', 'Along the way, you\'ll enjoy an entertaining and informative digital commentary, available in 12 languages and broadcast via complimentary headphones.', 'North-South', 'B', '2 hours, 30 minutes', 'Every 10-15 Minutes'),
-(3, 'Route A & B', 'Hop on our London A & B Link Route, ', 'Connects King\'s Cross and St. Pancras stations with the heart of London, where you\'ll be able to easily all combined landmarks from A Route and B Route guided tours. The A & B guided tour features pre-recorded commentary, available in 12 languages.\r\n\r\n', 'West-East plus North-South', 'Green', '4 hours, 50 minutes', 'Every 10-15 Minutes');
+INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_full_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`, `_price_`) VALUES
+(1, 'Route A', 'Discover the best of Central London on our A Route bus tours. Our A Route bus tours feature live, English-speaking guides on all buses - experts in sharing facts and stories about London\'s fascinating history, culture and architecture. ', 'The A Route showcases the best of London, from exclusive Belgravia in the west to Tower Bridge in the east. You\'re welcome to hop on and hop off the bus at over 20 different stops, each conveniently located close to landmarks like Big Ben, Buckingham Palace, the Tower of London, Trafalgar Square, and more.', 'West-East', 'Red', '2 hours, 40 minutes', 'Every 10-15 Minutes', 17.5),
+(2, 'Route B', 'Hop on our London B Route Tour to discover the best of North London, from elegant Kensington Palace and bustling Harrods, to stylish Notting Hill and famous Paddington station . ', 'Along the way, you\'ll enjoy an entertaining and informative digital commentary, available in 12 languages and broadcast via complimentary headphones.', 'North-South', 'B', '2 hours, 30 minutes', 'Every 10-15 Minutes', 17.5),
+(3, 'Route A & B', 'Hop on our London A & B Link Route, ', 'Connects King\'s Cross and St. Pancras stations with the heart of London, where you\'ll be able to easily all combined landmarks from A Route and B Route guided tours. The A & B guided tour features pre-recorded commentary, available in 12 languages.\r\n\r\n', 'West-East plus North-South', 'Green', '4 hours, 50 minutes', 'Every 10-15 Minutes', 30.5);
 
 -- --------------------------------------------------------
 
@@ -238,6 +293,13 @@ ALTER TABLE `_souvenirs_`
   ADD PRIMARY KEY (`_id_`);
 
 --
+-- Indexes for table `_stops_`
+--
+ALTER TABLE `_stops_`
+  ADD PRIMARY KEY (`_id_`),
+  ADD KEY `_route_id_` (`_route_id_`);
+
+--
 -- Indexes for table `_support_req_`
 --
 ALTER TABLE `_support_req_`
@@ -285,10 +347,16 @@ ALTER TABLE `_souvenirs_`
   MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `_stops_`
+--
+ALTER TABLE `_stops_`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
 -- AUTO_INCREMENT for table `_support_req_`
 --
 ALTER TABLE `_support_req_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `_tours_`
@@ -312,6 +380,12 @@ ALTER TABLE `_users_`
 ALTER TABLE `_booked_guided_tours_`
   ADD CONSTRAINT `_tour_id_` FOREIGN KEY (`_tour_id_`) REFERENCES `_tours_` (`_id_`),
   ADD CONSTRAINT `_user_id_` FOREIGN KEY (`_user_id_`) REFERENCES `_users_` (`_user_id_`);
+
+--
+-- Constraints for table `_stops_`
+--
+ALTER TABLE `_stops_`
+  ADD CONSTRAINT `_stop_route_id_` FOREIGN KEY (`_route_id_`) REFERENCES `_tours_` (`_id_`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -167,6 +167,7 @@ html, body {
   margin-left: 30px;
 }
 
+
 .londonGuidedTours{
   margin-top: 50px;
 }
@@ -309,6 +310,9 @@ html, body {
   padding-bottom: 2rem;
 }
 
+.padding-top{
+  padding-top: 4rem;
+}
 .welcome {
   width: 75%;
   margin: 0 auto;
@@ -318,8 +322,12 @@ html, body {
 .responsive-font{
   font-size: 1.25vw;
 }
-.card-body{
+.card-body-color{
   background-color: #025b61;
+}
+
+.station-carts{
+  margin-top: 20px;
 }
 
 .welcome hr {
@@ -576,6 +584,11 @@ hr.light-100 {
   
   }
 @media (max-width: 768px) {
+
+  .container-margin-tickets{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 
   .brand-icon {
     font-size: 4vw;
