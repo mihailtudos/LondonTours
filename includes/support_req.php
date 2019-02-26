@@ -13,9 +13,15 @@ if(isset($_POST['submit'])){
     $subject = mysqli_real_escape_string($connection, trim($_POST['subject']));
     $message = mysqli_real_escape_string($connection, trim($_POST['message']));
     $phoneNumber = mysqli_real_escape_string($connection, $_POST['phoneNumber']);
-    $userID = $_SESSION['userID'];
+    if(isset($_SESSION['userID'])==false){
+        $query = "SELECT * FROM `_users_` where _privileges_ = 1";
+        $results = mysqli_query($connection, $query);
+        $row = mysqli_fetch_assoc($results);
+        $userID = $row['_user_id_'];
+    }else{
+        $userID = $_SESSION['userID'];
+    }
 
-    echo $date;
     $sql = "INSERT INTO `_support_req_` (
         `_id_`, 
         `_userID_`, 
@@ -33,11 +39,16 @@ if(isset($_POST['submit'])){
     mysqli_query($connection, $sql);
     //error handlers
     //check for empty fields
-   
+        //header("Location: ../index.php?index=1");
+        //exit();
+     	
+	header("Location: ../index.php?index=1");
+        exit();
+
     } else {
-    header("Location: ../index.php");
-    exit();
-}
+        header("Location: ../index.php?index=0");
+        exit();
+    }   
 
 
 ?>

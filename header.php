@@ -80,9 +80,8 @@ session_start();
 						<li class="nav-item dropdown">
 							<a id="active-ticket dropdownTickets" class="nav-link dropdown-toggle" role="button" href="tickets.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ticket-alt"></i>Tickets</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownTickets">
-								<a class="dropdown-item" href="#">London Guided Tours</a>
-								<a class="dropdown-item" href="tickets.php">Reserve</a>
-								<a class="dropdown-item" href="#">Check-in</a>
+								<a class="dropdown-item" href="tickets.php">London Guided Tours</a>
+								<a class="dropdown-item" href="">London Attractions</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="">Cancel reservation</a>
 							</div>
@@ -97,7 +96,7 @@ session_start();
 									<div class="dropdown-divider "></div>
 										<form class="padding-form-sing-out" action="includes\sign_out.php" method="POST">
 											<li class="nav-item ">
-												<button  class=" btn-logout btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+												<button  class="btn btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
 											</li>
 										</form>	
 									</div>
@@ -190,7 +189,16 @@ session_start();
 				<form  action="includes\support_req.php" method="POST" autocomplete="off">
 					<div class="row">
 					<div class="col">
-						<input type="text" size="100" max name="subject" class="form-control" placeholder="Subject">
+							<select name="subject" class="form-control" placeholder="Subject">
+								<option>Booking</option>
+								<option>Payment</option>
+								<option>Account</option>
+								<option>Refound</option>
+								<option>Cancellation</option>
+								<option>Products</option>
+								<option>Other</option>
+							</select>
+						<!-- <input type="text" size="100" max name="subject" class="form-control" placeholder="Subject"> -->
 					</div>
 					<div class="col">
 						<input type="number" name="phoneNumber" class="form-control" placeholder="phone number">
@@ -212,6 +220,18 @@ session_start();
 		</div>
 		</div>
 
-
+<?php 
+    include 'includes/db_inc.php';
+		if(isset($_GET['index'])){
+		$msg = mysqli_real_escape_string($connection, $_GET['index']);
+		if($msg == 1){
+			echo "<script type='text/javascript'>alert('Your request was registred')</script>";
+		}else{
+			echo "<script type='text/javascript'>alert('Something went wrong, please try again!')</script>";
+		}
+	}
+	
+	
+?>
 		</header>
 		
