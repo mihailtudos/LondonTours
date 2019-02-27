@@ -85,9 +85,69 @@
 <div id="toursIntroduction" class=" text-center  line-follow">
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
+<script>
+			function addItem(id) {
+			jQuery.ajax({
+			url: "includes/buy_tickets.php",
+			data:'itmeID='+id, 
+			type: "post",
+			success:function(data){
+			$("#added").html(data);
+			},
+			error:function (){}
+			});
+			}
+			</script>
+<?php
+ $query = "SELECT * FROM `_tours_`";
+ $results = mysqli_query($connection, $query);
+ //number of rows returned after the query executed 
+ $queryResults = mysqli_num_rows($results);
+ if($queryResults > 0){
+	 
+	 echo '<div class="container">
+	 <span id="added" style="font-size:12px;"></span> 
+	 <div class="card-deck mb-3 text-center">';
+	while($row = mysqli_fetch_assoc($results)){
+		echo '
+		<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">'.$row['_title_'].'</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title"><i class="fas fa-pound-sign"> </i>'.$row['_price_'].' <small class="text-muted"></small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>1-Day Hop-on, hop-off ticket</li>
+          <li>Every 10-15 Minutes</li>
+          <li>Live speaking guides</li>
+          <li>Help center access</li>
+				</ul>
+				<div class="row">
+					<div class="col-sm-6">
+					<a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
 
+					</div>
+					<div class="col-sm-6">
+					<a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
+					</div>
+				</div>			
+			</div>
+    </div>';
+	}
+	echo ' </div>
+  </div>';
+ }else{
+		echo '<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+		<h1 class="display-4">Pricing</h1>
+		<p class="lead">For priceing and other details please contact us and we will provide all the information.</p>
+	</div>';
+ }?>
 
-
+<!-- follow img -->
+<div class="text-center line-follow">
+	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
+</div>
+</div>
 <?php
  $query = "SELECT * FROM `_tours_`";
  $results = mysqli_query($connection, $query);
@@ -135,7 +195,7 @@
 					Frequency: <strong>'.$row['_frequency_'].'</strong>
 				</li>
 				<li class="nav-item">
-					<a type="button" name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-primary" href="buy_tickets.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].'  <i class="fas fa-shopping-cart"></i></strong></a>
+					<a name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-success" href="buy_tickets.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
 				</li>
 			</ul>
 			<br>

@@ -182,18 +182,18 @@
 <div class="container-fluid padding">
 	<div class="row text-center padding">
 		<div class="col-xs-12 col-sm-6 col-md-4 decoration-none">
-			<a href="">
-				<i class="fab fa-cc-discover"></i>
-				<h3>Tickets</h3>
-			</a>
-			<p>Buy tour tickets on our web site </p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 decoration-none">
 			<a name="souvenirs" href="shop.php?id=gifts">
 				<i class="fas fa-gift"></i>
 				<h3>Gifts</h3>
 			</a>
 			<p>Buy gifts for your family on our web site</p>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 decoration-none">
+			<a href="">
+				<i class="fab fa-cc-discover"></i>
+				<h3>Tickets</h3>
+			</a>
+			<p>Buy tour tickets on our web site </p>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-4 decoration-none">
 			<a name="souvenirs" href="shop.php?id=souvenirs">

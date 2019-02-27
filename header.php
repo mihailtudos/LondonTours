@@ -43,7 +43,19 @@ session_start();
 						</div>
 						<input name="search-main" type="search" class="form-control " id="inlineFormInputGroupSearch" placeholder="Search" >
 					</div>
+					
 			</form>
+			<div>
+				<button type="button" class="btn btn-primary">
+				<i class="fas fa-cart-plus"></i> <span class="badge badge-light"><?php
+				if(!isset(($_SESSION['cart']))){
+					echo '0';
+				}else{
+					echo sizeof($_SESSION['cart']);
+				}
+  ?></span>
+				</button>
+			</div>
 		</nav>
 		</div>
 		<!-- navbar menu that will expand at the break point medium (md) devices (tablets, 768px and up)

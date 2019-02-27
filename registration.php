@@ -19,16 +19,30 @@
 			<input type="text" name="firstName" placeholder="First name">
 			<input type="text" name="secondName" placeholder="Second name">
 			<input type="password" name="password" placeholder="password">
-			<input type="email" name="email" placeholder="example@example.com">
-			<input type="tel" name="phoneNumber" placeholder="0734121321">
+			<input type="email" id="email"  onBlur="checkAvailability()" name="email" placeholder="example@example.com">
+			<div id="user-availability-status" style="font-size:12px;"></div> 
+			<input type="number" name="phoneNumber" placeholder="0734121321">
 			<input type="text" name="street" placeholder="first line address">
 			<input type="text" name="city" placeholder="city">
 			<input type="text" name="postcode" placeholder="post code">
 
 			
 
-			<button class="btn btn-primary" type="submit" name="submit">Sing up</button>
+			<button id="submit" class="btn btn-primary" type="submit" name="submit">Sing up</button>
 		</form>
+		<script>
+			function checkAvailability() {
+			jQuery.ajax({
+			url: "includes/check_email.php",
+			data:'emailid='+$("#email").val(),
+			type: "POST",
+			success:function(data){
+			$("#user-availability-status").html(data);
+			},
+			error:function (){}
+			});
+			}
+			</script>
 		<?php 
 
 			// if(!isset($_GET['registration'])){

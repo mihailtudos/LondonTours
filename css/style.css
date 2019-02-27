@@ -289,6 +289,8 @@ html, body {
   font-size: 5vw;
 }
 
+.lh-condensed { line-height: 1.25; }
+
 .subscribe-section-style p {
   font-size: 18px;
  padding-left: 200px;
@@ -352,21 +354,23 @@ html, body {
 }
 
 .fa-gift{
-  color: #e54d26;
+  color: #563d7c;
+  font-size: 4em;
+  margin: 1rem;
 }
 
 .fa-cc-discover{
-  color: #563d7c;
+  margin-top: 50px;
+  color: #e54d26;
+  font-size: 6em;
 }
 
 .fa-chess-pawn {
   color: #2163af;
+  margin: 1rem;
+  font-size: 4em;
 }
 
-.fa-gift, .fa-cc-discover, .fa-chess-pawn {
-  font-size: 4em;
-  margin: 1rem;
-}
 
 .social a {
   font-size: 4.5em;

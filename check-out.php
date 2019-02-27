@@ -1,6 +1,9 @@
 <?php
  include_once 'header.php';
 ?>
+<?php
+    include 'includes/db_inc.php';
+?>
 <style>
 <?php include('css/style.css');?>
 
@@ -8,80 +11,12 @@
 	color: #1a2b49;
 	font-weight: bold;
 }
+
 </style>
 
-	<!-- Search field logic  -->
-		
-    <?php
-        include 'includes/db_inc.php';
-    ?>
-		
-		
-    <div style="margin-top: 200px" class="container-fluid">
-    <?php
-        //using a get method as the id of the tour came thtough the link
-        $toureID = mysqli_real_escape_string($connection, $_GET['id']);
-				//SQL querry
-				echo $toureID;
-        $query = "SELECT * FROM `_tours_` WHERE `_id_` = '$toureID'";
-        //the results from database after running the query in db
-        $results = mysqli_query($connection ,$query);
-        //number of rows returned after the query executed 
-        $queryResults = mysqli_num_rows($results);
-    
-        if($queryResults > 0){
-            while($row = mysqli_fetch_assoc($results)){
-                echo "<div>
-                    <h3>".$row['_title_']."</h3>
-                    <p>".$row['_region_']."</p>
-                </div>";
-            }
-        }else{
-            echo "nothing";
-        }
-    
-    ?>
-    
-    
-    </div>					
-    
-
-
-
-<!--- Image Slider -->
-
-
-<!-- a carousel bootstrap element that will make the site looking better by changing automatically the main image from the main page -->
-<div id="slides" class="carousel slide" data-ride="carousel">
-	<!-- carousel controller seen on the bottom of the page-->
-	<ul class="carousel-indicators">
-		<li data-target="#slides" data-slide-to="0" class="active"></li>
-	</ul>
-	<!-- carousel image content -->
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img style="opacity: 0.9" src="img/sightseeing-map.jpeg" alt="main slide image Photo by Arkadiusz Radek on Unsplash">
-			<div class="carousel-caption search-box-div">
-				<h3 id="display-2" class="display-2">London Routes & Tour Maps</h3>
-				<div class="booking-form search-box">
-					<form>
-						<div class="form-row">
-							<div class="col-md-9 col-sm-9 ">
-								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
-							</div>
-							<div class="col-md-3 col-sm-3">
-							<Button type="button" class="btn btn-outline-light btn-book">Search</Button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div class="container">
+    <link href="js/form-validation.css" rel="stylesheet">
+  <body>
+    <div class="container">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h2>Checkout form</h2>
@@ -286,8 +221,17 @@
       </form>
     </div>
   </div>
-</div>
 
-<?php
- include_once 'footer.php';
-?>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017-2019 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+        <script src="js/form-validation.js"></script></body>
+</html>
