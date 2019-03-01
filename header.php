@@ -97,7 +97,7 @@ session_start();
 							<a id="active-ticket dropdownTickets" class="nav-link dropdown-toggle" role="button" href="tickets.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ticket-alt"></i>Tickets</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownTickets">
 								<a class="dropdown-item" href="tickets.php">London Guided Tours</a>
-								<a class="dropdown-item" href="">London Attractions</a>
+								<a class="dropdown-item" href="attractions.php">London Attractions</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="">Cancel reservation</a>
 							</div>

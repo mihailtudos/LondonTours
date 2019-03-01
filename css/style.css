@@ -534,6 +534,42 @@ hr.light-100 {
   margin-top: 170px;
 }
 
+
+/* Ticket style */
+  #specialTreatment h1{
+  color: #ffffff;
+  font-size: 4.444em;
+  font-weight: 700;
+  margin: 0 0 6px;
+  overflow: hidden;
+  line-height: 1.2em;
+  z-index: 2;
+  text-shadow: 12px 12px 15px #000;
+  }
+
+  #specialTreatment p{
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 6px;
+  overflow: hidden;
+  line-height: 1.2em;
+  z-index: 2;
+  text-shadow: 12px 1px 15px #000;
+  }
+  .featurette-attraction{
+    background: #fff;
+    margin: 10px;
+  }
+
+  .featurette-attraction p{
+    height: 400px;
+    overflow: scroll;
+  }
+
+  #test{
+    margin-top: -15px;
+  }
+/* End ticket style */
 /* mobile first styling */
 /*---Media Queries --*/
 @media (max-width: 992px) {
@@ -597,6 +633,7 @@ hr.light-100 {
     margin-left: 0px;
   }
 
+  
   .brand-icon {
     font-size: 4vw;
     margin-left: 5px;
@@ -715,6 +752,13 @@ hr.light-100 {
 
 }
 @media (max-width: 576px) {
+  #carousel-img{
+    object-fit: cover;
+    height: 100%;
+    width: 800px;
+  }
+
+
   .social a {
     font-size: .5em;
     padding: .2rem;
