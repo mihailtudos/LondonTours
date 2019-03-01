@@ -35,7 +35,7 @@ session_start();
 		<!-- Navigation -->
 		<div class="container">
 		<nav id="navbarSearch" class="navbar navbar-light fixed-top">
-			<a class="chat-with-us" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i> Chat</a>
+			<a class="chat-with-us" data-toggle="modal" data-target="#chat"><i class="fas fa-comment"></i> Chat</a>
 			<form class="form-inline" action="search-main.php" method="POST" autocomplete="off">
 					 <div id="search-box-main" class="input-group">
 						<div class="input-group-prepend">
@@ -45,15 +45,19 @@ session_start();
 					</div>
 					
 			</form>
-			<div>
-				<button type="button" class="btn btn-primary">
+			<div id="refresh">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">
 				<i class="fas fa-cart-plus"></i> <span class="badge badge-light"><?php
 				if(!isset(($_SESSION['cart']))){
 					echo '0';
-				}else{
+				}elseif (empty($_SESSION['cart'])){
+					echo '0';
+				}
+				else{
 					echo sizeof($_SESSION['cart']);
 				}
-  ?></span>
+				?>
+				</span>
 				</button>
 			</div>
 		</nav>
@@ -133,7 +137,7 @@ session_start();
 			</div>
 		</nav>
 
-		<!-- Modal -->
+		<!-- Modal for log-in-->
 		<div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content ">
@@ -185,12 +189,12 @@ session_start();
 
 		<!-- Content of the modal, consists of a pop-up that is using js with a form of content 
 		it is design to help users to get in touch faster-->
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!-- Modal for chat -->
+		<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Chat with Us</h5>
+				<h5 class="modal-title" id="chatLabel">Chat with Us</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
@@ -231,6 +235,82 @@ session_start();
 			</div>
 		</div>
 		</div>
+
+		<!-- Modal for cart -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartLabel">Shopping Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<?php
+				if(!isset($_SESSION['cart'])){
+					echo	'<h4 class="text-center">The cart is empty</h4>';
+				}else{
+				include 'includes/db_inc.php';
+				echo '<div id="items" class="container">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Product</th>
+										<th scope="col">Number</th>
+										<th scope="col">Price</th>
+										<th scope="col">Handle</th>
+									</tr>
+								</thead>
+								<tbody>';
+				if(!isset($_SESSION['cart'])|| empty($_SESSION['cart'])){
+					$_SESSION['cart']=0;
+				}else{				
+							foreach($_SESSION['cart'] as $item){
+								$query = "";				
+								if($item >= '0' && $item <= '100'){
+									$query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
+									}elseif($item >= '101' && $item <= '1000'){
+										$query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ '$item';";
+									}elseif($item >= '1001' && $item <= '5000'){
+										$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+									}elseif($item >= '5001' && $item <= '10000'){
+										$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+									}
+									$results = mysqli_query($connection, $query);
+									//number of rows returned after the query executed 
+									$queryResults = mysqli_num_rows($results);
+									if($queryResults > 0){
+										$row = mysqli_fetch_assoc($results);
+											echo'<tr>
+														<th scope="row">'.$row['_title_'].'</th>
+														<td>
+															<a class="delete-btn delete" href="includes\functions.php?id='.$row['_id_'].'&action=remove"><i class="fas fa-minus-square"></i></a>
+															'.$_SESSION['number'].'
+															<a class="delete-btn delete" href="includes\functions.php?id='.$row['_id_'].'&action=remove"><i class="fas fa-plus-square"></i></a>
+														</td>
+														<td><i class="fas fa-pound-sign"> </i> '.$row['_price_'].'</td>
+														<td class="text-center">
+															<button onclick="removeItem('.$row['_id_'].', 1)" class="delete-btn delete btn btn-primary" ><i class="fas fa-trash-alt "></i></button>
+														</td>
+													</tr>';
+												}
+									}	
+							}
+				echo '</tbody>
+				</table>
+		</div>';
+	}?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue</button>
+        <button type="button" onclick="location.href = 'check-out.php';" class="btn btn-primary">Check out</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <?php 
     include 'includes/db_inc.php';

@@ -73,7 +73,7 @@ html, body {
 }
 
 #navbarDiv-bar{
-  margin-top: 65px
+  margin-top: 60px
 }
 
 #navbarSearch {
@@ -282,6 +282,9 @@ html, body {
   padding: auto;
 }
 
+.loginForm{
+  margin: 250px auto 150px;
+}
 .subscribe-section-style h2 {
   color: #f97e4d;
   padding: 10px;

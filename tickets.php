@@ -85,19 +85,6 @@
 <div id="toursIntroduction" class=" text-center  line-follow">
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
-<script>
-			function addItem(id) {
-			jQuery.ajax({
-			url: "includes/buy_tickets.php",
-			data:'itmeID='+id, 
-			type: "post",
-			success:function(data){
-			$("#added").html(data);
-			},
-			error:function (){}
-			});
-			}
-			</script>
 <?php
  $query = "SELECT * FROM `_tours_`";
  $results = mysqli_query($connection, $query);
@@ -105,7 +92,7 @@
  $queryResults = mysqli_num_rows($results);
  if($queryResults > 0){
 	 
-	 echo '<div class="container">
+	 echo '<div class="container-fluid">
 	 <span id="added" style="font-size:12px;"></span> 
 	 <div class="card-deck mb-3 text-center">';
 	while($row = mysqli_fetch_assoc($results)){
@@ -123,11 +110,11 @@
           <li>Help center access</li>
 				</ul>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6 col-ms-12 col-xs-12">
 					<a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6 col-ms-12 col-xs-12">
 					<a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
 					</div>
 				</div>			

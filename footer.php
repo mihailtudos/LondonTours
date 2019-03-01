@@ -74,7 +74,42 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
+
+
 <script>
+
+				function removeItem(id, action) {
+					var item = 'id='+id;
+					var func = 'action='+action;
+					var data = item + func ;
+					jQuery.ajax({
+					url: "includes/functions.php",
+					data : 'id='+ encodeURIComponent(id) + '&action='+ encodeURIComponent(action),
+					type:"GET",
+					success:function(data){
+					$("#removed").html(data);
+					},
+					error:function (){}
+					});
+			}
+
+
+
+
+			function addItem(id) {
+				jQuery.ajax({
+				url: "includes/buy_tickets.php",
+				data:'itmeID='+id, 
+				type: "post",
+				success:function(data){
+				$("#added").html(data);
+				},
+				error:function (){}
+				});
+			}
+
+
+
     $(document).ready(function(){
         var date_input=$('input[name="date"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
@@ -84,7 +119,12 @@
             todayHighlight: true,
             autoclose: true,
         })
-    })
+	})
+	
+	setInterval(function() {
+    $("#refresh").load(location.href+" #refresh>*","");
+    $("#items").load(location.href+" #items>*","");
+}, 1000); // seconds to wait, miliseconds
 </script>
 <!-- BODY END -->
 </html>
