@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2019 at 07:37 AM
+-- Generation Time: Mar 05, 2019 at 07:10 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `_london_tours`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_attractions_`
+--
+
+CREATE TABLE `_attractions_` (
+  `_id_` int(11) NOT NULL,
+  `_title_` varchar(128) NOT NULL,
+  `_subtitle_` varchar(512) NOT NULL,
+  `_description_` varchar(2560) NOT NULL,
+  `_price_` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_attractions_`
+--
+
+INSERT INTO `_attractions_` (`_id_`, `_title_`, `_subtitle_`, `_description_`, `_price_`) VALUES
+(101, 'Tower of London', 'The Tower of London is a powerful symbol of England, and a treasure trove of captivating history. ', 'The Tower of London is a powerful symbol of England, and a treasure trove of captivating history. Marvel at the Crown Jewels and Traitors\' Gate, hear stories from the iconic Beefeaters, see the infamous ravens, and discover how English history was made at this impressive seat of power - at once a fortress, royal palace and infamous prison. Choose a ticket that covers your entry to the Tower of London, or upgrade your royal experience with one of the \'Palace Pass\' combination tickets, giving you the ability to visit the Tower of London, Kensington Palace, Hampton Court Palace or Banqueting House at your leisure. Please note that Hampton Court Palace is not located in Central London, so Big Bus Tours doesn\'t have a stop nearby. But, you can quickly and easily reach Hampton Court by train from Waterloo Station.', 21),
+(102, 'The London Eye', 'The London Eye is a cantilevered observation wheel on the South Bank of the River Thames in London.', 'Choose between standard or fast track entry and climb aboard one of the London Eye\'s 32 glass capsules – you\'ll take a turn over the Thames for stunning views of London and its remarkable Landmarks. Tell the time by Big Ben, see the devilish detail in the extravagant Houses of Parliament, and perhaps even hear the chimes at St Paul\'s. Moving at a speed of 26 cm per second, a full revolution of the London Eye lasts about 30 minutes. While on board, you\'ll be able to enjoy an ever-changing perspective of London, with interactive digital guides available in 7 languages. From the very top, you can see for up to 40 km on a clear day.', 20),
+(103, 'St. Paul\'s Cathedral', 'St. Paul\'s Cathedral\r\nCompleted in 1710, the current iteration of St. Paul\'s Cathedral was designed by the famous architecht, Sir Christopher Wren. ', 'Completed in 1710, the current iteration of St. Paul\'s Cathedral was designed by the famous architecht, Sir Christopher Wren. Its soaring dome is an icon of London, and visitors will have the opportunity to climb and explore it from three different viewing galleries, along with the expansive subterranean crypt. Admission also includes multimedia guides and guided tours. Marvel at the grand spectacle of the Cathedral\'s lavishly appointed baroque interior, then climb the stairs to take in sweeping views of London from the Stone and Golden Galleries. Explore the crypt to find famous names, study the elements of the Cathedral\'s classical features, and discover how Wren\'s clever designs made this masterpiece a reality.', 18),
+(104, 'Tower Bridge ', 'The world-famous Tower Bridge is an icon of London and one of Victorian engineering\'s finest creations.', 'Standing guard over the River Thames, the world-famous Tower Bridge is an icon of London and one of Victorian engineering’s finest creations. Take in great views of the city and get an insider\'s perspective on the workings of the bridge at the unique Tower Bridge Exhibitions. Uncover the stories and characters of the bridge\'s construction, explore the atmospheric Victorian engine rooms, and cross Tower Bridge to see London beneath your feet from the glass walkway. The Tower Bridge Exhibition is one of London\'s most highly rated hidden gems, and an unmissable addition to your London sightseeing adventure.', 19),
+(105, 'SeaLife Aquarium', 'SeaLife London Aquarium presents thousands of unique sea creatures in a series of special aquatic habitats', 'Take a fascinating journey beneath the waves at SeaLife London Aquarium. From coastal beaches and reefs to the dark depths of the ocean, you\'ll see thousands of unique sea creatures in a series of special aquatic habitats. Explore these custom-designed zones to see animals like sharks, penguins, jellyfish, crocodiles, rays and more. Located on London\'s South Bank beneath the London Eye, SeaLife London Aquarium is the perfect place to delight and entertain the whole family. Feed your curiosity in this magical underwater environment, which offers the chance to observe and learn about unique sea creatures in a variety of different marine zones.', 14),
+(106, 'London Dungeon', 'The London Dungeon and embark on a descent to uncover some of the city\'s gruesome past - bringing together an amazing cast of theatrical actors', 'London has some 2,000 years of history behind it, and some of it is fairly dark. Visit The London Dungeon and embark on a descent to uncover some of the city\'s gruesome past - bringing together an amazing cast of theatrical actors, special effects, stages, scenes and rides. This original and exciting walkthrough experience stimulates all the senses - making you feel as if you\'re right in the middle of history. Located just by the London Eye on the South Bank, the London Dungeon has been one of the city\'s most popular attractions for over 40 years. The full experiences takes just under 2 hours. Please note that a lot of the London Dungeon is designed to give you a scare, so if you\'re with children under 12, visit with caution.', 12);
 
 -- --------------------------------------------------------
 
@@ -69,16 +95,16 @@ CREATE TABLE `_gifts_` (
 --
 
 INSERT INTO `_gifts_` (`_id_`, `_title_`, `_description_`, `_price_`) VALUES
-(1000, 'Mix of Nine London Icons Souvenir Key Rings\r\n', 'A mix of nine of the best selling souvenir keyrings featuring famous landmarks and made from good quality metal.', 9.99),
-(1001, 'Gift Set of Four Metal London Keyrings with Bus & Taxi\r\n', 'A set of four souvenir metal keyrings including a Double Decker bus, a post box, a telephone box and a black taxi cab key ring.', 6.11),
-(1002, 'Gift Set of Four London Stone Models\r\n', 'A set of four beautifully made miniature model landmarks of England, including London Big Ben, Buckingham Palace, the London Eye and Tower Bridge. A great souvenir idea and a superb addition to any model collection.', 7.69),
-(1003, 'Gift Set of Three Diecast Metal Mini London Models\r\n', 'Set of Three Miniature Diecast Metal souvenir models including the famous red Double Decker bus, red telephone box and gold Big Ben models.', 3.69),
-(1004, 'Gift Set of 3 Die Cast Metal London Keyrings\r\nGIFT SET OF 3 DIE CAST METAL LONDON KEYRINGS', 'A set of three Die Cast metal souvenir keyrings including a London Red Double Decker Bus Keyring, a post box Keyring and a telephone Box Keyring.', 3.49),
-(1005, 'Gift Set of 3 Union Jack Pens\r\n', 'A set of three wavy clip ballpoint pens featuring the British Union Jack flag. A timeless keepsake from a visit to Britain.', 2.95),
-(1006, 'English Tea Souvenir Selection Gift Set\r\n', 'Part of our best-selling range of British heritage mini tin gift packs containing a selection of fine English teas (loose).', 5.49),
-(1007, 'Set of Four UK Union Jack Pencils with Ruler\r\n', 'This set of four UK flag Union Jack pencils with a matching ruler is great for use in schools and offices and to give as presents.', 1.29),
-(1008, 'Gift Set of 3 London Souvenir Fridge Magnets', 'Set of three resin Fridge Magnets including a Post Box, a Telephone Box and a red Double Decker bus.', 3.29),
-(1011, 'Rubber PVC London Collage Magnet', 'An attractive, colourful rubber fridge magnet, artistically depicting famous sights of the British capital.', 1.29);
+(5001, 'Mix of Nine London Icons Souvenir Key Rings\r\n', 'A mix of nine of the best selling souvenir keyrings featuring famous landmarks and made from good quality metal.', 9.99),
+(5002, 'Gift Set of Four Metal London Keyrings with Bus & Taxi\r\n', 'A set of four souvenir metal keyrings including a Double Decker bus, a post box, a telephone box and a black taxi cab key ring.', 6.11),
+(5003, 'Gift Set of Four London Stone Models\r\n', 'A set of four beautifully made miniature model landmarks of England, including London Big Ben, Buckingham Palace, the London Eye and Tower Bridge. ', 7.69),
+(5004, 'Gift Set of Three Diecast Metal Mini London Models\r\n', 'Set of Three Miniature Diecast Metal souvenir models including the famous red Double Decker bus, red telephone box and gold Big Ben models.', 3.69),
+(5005, 'Gift Set of 3 Die Cast Metal London Keyrings\r\nGIFT ', 'A set of three Die Cast metal souvenir keyrings including a London Red Double Decker Bus Keyring, a post box Keyring and a telephone Box Keyring.', 3.49),
+(5006, 'Gift Set of 3 Union Jack Pens\r\n', 'A set of three wavy clip ballpoint pens featuring the British Union Jack flag. A timeless keepsake from a visit to Britain.Nice, colorful, and durable pan', 2.95),
+(5007, 'English Tea Souvenir Selection Gift Set\r\n', 'Part of our best-selling range of British heritage mini tin gift packs containing a selection of fine English teas (loose).', 5.49),
+(5008, 'Set of Four UK Union Jack Pencils with Ruler\r\n', 'This set of four UK flag Union Jack pencils with a matching ruler is great for use in schools and offices and to give as presents.', 1.29),
+(5009, 'Gift Set of 3 London Souvenir Fridge Magnets', 'Set of three resin Fridge Magnets including a Post Box, a Telephone Box and a red Double Decker bus.', 3.29),
+(5010, 'Rubber PVC London Collage Magnet', 'An attractive, colourful rubber fridge magnet, artistically depicting famous sights of the British capital.', 1.29);
 
 -- --------------------------------------------------------
 
@@ -116,18 +142,18 @@ CREATE TABLE `_souvenirs_` (
 --
 
 INSERT INTO `_souvenirs_` (`_id_`, `_title_`, `_description_`, `_price_`) VALUES
-(0, 'Aprons, Tea Towels & Kitchenware', 'A mix of nine of the best selling souvenir keyrings featuring famous landmarks and made from good quality metal.', 9.99),
-(1, 'Badges & Patches\r\n', 'A set of four souvenir metal keyrings including a Double Decker bus, a post box, a telephone box and a black taxi cab key ring.', 2.55),
-(2, 'London Union Jack Baseball Cap', 'Sturdy polyresin bottle opener sculpted in the shape of a Queens Royal Guard, with a solid steel opener. ', 3.99),
-(3, 'Bottle Openers, Lighters & Ash Trays', 'Set of Three Miniature Diecast Metal souvenir models including the famous red Double Decker bus, red telephone box and gold Big Ben models.', 3.69),
-(4, 'London Fridge Magnets 3 DIE CAST METAL LONDON KEYRINGS', 'Large metal multiscene souvenir magnet with images of popular London attractions including a post box, Phone Box, etc.', 8.49),
-(5, 'I Love London Souvenirs', 'A superb idea for a little souvenir from England. Great to stick notes on the fridge.', 4.45),
-(6, 'Money Boxes', 'Red tin Telephone Box moneybox tea caddy with 20 tagged English Breakfast teabags.', 5.12),
-(7, 'White London Souvenir School Kit', 'A white souvenir school kit with pencil case, Union Jack British Bus pencil, bus ruler, Union Jack eraser and bus sharpener.', 1.99),
-(8, 'Union Jack Paper Gift Bag', 'These strong bags are ideal for a range of uses, from gifting sweets and chocolates to small or medium sized souvenirs.', 0.15),
-(9, '17cm Light Up Gold Plated Crystal Big Ben Clock', 'An absolutely stunning treat from the capital. This gold plated Crystal Big Ben Clock has colour changing lights.', 14.99),
-(10, 'Glitter Heart Union Jack Fridge Magnet', 'Add some style to your fridge with this PVC Glitter Heart shaped Union Jack Magnet.', 1.49),
-(11, 'Union Jack T Shirt Rubber Magnet', 'This fun rubber British magnet is shaped like a Union Jack T shirt and has the name of the capital in the middle. ', 5.65);
+(1013, 'Aprons, Tea Towels & Kitchenware', 'A mix of nine of the best selling souvenir keyrings featuring famous landmarks and made from good quality metal.', 9.99),
+(1014, 'Badges & Patches\r\n', 'A set of four souvenir metal keyrings including a Double Decker bus, a post box, a telephone box and a black taxi cab key ring.', 2.55),
+(1015, 'London Union Jack Baseball Cap', 'Sturdy polyresin bottle opener sculpted in the shape of a Queens Royal Guard, with a solid steel opener. ', 3.99),
+(1016, 'Bottle Openers, Lighters & Ash Trays', 'Set of Three Miniature Diecast Metal souvenir models including the famous red Double Decker bus, red telephone box and gold Big Ben models.', 3.69),
+(1017, 'London Fridge Magnets 3 DIE CAST METAL LONDON KEYRINGS', 'Large metal multiscene souvenir magnet with images of popular London attractions including a post box, Phone Box, etc.', 8.49),
+(1018, 'I Love London Souvenirs', 'A superb idea for a little souvenir from England. Great to stick notes on the fridge.', 4.45),
+(1019, 'Money Boxes', 'Red tin Telephone Box moneybox tea caddy with 20 tagged English Breakfast teabags.', 5.12),
+(1020, 'White London Souvenir School Kit', 'A white souvenir school kit with pencil case, Union Jack British Bus pencil, bus ruler, Union Jack eraser and bus sharpener.', 1.99),
+(1021, 'Union Jack Paper Gift Bag', 'These strong bags are ideal for a range of uses, from gifting sweets and chocolates to small or medium sized souvenirs.', 0.15),
+(1022, '17cm Light Up Gold Plated Crystal Big Ben Clock', 'An absolutely stunning treat from the capital. This gold plated Crystal Big Ben Clock has colour changing lights.', 14.99),
+(1023, 'Glitter Heart Union Jack Fridge Magnet', 'Add some style to your fridge with this PVC Glitter Heart shaped Union Jack Magnet.', 1.49),
+(1024, 'Union Jack T Shirt Rubber Magnet', 'This fun rubber British magnet is shaped like a Union Jack T shirt and has the name of the capital in the middle. ', 5.65);
 
 -- --------------------------------------------------------
 
@@ -267,6 +293,12 @@ INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_u
 --
 
 --
+-- Indexes for table `_attractions_`
+--
+ALTER TABLE `_attractions_`
+  ADD PRIMARY KEY (`_id_`);
+
+--
 -- Indexes for table `_booked_guided_tours_`
 --
 ALTER TABLE `_booked_guided_tours_`
@@ -323,6 +355,12 @@ ALTER TABLE `_users_`
 --
 
 --
+-- AUTO_INCREMENT for table `_attractions_`
+--
+ALTER TABLE `_attractions_`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+
+--
 -- AUTO_INCREMENT for table `_booked_guided_tours_`
 --
 ALTER TABLE `_booked_guided_tours_`
@@ -332,7 +370,7 @@ ALTER TABLE `_booked_guided_tours_`
 -- AUTO_INCREMENT for table `_gifts_`
 --
 ALTER TABLE `_gifts_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5011;
 
 --
 -- AUTO_INCREMENT for table `_guess_`
@@ -344,7 +382,7 @@ ALTER TABLE `_guess_`
 -- AUTO_INCREMENT for table `_souvenirs_`
 --
 ALTER TABLE `_souvenirs_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1025;
 
 --
 -- AUTO_INCREMENT for table `_stops_`
