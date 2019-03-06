@@ -104,7 +104,7 @@
             <h2 >'.$row['_title_'].'</h2>
             </div>
             <p class="subtitle-attraction">'.$row['_subtitle_'].'</p>
-            <p><a class="btn btn-primary" href="ticket.php?id='.$row['_id_'].'" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-primary" href="ticket.php?id='.$row['_id_'].'" role="button">View details &raquo;</a> <a class="btn btn-success" href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" role="button"><i class="fas fa-credit-card"></i> Buy</a></p>
           </div><!-- /.col-lg-4 -->
           ';
         }

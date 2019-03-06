@@ -570,6 +570,11 @@ hr.light-100 {
     margin-top: -15px;
   }
 /* End ticket style */
+/* START check-out page style*/
+.checkout-container{
+  margin-top: 170px;
+}
+/* END check-out page style */
 /* mobile first styling */
 /*---Media Queries --*/
 @media (max-width: 992px) {

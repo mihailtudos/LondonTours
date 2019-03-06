@@ -246,13 +246,13 @@ session_start();
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div id="items" class="modal-body">
 				<?php
 				if(!isset($_SESSION['cart'])){
 					echo	'<h4 class="text-center">The cart is empty</h4>';
 				}else{
 				include 'includes/db_inc.php';
-				echo '<div id="items" class="container">
+				echo '<div  class="container">
 							<table class="table table-striped">
 								<thead>
 									<tr>

@@ -16,11 +16,10 @@
 
     <link href="js/form-validation.css" rel="stylesheet">
   <body>
-    <div class="container">
+    <div class="container checkout-container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h2>Checkout form</h2>
-    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    <p class="lead">Please, ensure that you have selected correct items before pursuing to the payment. The payment details are not required as the check-out page is under testing now and is not connected to a payment API.</p>
   </div>
 
   <div class="row">
@@ -29,14 +28,18 @@
         <span class="text-muted">Your cart</span>
         <span class="badge badge-secondary badge-pill">
         <?php
-				if(!isset(($_SESSION['cart']))){
-					echo '0';
-				}elseif (empty($_SESSION['cart'])){
-					echo '0';
-				}
-				else{
-					echo sizeof($_SESSION['cart']);
-				}
+        if(isset($_GET['id'])){
+          echo '1';
+        }else{
+          if(!isset(($_SESSION['cart']))){
+            echo '0';
+          }elseif (empty($_SESSION['cart'])){
+            echo '0';
+          }
+          else{
+            echo sizeof($_SESSION['cart']);
+          }
+        }
         ?>
         </span>
       </h4>
@@ -46,41 +49,70 @@
 
       <?php
         $total = 0;
-				if(!isset($_SESSION['cart'])){
+				if(!isset($_SESSION['cart']) && !isset($_GET['id'])){
 					echo	'<h4 class="text-center">The cart is empty</h4>';
 				}else{
-				include 'includes/db_inc.php';
-				if(!isset($_SESSION['cart'])|| empty($_SESSION['cart'])){
-					$_SESSION['cart']=0;
-				}else{				
-							foreach($_SESSION['cart'] as $item){
-                $query = "";
-                $total += 	$row['_price_'];			
-								if($item >= '0' && $item <= '100'){
-									$query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
-									}elseif($item >= '101' && $item <= '1000'){
-										$query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ '$item';";
-									}elseif($item >= '1001' && $item <= '5000'){
-										$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
-									}elseif($item >= '5001' && $item <= '10000'){
-										$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
-									}
-									$results = mysqli_query($connection, $query);
-									//number of rows returned after the query executed 
-									$queryResults = mysqli_num_rows($results);
-									if($queryResults > 0){
-										$row = mysqli_fetch_assoc($results);
-                      echo'
-                      <li class="list-group-item d-flex justify-content-between lh-condensed">
-                      <div>
-                        <h6 class="my-0">'.$row['_title_'].'</h6>
-                        <small class="text-muted">Brief description</small>
-                      </div>
-                      <span class="text-muted"><i class="fas fa-pound-sign"></i> '.$row['_price_'].'</span>
-                    </li>';
-												}
-									}	
-							}
+        include 'includes/db_inc.php';
+        if(isset($_GET['id'])){
+                  $query = "";
+                  $item = 	$_GET['id'];
+                  if($item >= '0' && $item <= '100'){
+                    $query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
+                    }elseif($item >= '101' && $item <= '1000'){
+                      $query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ = '$item';";
+                    }elseif($item >= '1001' && $item <= '5000'){
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ ='$item';";
+                    }elseif($item >= '5001' && $item <= '10000'){
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ ='$item';";
+                    }
+                    $results = mysqli_query($connection, $query);
+                    //number of rows returned after the query executed 
+                    $queryResults = mysqli_num_rows($results);
+                    if($queryResults > 0){
+                      $row = mysqli_fetch_assoc($results);
+                      $total += 	$row['_price_'];		
+                        echo'
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                          <h6 class="my-0">'.$row['_title_'].'</h6>
+                          <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted"><i class="fas fa-pound-sign"></i> '.$row['_price_'].'</span>
+                      </li>';
+                          }
+          }else{if(!isset($_SESSION['cart'])|| empty($_SESSION['cart'])){
+            $_SESSION['cart']=0;
+            }else{
+                foreach($_SESSION['cart'] as $item){
+                  $query = "";
+                  $total += 	$row['_price_'];			
+                  if($item >= '0' && $item <= '100'){
+                    $query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
+                    }elseif($item >= '101' && $item <= '1000'){
+                      $query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ '$item';";
+                    }elseif($item >= '1001' && $item <= '5000'){
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+                    }elseif($item >= '5001' && $item <= '10000'){
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+                    }
+                    $results = mysqli_query($connection, $query);
+                    //number of rows returned after the query executed 
+                    $queryResults = mysqli_num_rows($results);
+                    if($queryResults > 0){
+                      $row = mysqli_fetch_assoc($results);
+                        echo'
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                          <h6 class="my-0">'.$row['_title_'].'</h6>
+                          <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted"><i class="fas fa-pound-sign"></i> '.$row['_price_'].'</span>
+                      </li>';
+                          }
+                    }	
+                }
+              }
+				
 	        }echo ' <li class="list-group-item d-flex justify-content-between">
                 <span>Total (GBP)</span>
                 <strong><i class="fas fa-pound-sign"></i> '.$total.'</strong>

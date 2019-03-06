@@ -10,7 +10,7 @@ if(empty($_POST["itmeID"])) {
     echo "<span style='color:red; font-size: 20px; margin: 0 0 20px 7px;'> Something went wrong please try again</span>";
 } else{
     echo "<span  style='color: green; font-size: 20px; margin: 0 0 20px 7px;'>Item successfully added into the cart.</span>     
-    <a href='cart.php'>view cart</a>";
+    <a href='cart.php' type='button' data-toggle='modal' data-target='#cart'>view cart</a>";
 }
 
 ?>

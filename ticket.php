@@ -66,18 +66,18 @@
             
               <form class="needs-validation" novalidate>
               <div class="form-row">
-                <div class="col-auto">
+                <div>
                   <label for="validationCustom01">Number of tickets</label>
-                  <input type="number" class="form-control" id="validationCustom01" placeholder="number" value="number" required>
+                  <input type="number" class="form-control col-auto" id="validationCustom01" placeholder="number" value="number" required>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
                 </div>
-                <div class="col-auto ">
+                <div>
                   <label for="zip">Date</label>
-                  <input type="date" class="form-control" id="zip" placeholder="" data-date-format="DD MMMM YYYY" value="2015-08-09"required>
+                  <input type="date" class="form-control col-auto" id="zip" placeholder="" data-date-format="DD MMMM YYYY" value="2015-08-09"required>
                   <div class="invalid-feedback">
-                    Zip code required.
+                    Date required.
                   </div>
                 </div> 
                 <div class="form-group">

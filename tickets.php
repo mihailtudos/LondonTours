@@ -53,33 +53,9 @@
 		<h5 class="padding text-center">Our hop-on, hop-off London guided tours get you closer to London's best landmarks and attractions. Discover the city's rich 2000-year history over four carefully designed sightseeing routes, featuring over 45 different stops.</h5>
 		</div>
 
-		<!-- Three Column Section -->
-		<div class="container-fluid padding">
-		<div class="row text-center padding">
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div>
-					<img src="img/routA.png" alt="">
-				</div>
-				<h1 class="routA-style">Route A</h1>
-				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="padding-left">
-					<img src="img/routB.png" alt="">
-				</div>				
-				<h1 class="routB-style">Route A and B</h1>
-				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4">
-				<div>
-					<img src="img/routA.png" alt="">
-				</div>				
-				<h1 class="routAandB-style">Route B</h1>
-				<p>Buy souvenirs for your family on our web site <a href=""> read more...</a></p>
-			</div>
-		</div>
-	</div>
-</div>
+	
+
+
 
 <!-- follow img -->
 <div id="toursIntroduction" class=" text-center  line-follow">
