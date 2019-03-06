@@ -19,81 +19,133 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
     <?php 
-      $_SESSION['attID'] = $_GET['id'];
+      $id = '';
+      if(isset($_GET['id'])){
+        $_SESSION['attID'] = $_GET['id'];
       $id = $_SESSION['attID'];
       $query = "SELECT * FROM `_attractions_` WHERE _id_ = '$id'";
       $results = mysqli_query($connection, $query);
       //number of rows returned after the query executed 
       $queryResults = mysqli_num_rows($results);
-      if($queryResults > 0){
-        $row = mysqli_fetch_assoc($results);
-          echo'
-          <div class="carousel-item active">
-      <img id="carousel-img" class="bd-placeholder-img" width="100%" height="100%" src="img/attractions/large/'.$row['_id_'].'.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-        <div class="container">
-          <div class="carousel-caption">
-            <div id="specialTreatment">
-              <h1>'.$row['_title_'].'</h1>
-              <p>'.$row['_subtitle_'].'</p>
-              <p><a class="btn btn-lg btn-primary learn-more-btn" href="#'.$row['_id_'].'" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>';
-        
-      }else{
-          echo '<div class="carousel-item active">
-          <img id="carousel-img" class="bd-placeholder-img" width="100%" height="100%" src="img/attractions/large/default.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Discover London</h1>
+          if($queryResults > 0){
+            $row = mysqli_fetch_assoc($results);
+              echo'
+              <div class="carousel-item active">
+              <img id="carousel-img" class="bd-placeholder-img" width="100%" height="100%" src="img/attractions/large/'.$row['_id_'].'.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <div class="container">
+                  <div class="carousel-caption">
+                    <div id="specialTreatment">
+                      <h1>'.$row['_title_'].'</h1>
+                      <p>'.$row['_subtitle_'].'</p>
+                      <p><a class="btn btn-lg btn-primary learn-more-btn" href="#'.$row['_id_'].'" role="button">Learn more</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>';
+            }else{
+              echo '<div class="carousel-item active">
+            <img id="carousel-img" class="bd-placeholder-img" width="100%" height="100%" src="img/attractions/large/default.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Discover London</h1>
+                </div>
               </div>
-            </div>
-          </div>';
-      }
+            </div>';
+            }
+        }else{
+            echo '<div class="carousel-item active">
+            <img id="carousel-img" class="bd-placeholder-img" width="100%" height="100%" src="img/attractions/large/default.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Discover London</h1>
+                </div>
+              </div>
+            </div>';
+        }
       ?>
       
     </div>
   </div>
-    <div class="container ">
-      <div class="row ">
+    <div class="container margin-top-ticket">
+      <?php 
+      if(isset($_SESSION['added'])){         
+        if($_SESSION['added']){
+          echo "<span  style='color: green; font-size: 20px; margin: 0 0 20px 7px;'>Item successfully added into the cart.</span>     
+              <a href='cart.php' type='button' data-toggle='modal' data-target='#cart'>view cart</a>";
+              session_destroy();
+              unset($_SESSION['added']);
+        }else{
+              echo "<span style='color:red; font-size: 20px; margin: 0 0 20px 7px;'> Something went wrong please try again</span>";
+              session_destroy();
+              unset($_SESSION['added']);
+        }
+      } 
+      ?>
+      <div class="row">
         <div id="test" class="col-md-4 order-md-2 mb-4 ">
           <div  class="jumbotron ">
             <h4 class="d-flex justify-content-between align-items-center mb-3 ">
               <span class="text-muted">Buy your ticket</span>
             </h4>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
-            
-              <form class="needs-validation" novalidate>
-              <div class="form-row">
-                <div>
-                  <label for="validationCustom01">Number of tickets</label>
-                  <input type="number" class="form-control col-auto" id="validationCustom01" placeholder="number" value="number" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div>
-                  <label for="zip">Date</label>
-                  <input type="date" class="form-control col-auto" id="zip" placeholder="" data-date-format="DD MMMM YYYY" value="2015-08-09"required>
-                  <div class="invalid-feedback">
-                    Date required.
-                  </div>
-                </div> 
-                <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                  <label class="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                  </label>
-                  <div class="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
-                </div>
-              </div>
-              <button class="btn btn-success" type="submit">Buy </button>
-              <button class="btn btn-primary" type="submit">Add</button>
-            </form>
+              <?php
+                if(isset($_GET['id'])){
+                  $query = "";
+                    if($id >= '0' && $id <= '100'){
+                    $query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$id';";
+                    }elseif($id >= '101' && $id <= '1000'){
+                      $query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ = '$id';";
+                    }elseif($id >= '1001' && $id <= '5000'){
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ ='$id';";
+                    }elseif($id >= '5001' && $id <= '10000'){
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ ='$id';";
+                    }
+                  $results = mysqli_query($connection, $query);
+                  //number of rows returned after the query executed 
+                  $queryResults = mysqli_num_rows($results);
+                  if($queryResults > 0){
+                    $row = mysqli_fetch_assoc($results);
+                    echo'<form class="needs-validation" novalidate action="includes/buy_tickets.php" method="POST" autocomplete="off" >
+                          <div class="form-row">
+                            <div>
+                              <label for="date">Date</label>
+                              <input  id="date" name="date"  type="text" class="form-control col-auto margin-inputs" id="validationCustom02" placeholder="date" required/>
+                              <div class="invalid-feedback">
+                                Date required.
+                              </div>
+                              <div class="margin-inputs">
+                              <label class="margin-inputs" for="number">Number of tickets</label>
+                              <input type="number" name="number" class="form-control col-auto margin-inputs" id="number" placeholder="number" value="number" min="1" required>
+                              <input id="hide" type="number" name="id" value="'.$row['_id_'].'" >
+                              <input id="hide" type="text" name="title" value="'.$row['_title_'].'" >
+                              <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                            </div>
+                            </div> 
+                            <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                              <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                              </label>
+                              <div class="invalid-feedback">
+                                You must agree before submitting.
+                              </div>
+                            </div>
+                          </div>
+                          <a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
+                          <button type="submit" name="addItem" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
+                          <!-- <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a> -->
+                        </form>';
+                  }
+                  else{
+                    echo'<h1>no available tickets</h1>';
+                  }
+                }else{
+                  echo'<h1>no available tickets</h1>';
+                }
+              ?>
         </li>
         
     </div>
@@ -101,8 +153,18 @@
 
     <!-- START THE FEATURETTES -->
     <div class="jumbotron col-md-8 order-md-1">
-        <?php 
-          $query = "SELECT * FROM `_attractions_` WHERE _id_ = '$id'";
+        <?php
+          $query = "";
+          if(isset($_GET['id'])){
+            if($id >= '0' && $id <= '100'){
+            $query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$id';";
+            }elseif($id >= '101' && $id <= '1000'){
+              $query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ = '$id';";
+            }elseif($id >= '1001' && $id <= '5000'){
+              $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ ='$id';";
+            }elseif($id >= '5001' && $id <= '10000'){
+              $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ ='$id';";
+            }
           $results = mysqli_query($connection, $query);
           //number of rows returned after the query executed 
           $queryResults = mysqli_num_rows($results);
@@ -115,11 +177,14 @@
                       <p class="lead">'.$row['_description_'].'</p>
                     </div>
                     <div class="col-md-5">
-                      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-circle" width="500" height="500" src="img/attractions/med/101.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
+                      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-circle" width="500" height="500" src="img/attractions/med/'.$row['_id_'].'.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
                     </div>
                   </div>
-                  <hr class="featurette-divider">';}
-                  else{
+                  <hr class="featurette-divider">';
+                }else{
+
+                }
+              }else{
                       echo'<h2>No more tickets available for this attraction</h2>
                       <div class="container-fluid  text-center subscribe-section-style padding">
                       <div class="container">

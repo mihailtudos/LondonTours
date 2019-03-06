@@ -47,15 +47,21 @@ session_start();
 			</form>
 			<div id="refresh">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">
-				<i class="fas fa-cart-plus"></i> <span class="badge badge-light"><?php
-				if(!isset(($_SESSION['cart']))){
-					echo '0';
-				}elseif (empty($_SESSION['cart'])){
-					echo '0';
-				}
-				else{
-					echo sizeof($_SESSION['cart']);
-				}
+				<i class="fas fa-cart-plus"></i> <span class="badge badge-light">
+					<?php
+					include 'includes/db_inc.php';
+							$query = "SELECT COUNT(*) FROM _temp_cart";
+							$results = mysqli_query($connection, $query);
+							$row = mysqli_fetch_assoc($results);
+							$_SESSION['cart'] = $row['COUNT(*)'];
+								if(!isset(($_SESSION['cart']))){
+									echo '0';
+								}elseif (empty($_SESSION['cart'])){
+									echo '0';
+								}
+								else{
+									echo $_SESSION['cart'];
+								}
 				?>
 				</span>
 				</button>
@@ -107,8 +113,8 @@ session_start();
 								echo '<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['userFirstName'] .'</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="#">Settings  <i class="fas fa-sliders-h"></i></a>
-									<a class="dropdown-item" href="#">Feedback <i class="fas fa-envelope-open"></i></a>
+								<a class="dropdown-item" href="bookings.php">Bookings <i class="fas fa-book"></i></a>
+								<a class="dropdown-item" href="#">Settings <i class="fas fa-cog"></i></a>
 									<div class="dropdown-divider "></div>
 										<form class="padding-form-sing-out" action="includes\sign_out.php" method="POST">
 											<li class="nav-item ">
@@ -248,6 +254,7 @@ session_start();
       </div>
       <div id="items" class="modal-body">
 				<?php
+				
 				if(!isset($_SESSION['cart'])){
 					echo	'<h4 class="text-center">The cart is empty</h4>';
 				}else{
@@ -258,49 +265,70 @@ session_start();
 									<tr>
 										<th scope="col">Product</th>
 										<th scope="col">Number</th>
-										<th scope="col">Price</th>
-										<th scope="col">Handle</th>
+										<th scope="col">Number</th>
+										<th scope="col">Remove</th>
 									</tr>
 								</thead>
 								<tbody>';
+
 				if(!isset($_SESSION['cart'])|| empty($_SESSION['cart'])){
 					$_SESSION['cart']=0;
-				}else{				
-							foreach($_SESSION['cart'] as $item){
-								$query = "";				
-								if($item >= '0' && $item <= '100'){
-									$query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
-									}elseif($item >= '101' && $item <= '1000'){
-										$query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ '$item';";
-									}elseif($item >= '1001' && $item <= '5000'){
-										$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
-									}elseif($item >= '5001' && $item <= '10000'){
-										$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
-									}
-									$results = mysqli_query($connection, $query);
-									//number of rows returned after the query executed 
-									$queryResults = mysqli_num_rows($results);
-									if($queryResults > 0){
-										$row = mysqli_fetch_assoc($results);
-											echo'<tr>
-														<th scope="row">'.$row['_title_'].'</th>
-														<td>
-															<a class="delete-btn delete" href="includes\functions.php?id='.$row['_id_'].'&action=remove"><i class="fas fa-minus-square"></i></a>
-															'.$_SESSION['number'].'
-															<a class="delete-btn delete" href="includes\functions.php?id='.$row['_id_'].'&action=remove"><i class="fas fa-plus-square"></i></a>
-														</td>
-														<td><i class="fas fa-pound-sign"> </i> '.$row['_price_'].'</td>
-														<td class="text-center">
-															<button onclick="removeItem('.$row['_id_'].', 1)" class="delete-btn delete btn btn-primary" ><i class="fas fa-trash-alt "></i></button>
-														</td>
-													</tr>';
-												}
-									}	
+				}else{
+							$query = "SELECT * FROM _temp_cart";
+							$results = mysqli_query($connection, $query);
+							while($row = mysqli_fetch_assoc($results)){
+								echo'<tr>
+											<th class="text-center" scope="row">'.$row['_title_'].'</th>
+											<td class="text-center">'.$row['_number_'].'</td>
+											<td class="text-center"> '.$row['_date_'].'</td>
+											<td class="text-center">
+											<a href="includes/manage_cart.php?id='.$row['_id_'].'&action=remove"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-trash-alt "></i></a>
+											</td>
+										</tr>';
+										//<button onclick="removeItem('.$row['_id_'].', 1)" class="delete-btn delete btn btn-primary" ><i class="fas fa-trash-alt "></i></button>
+							}
+
+							// foreach($_SESSION['cart'] as $item){
+							// 	$query = "";				
+							// 	if($item >= '0' && $item <= '100'){
+							// 		$query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
+							// 		}elseif($item >= '101' && $item <= '1000'){
+							// 			$query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ '$item';";
+							// 		}elseif($item >= '1001' && $item <= '5000'){
+							// 			$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+							// 		}elseif($item >= '5001' && $item <= '10000'){
+							// 			$query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+							// 		}
+							// 		$results = mysqli_query($connection, $query);
+							// 		//number of rows returned after the query executed 
+							// 		$queryResults = mysqli_num_rows($results);
+							// 		if($queryResults > 0){
+							// 			$row = mysqli_fetch_assoc($results);
+							// 				echo'<tr>
+							// 							<th scope="row">'.$row['_title_'].'</th>
+							// 							<td>
+							// 								<a class="delete-btn delete" href="includes\functions.php?id='.$row['_id_'].'&action=remove"><i class="fas fa-minus-square"></i></a>
+							// 								'.$_SESSION['number'].'
+							// 								<a class="delete-btn delete" href="includes\functions.php?id='.$row['_id_'].'&action=remove"><i class="fas fa-plus-square"></i></a>
+							// 							</td>
+							// 							<td><i class="fas fa-pound-sign"> </i> '.$row['_price_'].'</td>
+							// 							<td class="text-center">
+							// 								<button onclick="removeItem('.$row['_id_'].', 1)" class="delete-btn delete btn btn-primary" ><i class="fas fa-trash-alt "></i></button>
+							// 							</td>
+							// 						</tr>';
+							// 					}
+							// 		}	
 							}
 				echo '</tbody>
 				</table>
 		</div>';
-	}?>
+	}
+	
+
+	
+	
+	
+	?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue</button>

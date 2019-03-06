@@ -181,7 +181,6 @@
 
         
         <hr class="mb-4">
-        <hr class="mb-4">
         <h4 class="mb-3">Payment</h4>
 
         <div class="d-block my-3">

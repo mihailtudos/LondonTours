@@ -536,6 +536,8 @@ hr.light-100 {
 
 
 /* Ticket style */
+  
+
   #specialTreatment h1{
   color: #ffffff;
   font-size: 4.444em;
@@ -574,6 +576,18 @@ hr.light-100 {
 .checkout-container{
   margin-top: 170px;
 }
+.user-bookings-account{
+  margin-top: 100px;
+}
+.margin-inputs{
+  margin-bottom: 15px;
+}
+
+.margin-top-ticket{
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
 /* END check-out page style */
 /* mobile first styling */
 /*---Media Queries --*/

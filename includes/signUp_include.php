@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
                         _user_postcode_,
                         _user_password_) 
                     values (
-                       ' $firstName',
+                        '$firstName',
                         '$secondName',
                         '$email',
                         '$phoneNumber',

@@ -47,7 +47,7 @@
 	</div>
 </div>
 
-<div class="container-fluid" id="ticket-section">
+<div class="container-fluid " id="ticket-section">
 	<div class="container essential-section-style">
 		<h1 class="text-center">Find the route that suits you the most</h1>
 		<h5 class="padding text-center">Our hop-on, hop-off London guided tours get you closer to London's best landmarks and attractions. Discover the city's rich 2000-year history over four carefully designed sightseeing routes, featuring over 45 different stops.</h5>
@@ -58,7 +58,7 @@
 
 
 <!-- follow img -->
-<div id="toursIntroduction" class=" text-center  line-follow">
+<div class=" text-center line-follow ">
 	<svg width="135" height="232" xmlns="http://www.w3.org/2000/svg"> <path d="M9.414 6.847c-10.242 61.891 6.022 99.937 48.794 114.136 64.157 21.298 77.75 56.573 67.694 113.764" stroke="#F53" stroke-width="12" fill="none" fill-rule="evenodd" stroke-dasharray="0,23" stroke-linecap="round"></path> </svg>
 </div>
 <?php
@@ -87,8 +87,7 @@
 				</ul>
 				<div class="row">
 					<div class="col-md-6 col-ms-12 col-xs-12">
-					<a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
-
+					<a class="btn btn-lg btn-block btn-primary" href="ticket.php?id='.$row['_id_'].'" role="button">View details &raquo;</a> 
 					</div>
 					<div class="col-md-6 col-ms-12 col-xs-12">
 					<a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
@@ -158,7 +157,7 @@
 					Frequency: <strong>'.$row['_frequency_'].'</strong>
 				</li>
 				<li class="nav-item">
-					<a name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-success" href="buy_tickets.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
+					<a name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-success" href="check-out.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
 				</li>
 			</ul>
 			<br>
@@ -198,7 +197,7 @@
 					Frequency: <strong>'.$row['_frequency_'].'</strong>
 				</li>
 				<li class="nav-item">
-					<a type="button" name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-primary" href="ticket.php?id='.$row['_id_'].'"><strong> Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
+				<a name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-success" href="check-out.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
 				</li>
 			</ul>
 			<br>

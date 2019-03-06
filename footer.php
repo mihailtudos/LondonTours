@@ -77,6 +77,7 @@
 
 
 <script>
+				
 
 				function removeItem(id, action) {
 					var item = 'id='+id;
