@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 05, 2019 at 07:10 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Host: localhost
+-- Generation Time: Mar 07, 2019 at 07:33 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,7 @@ CREATE TABLE `_attractions_` (
 
 INSERT INTO `_attractions_` (`_id_`, `_title_`, `_subtitle_`, `_description_`, `_price_`) VALUES
 (101, 'Tower of London', 'The Tower of London is a powerful symbol of England, and a treasure trove of captivating history. ', 'The Tower of London is a powerful symbol of England, and a treasure trove of captivating history. Marvel at the Crown Jewels and Traitors\' Gate, hear stories from the iconic Beefeaters, see the infamous ravens, and discover how English history was made at this impressive seat of power - at once a fortress, royal palace and infamous prison. Choose a ticket that covers your entry to the Tower of London, or upgrade your royal experience with one of the \'Palace Pass\' combination tickets, giving you the ability to visit the Tower of London, Kensington Palace, Hampton Court Palace or Banqueting House at your leisure. Please note that Hampton Court Palace is not located in Central London, so Big Bus Tours doesn\'t have a stop nearby. But, you can quickly and easily reach Hampton Court by train from Waterloo Station.', 21),
-(102, 'The London Eye', 'The London Eye is a cantilevered observation wheel on the South Bank of the River Thames in London.', 'Choose between standard or fast track entry and climb aboard one of the London Eye\'s 32 glass capsules – you\'ll take a turn over the Thames for stunning views of London and its remarkable Landmarks. Tell the time by Big Ben, see the devilish detail in the extravagant Houses of Parliament, and perhaps even hear the chimes at St Paul\'s. Moving at a speed of 26 cm per second, a full revolution of the London Eye lasts about 30 minutes. While on board, you\'ll be able to enjoy an ever-changing perspective of London, with interactive digital guides available in 7 languages. From the very top, you can see for up to 40 km on a clear day.', 20),
+(102, 'The London Eye', 'The London Eye is a cantilevered observation wheel on the South Bank of the River Thames in London.', 'Choose between standard or fast track entry and climb aboard one of the London Eye\'s 32 glass capsules - you\'ll take a turn over the Thames for stunning views of London and its remarkable Landmarks. Tell the time by Big Ben, see the devilish detail in the extravagant Houses of Parliament, and perhaps even hear the chimes at St Paul\'s. Moving at a speed of 26 cm per second, a full revolution of the London Eye lasts about 30 minutes. While on board, you\'ll be able to enjoy an ever-changing perspective of London, with interactive digital guides available in 7 languages. From the very top, you can see for up to 40 km on a clear day.', 20),
 (103, 'St. Paul\'s Cathedral', 'St. Paul\'s Cathedral\r\nCompleted in 1710, the current iteration of St. Paul\'s Cathedral was designed by the famous architecht, Sir Christopher Wren. ', 'Completed in 1710, the current iteration of St. Paul\'s Cathedral was designed by the famous architecht, Sir Christopher Wren. Its soaring dome is an icon of London, and visitors will have the opportunity to climb and explore it from three different viewing galleries, along with the expansive subterranean crypt. Admission also includes multimedia guides and guided tours. Marvel at the grand spectacle of the Cathedral\'s lavishly appointed baroque interior, then climb the stairs to take in sweeping views of London from the Stone and Golden Galleries. Explore the crypt to find famous names, study the elements of the Cathedral\'s classical features, and discover how Wren\'s clever designs made this masterpiece a reality.', 18),
 (104, 'Tower Bridge ', 'The world-famous Tower Bridge is an icon of London and one of Victorian engineering\'s finest creations.', 'Standing guard over the River Thames, the world-famous Tower Bridge is an icon of London and one of Victorian engineering’s finest creations. Take in great views of the city and get an insider\'s perspective on the workings of the bridge at the unique Tower Bridge Exhibitions. Uncover the stories and characters of the bridge\'s construction, explore the atmospheric Victorian engine rooms, and cross Tower Bridge to see London beneath your feet from the glass walkway. The Tower Bridge Exhibition is one of London\'s most highly rated hidden gems, and an unmissable addition to your London sightseeing adventure.', 19),
 (105, 'SeaLife Aquarium', 'SeaLife London Aquarium presents thousands of unique sea creatures in a series of special aquatic habitats', 'Take a fascinating journey beneath the waves at SeaLife London Aquarium. From coastal beaches and reefs to the dark depths of the ocean, you\'ll see thousands of unique sea creatures in a series of special aquatic habitats. Explore these custom-designed zones to see animals like sharks, penguins, jellyfish, crocodiles, rays and more. Located on London\'s South Bank beneath the London Eye, SeaLife London Aquarium is the perfect place to delight and entertain the whole family. Feed your curiosity in this magical underwater environment, which offers the chance to observe and learn about unique sea creatures in a variety of different marine zones.', 14),
@@ -74,7 +74,6 @@ CREATE TABLE `_booked_guided_tours_` (
 
 INSERT INTO `_booked_guided_tours_` (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`, `book_date`, `_contact_email_`, `_contact_number_`, `_address_`, `_city_`, `_postcode_`) VALUES
 (67, 3, 7, '2019-02-28', 3, '2019-02-22 02:42:04', ' mihair@gmail.com', 0, 'sa', 'sa', 'sa'),
-(94, 1, 3, '2019-11-30', 2, '2019-02-25 01:04:19', 'mihairmcr7@gmail.com', 2147483647, 'sa', 'Nisporeni', 'NS12'),
 (95, 2, 7, '2019-02-26', 2, '2019-02-22 04:08:39', ' ion@gmail.com', 421547741, '414 Lenon street', 'Luton', 'LU4 T53');
 
 -- --------------------------------------------------------
@@ -230,7 +229,33 @@ INSERT INTO `_support_req_` (`_id_`, `_userID_`, `_phoneNumber_`, `_subject_`, `
 (13, 4, 2147483647, 'dsa', 'fdsfsf', '2019-02-07'),
 (14, 4, 2147483647, 'Help', 'I need some help<>', '2019-02-25'),
 (15, 4, 521210, 'sa', 'mihaii', '2019-02-25'),
-(16, 4, 451165416, 'mihail', 'mihai', '2019-02-25');
+(16, 4, 451165416, 'mihail', 'mihai', '2019-02-25'),
+(17, 7, 48353, 'Refound', 'hid', '2019-03-05'),
+(18, 7, 65474, 'Refound', 'fgdsg', '2019-03-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_temp_cart`
+--
+
+CREATE TABLE `_temp_cart` (
+  `_id_` int(11) NOT NULL,
+  `_item_id_` int(11) NOT NULL,
+  `_title_` varchar(256) NOT NULL,
+  `_number_` int(11) NOT NULL,
+  `_date_` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `_temp_cart`
+--
+
+INSERT INTO `_temp_cart` (`_id_`, `_item_id_`, `_title_`, `_number_`, `_date_`) VALUES
+(2, 2, '', 1, '2019-03-20'),
+(3, 2, '', 1, '2019-03-27'),
+(4, 2, '', 1, '2019-03-22'),
+(8, 102, 'The London Eye', 1, '2019-03-28');
 
 -- --------------------------------------------------------
 
@@ -242,7 +267,7 @@ CREATE TABLE `_tours_` (
   `_id_` int(11) NOT NULL,
   `_title_` varchar(500) NOT NULL,
   `_short_description_` varchar(500) NOT NULL,
-  `_full_description_` varchar(1500) NOT NULL,
+  `_description_` varchar(1500) NOT NULL,
   `_region_` varchar(30) NOT NULL,
   `_color_` varchar(30) NOT NULL,
   `_duration_` varchar(255) NOT NULL,
@@ -254,7 +279,7 @@ CREATE TABLE `_tours_` (
 -- Dumping data for table `_tours_`
 --
 
-INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_full_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`, `_price_`) VALUES
+INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`, `_price_`) VALUES
 (1, 'Route A', 'Discover the best of Central London on our A Route bus tours. Our A Route bus tours feature live, English-speaking guides on all buses - experts in sharing facts and stories about London\'s fascinating history, culture and architecture. ', 'The A Route showcases the best of London, from exclusive Belgravia in the west to Tower Bridge in the east. You\'re welcome to hop on and hop off the bus at over 20 different stops, each conveniently located close to landmarks like Big Ben, Buckingham Palace, the Tower of London, Trafalgar Square, and more.', 'West-East', 'Red', '2 hours, 40 minutes', 'Every 10-15 Minutes', 17.5),
 (2, 'Route B', 'Hop on our London B Route Tour to discover the best of North London, from elegant Kensington Palace and bustling Harrods, to stylish Notting Hill and famous Paddington station . ', 'Along the way, you\'ll enjoy an entertaining and informative digital commentary, available in 12 languages and broadcast via complimentary headphones.', 'North-South', 'B', '2 hours, 30 minutes', 'Every 10-15 Minutes', 17.5),
 (3, 'Route A & B', 'Hop on our London A & B Link Route, ', 'Connects King\'s Cross and St. Pancras stations with the heart of London, where you\'ll be able to easily all combined landmarks from A Route and B Route guided tours. The A & B guided tour features pre-recorded commentary, available in 12 languages.\r\n\r\n', 'West-East plus North-South', 'Green', '4 hours, 50 minutes', 'Every 10-15 Minutes', 30.5);
@@ -338,6 +363,13 @@ ALTER TABLE `_support_req_`
   ADD PRIMARY KEY (`_id_`);
 
 --
+-- Indexes for table `_temp_cart`
+--
+ALTER TABLE `_temp_cart`
+  ADD PRIMARY KEY (`_id_`),
+  ADD KEY `_item_id_` (`_item_id_`);
+
+--
 -- Indexes for table `_tours_`
 --
 ALTER TABLE `_tours_`
@@ -394,7 +426,13 @@ ALTER TABLE `_stops_`
 -- AUTO_INCREMENT for table `_support_req_`
 --
 ALTER TABLE `_support_req_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `_temp_cart`
+--
+ALTER TABLE `_temp_cart`
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `_tours_`
