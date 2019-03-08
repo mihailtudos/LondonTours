@@ -1,9 +1,7 @@
 <?php 
   include 'navigation.php';
   session_start();
-if(!isset($_SESSION['username'])){
-   header("Location: ../");
-}
+
 ?>
 
 <style>
@@ -36,7 +34,7 @@ if(!isset($_SESSION['username'])){
       <div class="">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active submenu-font" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">View customer bookings <i class="fas fa-eye"></i> </a>
+          <a class="nav-link active submenu-font" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">Edit bookings <i class="fas fa-eye"></i> </a>
         </li>
       </ul>
          <hr>
@@ -52,7 +50,7 @@ if(!isset($_SESSION['username'])){
   <div class="tab-pane fade show active" id="pills-view" role="tabpanel" aria-labelledby="pills-view-tab">
     
     <div class="table-responsive">
-          <table class="table table-striped table-sm">
+          <table class="table table-striped table-sm text-center">
             <thead>
               <tr>
                 <th>Ref</th>

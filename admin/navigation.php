@@ -88,7 +88,7 @@ $(document).ready(function(){
                     <div class="hide">
                     <nav class=" bg-light ">
       <div class="">
-        <ul class="nav flex-column">
+      <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active-home active-dashboard" href="index.php">
               <span data-feather="home"></span>
@@ -97,8 +97,26 @@ $(document).ready(function(){
           </li>
           <li class="nav-item">
             <a class="nav-link active-bookings" href="bookings.php">
-              <span data-feather="file"></span>
+              <span data-feather="book-open"></span>
               Bookings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active-create" href="createBooking.php">
+              <span data-feather="clipboard"></span>
+              Create Booking
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active-edit" href="editBookings.php">
+              <span data-feather="edit-3"></span>
+              Edit Booking
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active-delete" href="deleteBookings.php">
+              <span data-feather="trash-2"></span>
+              Delete Booking
             </a>
           </li>
           <li class="nav-item">
@@ -113,52 +131,9 @@ $(document).ready(function(){
               Customers
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
+         
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
       </div>
     </nav>
                     </div>

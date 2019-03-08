@@ -58,7 +58,7 @@
     <h2>View customer bookings</h2>
     <hr>
     <div class="table-responsive">
-          <table class="table table-striped table-sm">
+          <table class="table table-striped table-sm text-center">
             <thead>
               <tr>
                 <th>Ref</th>

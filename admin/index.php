@@ -29,7 +29,7 @@
 
 
 
-      <h2>Booking requests</h2>
+      <h2>Bookings </h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm text-center">
           <thead>

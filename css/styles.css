@@ -34,7 +34,10 @@ html, body {
   background-size: cover;
   
 }
-
+#active-ticket{
+	color: #1a2b49;
+	font-weight: bold;
+}
 body {
   display: -ms-flexbox;
   display: flex;

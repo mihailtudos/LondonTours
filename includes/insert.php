@@ -1,7 +1,15 @@
 <?php 
 
-
 if(isset($_POST['submit']) || isset($_POST['save'])){
+    $booking = true;
+    addBooking($booking);
+}elseif(isset($_POST['buyNow'])){
+
+}
+
+
+function addBooking($booking){
+    if($booking){
     session_start();
     include 'db_inc.php';
     $bookingID  = $_GET['id'];
@@ -60,7 +68,7 @@ if(isset($_POST['submit']) || isset($_POST['save'])){
                 exit();
             }else{
                 if($reservationDate <= $currentDate){
-                    header("Location: ..\admin\bookings.php?registration=empty");
+                    header("Location: ..\admin\bookings.php?registration=date");
                     exit();
                 }else{
 
@@ -105,10 +113,12 @@ if(isset($_POST['submit']) || isset($_POST['save'])){
             }
         }
     }
- }elseif(isset($_POST['save'])) {
-    
-}else{
+    }elseif(isset($_POST['save'])) {
+        
+    }else{
 
+    }
 }
+
 
 ?>

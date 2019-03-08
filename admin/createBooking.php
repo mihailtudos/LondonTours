@@ -37,6 +37,8 @@
   <div class=" tab-pane fade show active" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
 
         <?php 
+        echo '<div class="container margin-bottom">
+        <form action="../includes/insert.php" method="POST" class="needs-validation" autocomplete="off" novalidate>';
         include '../includes/booking.php';
         ?>
   

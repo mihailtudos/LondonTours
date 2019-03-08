@@ -87,7 +87,9 @@
 				</ul>
 				<div class="row">
 					<div class="col-md-6 col-ms-12 col-xs-12">
-					<a class="btn btn-lg btn-block btn-primary" href="ticket.php?id='.$row['_id_'].'" role="button">View details &raquo;</a> 
+					<a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add to</a>
+
+					<!-- <a class="btn btn-lg btn-block btn-primary" href="ticket.php?id='.$row['_id_'].'" role="button">More &raquo;</a> -->
 					</div>
 					<div class="col-md-6 col-ms-12 col-xs-12">
 					<a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
@@ -157,7 +159,7 @@
 					Frequency: <strong>'.$row['_frequency_'].'</strong>
 				</li>
 				<li class="nav-item">
-					<a name="'.$row['_id_'].'" id="'.$row['_id_'].'" class="btn btn-success" href="check-out.php?id='.$row['_id_'].'&product=tour"><strong>Price: <i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' <i class="fas fa-shopping-cart"></i></strong></a>
+				Ticket price: 	<strong><i class="fas fa-pound-sign"> </i>'.' '.$row['_price_'].' </i></strong>
 				</li>
 			</ul>
 			<br>

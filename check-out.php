@@ -89,11 +89,11 @@
                   if($item >= '0' && $item <= '100'){
                     $query = "SELECT * FROM `_tours_` WHERE _tours_._id_ = '$item';";
                     }elseif($item >= '101' && $item <= '1000'){
-                      $query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ '$item';";
+                      $query = "SELECT * FROM `_attractions_` WHERE _attractions_._id_ ='$item';";
                     }elseif($item >= '1001' && $item <= '5000'){
-                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ = '$item';";
                     }elseif($item >= '5001' && $item <= '10000'){
-                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ '$item';";
+                      $query = "SELECT * FROM `_souvenirs_` WHERE _souvenirs_._id_ = '$item';";
                     }
                     $results = mysqli_query($connection, $query);
                     //number of rows returned after the query executed 
@@ -125,60 +125,81 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" novalidate>
+      <form action="includes/insert.php" method="POST" class="needs-validation" autocomplete="off" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="firstName" name="firstName"   placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <input type="text" class="form-control" name="secondName" id="lastName" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
           </div>
         </div>
-
-        <div class="mb-3">
-        <label for="email">Email </label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-            <div class="invalid-feedback" style="width: 100%;">
-              Please enter a valid email address for shipping updates.
+        <div class="row">
+          <div class="col-md-6 mb-3">
+          <label for="email">Email </label>
+          <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" required>
+          <div class="invalid-feedback">
+            Please enter a valid email address for further updates.
+          </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="state">Phone number</label>
+            <input type="number" name="phoneNumber" class="form-control" id="number" placeholder="0748452145" required>
+            <div class="invalid-feedback">
+              Please provide a valid state.
             </div>
           </div>
         </div>
+       
         <div class="row">
+          <input name="tour" class="form-control" value="3" hidden>
           <div class="col-md-6 mb-3">
             <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+            <input name="street" type="text"  class="form-control" id="address" placeholder="1234 Main St" required>
             <div class="invalid-feedback">
               Please enter your shipping address.
             </div>
           </div>
           <div class="col-md-3 mb-3">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <label for="city">City</label>
+            <input name="city" type="text" class="form-control" id="city" placeholder="" required>
             <div class="invalid-feedback">
-              Zip code required.
+              City code required.
             </div>
           </div>
           <div class="col-md-3 mb-3">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <label for="postcode">Post Code</label>
+            <input type="text" name="postcode" class="form-control" id="postcode" placeholder="" required>
             <div class="invalid-feedback">
-              Zip code required.
+              Post Code code required.
             </div>
           </div> 
         </div>
-
+          
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="date">Date</label>
+            <input name="date" type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" required>
+            <div class="invalid-feedback">
+              Please enter a valid date.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="number">Number of tickets</label>
+            <input type="number" name="number" class="form-control" id="number" placeholder="" required min="1">
+            <div class="invalid-feedback">
+              City code required.
+            </div>
+          </div>
+        </div>
         
         <hr class="mb-4">
         <h4 class="mb-3">Payment</h4>
@@ -231,7 +252,8 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-success btn-lg" type="submit">Pay now</button>
+        <input type="number" value="<?php echo$_GET['id']?>" name="tour" hidden>
+        <button class="btn btn-primary btn-lg btn-block" name="buyNow" type="submit">Pay Now</button>
       </form>
     </div>
   </div>

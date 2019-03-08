@@ -135,9 +135,11 @@
                             </div>
                           </div>
                           <a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
-                          <button type="submit" name="addItem" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
-                          <!-- <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a> -->
-                        </form>';
+                          <!--<button type="submit" name="addItem" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>-->
+                          <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
+                        </form>
+                        ';
+                        echo '';
                   }
                   else{
                     echo'<h1>no available tickets</h1>';

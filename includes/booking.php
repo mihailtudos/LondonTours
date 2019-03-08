@@ -1,7 +1,6 @@
 
 
-<div class="container margin-bottom">
-      <form action="../includes/insert.php" method="POST" class="needs-validation" autocomplete="off" novalidate>
+
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -34,12 +33,11 @@
               Please provide a valid state.
             </div>
           </div>
-          
         </div>
 
         <div class="row">
           <div class="col-md-5 mb-3">
-          <label for="validationCustom03">Chosen Route</label>
+          <label for="validationCustom03">Choose Route</label>
         <select name="tour" class="form-control">
           <option  selected disabled hidden>Choose here</option>
 									<?php
@@ -59,7 +57,7 @@
 									?>
 								</select>
             <div class="invalid-feedback">
-              Please select a valid country.
+              Please select a valid route.
             </div>
           </div>
 
@@ -76,7 +74,7 @@
 
 
           <div class="col-md-3 mb-3">
-            <label for="zip">No. of tickets</label>
+            <label for="number">No. of tickets</label>
             <input type="number" name="number"  class="form-control" id="#" placeholder="" required>
             <div class="invalid-feedback">
               A valid number is required.
@@ -97,14 +95,14 @@
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="country">City</label>
-            <input type="text" name="city" class="form-control" id="city" name="city" placeholder="London">
+            <input type="text" name="city" class="form-control" id="city" name="city" placeholder="London" required>
             <div class="invalid-feedback">
               Please enter a valid city.
             </div>
           </div>
           
           <div class="col-md-3 mb-3">
-            <label for="postcode">Zip</label>
+            <label for="postcode">Post Code</label>
             <input type="text" name="postcode" class="form-control" id="postcode" placeholder="EC1R 4TF" required>
             <div class="invalid-feedback">
               Post code required.

@@ -6,7 +6,7 @@ $action = $_GET['action'];
 if(isset($_GET['id'])){
     if($action == 'adminEdit'){
 
-        $query = "       SELECT b._id_ , u._user_first_name_, u._user_last_name_, u._user_email_ , u._user_phone_no_ , t._title_, b._date_, b._number_of_tickets_, b._address_, b._city_, b._postcode_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_";
+        $query = "SELECT b._id_ , u._user_first_name_, u._user_last_name_, u._user_email_ , u._user_phone_no_ , t._title_, b._date_, b._number_of_tickets_, b._address_, b._city_, b._postcode_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_";
         $results = mysqli_query($connection, $query);
         //number of rows returned after the query executed 
         $row = mysqli_fetch_assoc($results);
@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <title>Edid booking '.$id.'</title>
+            <title>Edit booking '.$id.'</title>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
             <link rel="stylesheet" href="css/style.css">
             <!-- jQuery latest version CDN connection -->

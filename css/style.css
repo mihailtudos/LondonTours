@@ -12,6 +12,21 @@ html, body {
   width: 100%;
 }
 
+/* START Skip to main content link style  */
+a#skip, a#skip:hover, a#skip:visited{
+  position: absolute;
+  overflow: hidden;
+  color: white;
+  width: 1px;
+  height: 1px;
+}
+a#skip:active, a#skip:focus{
+  position: static;
+  width: auto;
+  height: auto;
+}
+/* END Skip to main content link style  */
+
 .routA-style{
   color: burlywood;
   padding: 20px;
