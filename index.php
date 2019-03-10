@@ -28,6 +28,18 @@
 				 the content on the top of carousel  -->
 			<div class="carousel-caption">
 				<h3 class="display-2 hide-medium">Love where you're going</h3>
+				<?php 
+				//display message if user was registred
+				if(isset($_SESSION['registred'])){
+					echo'<h3 class="display-2 hide-medium success-msg">Account successfully created</h3>';
+					$_SESSION['registred']=false;
+					unset($_SESSION['registred']);
+				}else{
+					$_SESSION['registred']=false;
+					unset($_SESSION['registred']);
+				}
+				
+				?>
 				<div class="booking-form">
 					<form  action="includes/insert.php" method="POST">
 						<div class="form-row">

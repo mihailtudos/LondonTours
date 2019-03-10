@@ -1,4 +1,5 @@
 <?php
+ob_start();
 //keep the session as long the user didn't press sing out
 session_start();
 ?>
@@ -38,15 +39,17 @@ session_start();
 		<nav id="navbarSearch" class="navbar navbar-light fixed-top">	
 			<a href="#ticket-section" id="skip" alt="skip to main content link" >Skip to main content </a>
 			<a class="chat-with-us" data-toggle="modal" data-target="#chat"><i class="fas fa-comment"></i> Chat</a>
+
+			<!-- search form and input which will send the input to search-main.php page via post method -->
 				<form class="form-inline" action="search-main.php" method="POST" autocomplete="off">
 					 <div id="search-box-main" class="input-group">
 						<div class="input-group-prepend">
-						<button type="submit" name="btn-search-main"><div class="input-group-text"><i class="fa fa-search"></i></div></button>
+						<button type="submit" name="btn-search-main" ><div class="input-group-text"><i class="fa fa-search"></i></div></button>
 						</div>
-						<input name="search-main" type="search" class="form-control " id="inlineFormInputGroupSearch" placeholder="Search" >
+						<input name="search-main" type="search" class="form-control " id="inlineFormInputGroupSearch" placeholder="Search" min="3" required>
 					</div>
-					
 			</form>
+
 			<div id="refresh">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">
 				<i class="fas fa-cart-plus"></i> <span class="badge badge-light">
@@ -58,7 +61,7 @@ session_start();
 									echo '0';
 								}
 								else{
-									echo sizeof($_SESSION['cart']);
+									echo(sizeof($_SESSION['cart']));
 								}
 				?>
 				</span>
@@ -107,9 +110,11 @@ session_start();
 							</div>
 						</li>
 						<?php
+							//if the email is set when the user logged in then dispaly the log-out and profile buttons
 							if(isset($_SESSION['userEmail'])){
 								echo '<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['userFirstName'] .'</a>
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false">'.$_SESSION['userFirstName'] .'</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="bookings.php">Bookings <i class="fas fa-book"></i></a>
 								<a class="dropdown-item" href="#">Settings <i class="fas fa-cog"></i></a>
@@ -126,7 +131,7 @@ session_start();
 										<button class="btn btn-logout btn-primary" type="submit" name="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
 									</li>
 								</form>';
-								
+							//if the user email global variable was not set then display login and sign-up buttons 
 							} else {
 								echo '<li class="nav-item">	
 								<a class="nav-link" href="#" data-toggle="modal" data-target="#loginForm"><i class="fas fa-user" ></i>Log in</a>
@@ -164,6 +169,8 @@ session_start();
 			</div>
 			<div class="container-fluid">
 			<div class="row ">
+
+				<!-- the form that will send the inputs to sing_in.pnp script via post method -->
 			<form class="mx-auto" action="includes/sign_in.php" method="POST">
 				<div class="form-group">
 					<label for="InputEmail1">Email address</label>
@@ -333,9 +340,7 @@ session_start();
 		}else{
 			echo "<script type='text/javascript'>alert('Something went wrong, please try again!')</script>";
 		}
-	}
-	
-	
+	}	
 ?>
 		</header>
 		

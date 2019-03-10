@@ -1,17 +1,19 @@
 <?php
+//start sesion 
 session_start();
 
+//allow acess to script only if the button submit was clicked
 if(isset($_POST['submit'])){
 
     include 'db_inc.php';
-    //treats the entered details strictly as text for security purpose
 
+    //for security purpose was escaped entered details and uses them trictly text 
+    if (!empty($_POST['_user_email_']) && !empty($_POST['_user_password_'])) {
     $userEmail = mysqli_real_escape_string($connection, $_POST['_user_email_']);
     $userPassword = mysqli_real_escape_string($connection, $_POST['_user_password_']);
+    }
 
-    //error handler
     //check if inputs are empty
-
     if (empty($userEmail) || empty($userPassword)) {
         header("Location: ../index.php?login=empty");
         exit();
@@ -54,14 +56,10 @@ if(isset($_POST['submit'])){
                     exit();
                     } 
         }  
-}else {
+}// if the script was accessed without the buttons submit to be pressed go back to main page
+else {
+        //redirect to main page
         header("Location: ../index.php?login=error3");
         exit();
 }
-
-	// if(isset($_SESSION['userID'])){
-	// 	echo "you are logged in";
-	// }
-
-
 ?>
