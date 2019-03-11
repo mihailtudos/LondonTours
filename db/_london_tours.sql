@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 07, 2019 at 07:33 AM
+-- Generation Time: Mar 11, 2019 at 09:42 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -62,7 +62,7 @@ CREATE TABLE `_booked_guided_tours_` (
   `_number_of_tickets_` int(2) NOT NULL,
   `book_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `_contact_email_` varchar(144) NOT NULL,
-  `_contact_number_` int(48) NOT NULL,
+  `_contact_number_` varchar(48) NOT NULL,
   `_address_` varchar(255) NOT NULL,
   `_city_` varchar(56) NOT NULL,
   `_postcode_` varchar(56) NOT NULL
@@ -73,8 +73,9 @@ CREATE TABLE `_booked_guided_tours_` (
 --
 
 INSERT INTO `_booked_guided_tours_` (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`, `book_date`, `_contact_email_`, `_contact_number_`, `_address_`, `_city_`, `_postcode_`) VALUES
-(67, 3, 7, '2019-02-28', 3, '2019-02-22 02:42:04', ' mihair@gmail.com', 0, 'sa', 'sa', 'sa'),
-(95, 2, 7, '2019-02-26', 2, '2019-02-22 04:08:39', ' ion@gmail.com', 421547741, '414 Lenon street', 'Luton', 'LU4 T53');
+(67, 3, 7, '2019-05-28', 6, '2019-02-22 02:42:04', ' mihair@gmail.com', '0765534324', '32 Luton Street', 'Luton', 'LU5 1BE'),
+(121, 3, 7, '2019-04-30', 3, '2019-03-11 03:51:15', ' smithgeo@gmail.com', '07491645232', '258 Victoria Street', 'London', 'VN45 NT33'),
+(123, 2, 8, '2019-03-28', 4, '2019-03-11 08:26:34', 'testreg@roehampton.ac.uk', '07932232234', '12 Rosebery Avenue', 'London', 'EC1R 4QU');
 
 -- --------------------------------------------------------
 
@@ -272,17 +273,18 @@ CREATE TABLE `_tours_` (
   `_color_` varchar(30) NOT NULL,
   `_duration_` varchar(255) NOT NULL,
   `_frequency_` varchar(255) NOT NULL,
-  `_price_` double NOT NULL
+  `_price_` double NOT NULL,
+  `_date_` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `_tours_`
 --
 
-INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`, `_price_`) VALUES
-(1, 'Route A', 'Discover the best of Central London on our A Route bus tours. Our A Route bus tours feature live, English-speaking guides on all buses - experts in sharing facts and stories about London\'s fascinating history, culture and architecture. ', 'The A Route showcases the best of London, from exclusive Belgravia in the west to Tower Bridge in the east. You\'re welcome to hop on and hop off the bus at over 20 different stops, each conveniently located close to landmarks like Big Ben, Buckingham Palace, the Tower of London, Trafalgar Square, and more.', 'West-East', 'Red', '2 hours, 40 minutes', 'Every 10-15 Minutes', 17.5),
-(2, 'Route B', 'Hop on our London B Route Tour to discover the best of North London, from elegant Kensington Palace and bustling Harrods, to stylish Notting Hill and famous Paddington station . ', 'Along the way, you\'ll enjoy an entertaining and informative digital commentary, available in 12 languages and broadcast via complimentary headphones.', 'North-South', 'B', '2 hours, 30 minutes', 'Every 10-15 Minutes', 17.5),
-(3, 'Route A & B', 'Hop on our London A & B Link Route, ', 'Connects King\'s Cross and St. Pancras stations with the heart of London, where you\'ll be able to easily all combined landmarks from A Route and B Route guided tours. The A & B guided tour features pre-recorded commentary, available in 12 languages.\r\n\r\n', 'West-East plus North-South', 'Green', '4 hours, 50 minutes', 'Every 10-15 Minutes', 30.5);
+INSERT INTO `_tours_` (`_id_`, `_title_`, `_short_description_`, `_description_`, `_region_`, `_color_`, `_duration_`, `_frequency_`, `_price_`, `_date_`) VALUES
+(1, 'Route A', 'Discover the best of Central London on our A Route bus tours. Our A Route bus tours feature live, English-speaking guides on all buses - experts in sharing facts and stories about London\'s fascinating history, culture and architecture. ', 'The A Route showcases the best of London, from exclusive Belgravia in the west to Tower Bridge in the east. You\'re welcome to hop on and hop off the bus at over 20 different stops, each conveniently located close to landmarks like Big Ben, Buckingham Palace, the Tower of London, Trafalgar Square, and more.', 'West-East', 'Red', '2 hours, 40 minutes', 'Every 10-15 Minutes', 17.5, '2019-01-01'),
+(2, 'Route B', 'Hop on our London B Route Tour to discover the best of North London, from elegant Kensington Palace and bustling Harrods, to stylish Notting Hill and famous Paddington station . ', 'Along the way, you\'ll enjoy an entertaining and informative digital commentary, available in 12 languages and broadcast via complimentary headphones.', 'North-South', 'B', '2 hours, 30 minutes', 'Every 10-15 Minutes', 17.5, '2019-01-01'),
+(3, 'Route A & B', 'Hop on our London A & B Link Route, ', 'Connects King\'s Cross and St. Pancras stations with the heart of London, where you\'ll be able to easily all combined landmarks from A Route and B Route guided tours. The A & B guided tour features pre-recorded commentary, available in 12 languages.\r\n\r\n', 'West-East plus North-South', 'Green', '4 hours, 50 minutes', 'Every 10-15 Minutes', 30.5, '2019-01-01');
 
 -- --------------------------------------------------------
 
@@ -308,10 +310,11 @@ CREATE TABLE `_users_` (
 --
 
 INSERT INTO `_users_` (`_user_id_`, `_user_first_name_`, `_user_last_name_`, `_user_email_`, `_user_phone_no_`, `_user_street_`, `_user_city_`, `_user_postcode_`, `_user_password_`, `_privileges_`) VALUES
-(3, ' Mihail', 'Tudos', 'mihairmcr7@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$XpzAxj4AbkNtZry8YPOunOmil5vK6ZWtx/jcQUiHDYtlAyknspGhy', 0),
-(4, ' Mihail', 'Tudos', 'mihairmcr8@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.', 0),
-(5, ' Mihail', 'Tudos', 'mihairmcr9@gmail.com', '7491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$NkmPYElUeemLIA0MYzy1XupDpmwTbmz22VDQDVG..YVdvgaynlr/.', 0),
-(7, 'Mihail', 'Tudos', 'mihailtudos@outlook.com', '07454524885', '241 South street', 'London', 'HA9 0WS', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.', 1);
+(3, ' Mihail', 'Tudos', 'mihairmcr7@gmail.com', '07491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$XpzAxj4AbkNtZry8YPOunOmil5vK6ZWtx/jcQUiHDYtlAyknspGhy', 0),
+(4, ' Mihail', 'Tudos', 'mihairmcr8@gmail.com', '07491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.', 0),
+(5, ' Mihail', 'Tudos', 'mihairmcr9@gmail.com', '07491648162', '258 High Street North', 'Dunstable', 'LU6 1BE', '$2y$10$NkmPYElUeemLIA0MYzy1XupDpmwTbmz22VDQDVG..YVdvgaynlr/.', 0),
+(7, 'Mihail', 'Tudos', 'mihailtudos@outlook.com', '07454524885', '241 South street', 'London', 'HA9 0WS', '$2y$10$Oy7kaSt3FgA1MvGBdB0WqO/y1YuXsWuu7CTDfZQ1s71DONWzeolM.', 1),
+(8, 'Test', 'Registration', 'testreg@roehampton.ac.uk', '07932232234', '10 Rosebery Avenue', 'London', 'EC1R 4QU', '$2y$10$z4CNHH9lqC48r0e63gSFT.n4bdXTavc80HPPzEFdz4OQefZKjJOJe', 0);
 
 --
 -- Indexes for dumped tables
@@ -396,7 +399,7 @@ ALTER TABLE `_attractions_`
 -- AUTO_INCREMENT for table `_booked_guided_tours_`
 --
 ALTER TABLE `_booked_guided_tours_`
-  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `_gifts_`
@@ -444,7 +447,7 @@ ALTER TABLE `_tours_`
 -- AUTO_INCREMENT for table `_users_`
 --
 ALTER TABLE `_users_`
-  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `_user_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
