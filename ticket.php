@@ -89,6 +89,14 @@
             <h4 class="d-flex justify-content-between align-items-center mb-3 ">
               <span class="text-muted">Buy your ticket</span>
             </h4>
+                <?php 
+                // display a message if the booking was successful
+                if(isset($_SESSION['booked'])){
+                echo'<h2 class="success-msg">'.$_SESSION['booked'].'</h2>';
+                $_SESSION['booked'] = "";
+                unset($_SESSION['booked']);
+              }
+              ?>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <?php
                 if(isset($_GET['id'])){
@@ -107,6 +115,16 @@
                   $queryResults = mysqli_num_rows($results);
                   if($queryResults > 0){
                     $row = mysqli_fetch_assoc($results);
+                    $firstName = $secondName = $email = $phone =$street = $postcode = $city = '';
+                    if(isset($_SESSION['userFirstName']) && isset($_SESSION['userLastName']) && isset($_SESSION['userLastName'])){
+                      $firstName    = mysqli_real_escape_string($connection,trim($_SESSION['userFirstName']));
+                      $secondName   = mysqli_real_escape_string($connection,trim($_SESSION['userLastName']));
+                      $email        = mysqli_real_escape_string($connection,trim($_SESSION['userEmail']));
+                      $phone        = mysqli_real_escape_string($connection,trim($_SESSION['userPhone']));
+                      $street       = mysqli_real_escape_string($connection,trim($_SESSION['userStreet']));
+                      $postcode     = mysqli_real_escape_string($connection,trim($_SESSION['userPostcode']));
+                      $city         = mysqli_real_escape_string($connection,trim($_SESSION['userCity']));
+                    }
                     echo'<form class="needs-validation" novalidate action="includes/insert.php" method="POST" autocomplete="off" >
                           <div class="form-row">
                             <div>
@@ -117,16 +135,17 @@
                               </div>
                               <div class="margin-inputs">
                               <label class="margin-inputs" for="number">Number of tickets</label>
-                              <input type="number" name="number" class="form-control col-auto margin-inputs" id="number" placeholder="number" value="number" min="1" required>
-                              <input id="hide" type="number" name="id" value="'.$row['_id_'].'" >
-                              <input id="hide" type="text" name="firstName" value="'.$_SESSION['userFirstName'].'" >
-                              <input id="hide" type="text" name="secondName" value="'.$_SESSION['userLastName'].'" >
-                              <input id="hide" type="text" name="email" value="'.$_SESSION['userEmail'].'" >
-                              <input id="hide" type="text" name="phoneNumber" value="'.$_SESSION['userPhone'].'" >
-                              <input id="hide" type="text" name="street" value="'.$_SESSION['userStreet'].'" >
-                              <input id="hide" type="text" name="postcode" value="'.$_SESSION['userPostcode'].'" >
-                              <input id="hide" type="text" name="city" value="'.$_SESSION['userCity'].'" >
-                              <input id="hide" type="text" name="tour" value="'.$row['_title_'].'" >
+                              <input type="number" name="number" class="form-control col-auto margin-inputs" id="number" 
+                              placeholder="number" value="number" min="1" required>
+                              <input id="hide" type="number" name="id" value="'.$row['_id_'].'" hidden >
+                              <input  type="hidden" name="firstName" value="'.$firstName.'" >
+                              <input type="hidden" name="secondName" value="'.$secondName.'" >
+                              <input type="hidden" name="email" value="'.$email.'" >
+                              <input type="hidden" name="phoneNumber" value="'.$phone.'" >
+                              <input type="hidden" name="street" value="'.$street.'" >
+                              <input type="hidden" name="postcode" value="'.$postcode.'" >
+                              <input type="hidden" name="city" value="'.$city.'" >
+                              <input type="hidden" name="tour" value="'.$row['_title_'].'" >
                               <div class="valid-feedback">
                                 Looks good!
                               </div>
@@ -144,8 +163,10 @@
                             </div>
                           </div>';
                           if(isset($_SESSION['userPrivilege'])){
-                            echo '<button href="includes/insert.php" type"submit" name="buyNow" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</button>
-                                  <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
+                            echo '<button href="includes/insert.php" type"submit" name="buyNow" class="btn btn-lg btn-block btn-success">
+                                  <i class="fas fa-credit-card"></i> Buy</button>
+                                  <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary">
+                                  <i class="fas fa-cart-plus"></i> Add</a>
                                   </form>';
                           } else{
                             echo ' <a href="#" data-toggle="modal" data-target="#loginForm"> log in in order to buy</a>';

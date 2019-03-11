@@ -14,6 +14,9 @@
   font-size: 20px;
   background: skyblue;
 }
+.success{
+  color: green;
+}
 
 </style>
 
@@ -44,6 +47,13 @@
 
         <?php 
         include '../includes/booking.php';
+        $_SESSION['booked'] = 'Successfully edited';
+
+        if(isset($_SESSION['booked'])){
+          echo'<h2 class="success">'.$_SESSION['booked'].'</h2>';
+          $_SESSION['booked'] = "";
+          unset($_SESSION['booked']);
+        }
         ?>
   
   </div>
@@ -75,7 +85,7 @@
           $results = mysqli_query($connection, $query);
           //number of rows returned after the query executed 
           $queryResults = mysqli_num_rows($results);
-
+          
           if($queryResults > 0){ 
           while($row = mysqli_fetch_assoc($results)){
             echo '<tr>
@@ -88,7 +98,7 @@
               <td>'.$row['_date_'].'</td>
               <td>'.$row['_number_of_tickets_'].'</td>
               <td>
-                <a class="edit-btn" href="../includes/edit.php?id='.$row['_id_'].'&action=adminEdit"><i class="fas fa-edit"></i></a>
+  <a class="edit-btn" href="../includes/edit.php?id='.$row['_id_'].'&action=adminEdit"><i class="fas fa-edit"></i></a>
               </td>
               </tr>';
             }

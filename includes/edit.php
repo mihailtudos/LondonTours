@@ -1,20 +1,17 @@
 <?php 
 include 'db_inc.php';
 
-$id = $_GET['id'];
-$action = $_GET['action'];
 if(isset($_GET['id'])){
-    if($action == 'adminEdit'){
+    $id = $_GET['id'];
+
+    if(isset($_GET['action'])){
+        $action = $_GET['action'];
 
         $query = "SELECT b._id_ , u._user_first_name_, u._user_last_name_, u._user_email_ , u._user_phone_no_ , t._title_, b._date_, b._number_of_tickets_, b._address_, b._city_, b._postcode_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_";
         $results = mysqli_query($connection, $query);
         //number of rows returned after the query executed 
         $row = mysqli_fetch_assoc($results);
                 
-         
-        
-
-
         echo '<!doctype html>
         <html lang="en">
         <head>
@@ -54,7 +51,7 @@ if(isset($_GET['id'])){
         <h1 class="text-center addMargin">Edit Booking</h1>
 
             <div class="container margin-bottom">
-            <form action="../includes/insert.php?id='.$id.'" method="POST" class="needs-validation" novalidate>
+            <form action="insert.php?id='.trim($row['_id_']).'" method="POST" class="needs-validation" novalidate>
                 <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="firstName">First name</label>
@@ -167,67 +164,28 @@ if(isset($_GET['id'])){
                 </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" name="save" type="submit">Save</button>
+                <button class="btn btn-primary btn-lg btn-block" name="save" type="submit"> Save</button>
          </form>
-        </div>
-
-        ';
+        </div>';
 
         
 
-        include '../admin/footer.php';
 
 
 
     }else{
-        echo '<!doctype html>
-        <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <title>Edid booking '.$id.'</title>
-        
-        
-        
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-            <link rel="stylesheet" href="css/style.css">
-            <!-- jQuery latest version CDN connection -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <!-- popper js latest version CDN connection -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-            <!-- bootstrap minified latest version CDN connection -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-            <!-- fontawesome (icons) latest version CDN connection -->
-            <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-            <!-- local CSS file -->
-        
-            <!-- Bootstrap core CSS -->
-        <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
-        <script language="JavaScript" type="text/javascript">
-        $(document).ready(function(){
-            $("a.delete").click(function(e){
-                if(!confirm("Are you sure you want to delete this booking?")){
-                    e.preventDefault();
-                    return false;
-                }
-                return true;
-            });
-        });
-        </script>
-            <!-- Custom styles for this template -->
-            <link href="..\admin\css\style.css" rel="stylesheet">
-        </head>
-        <body>
-        <h1 class="text-center addMargin">Edit Booking</h1>
-        ';
-
-        include 'booking.php';
-
-        echo '</body>
-        </html>';
+        $_SESSION['booked'] = 'Successfully booked';
+        // Close connection
+        mysqli_close($connection);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
         }
 }else{
+    $_SESSION['booked'] = 'Successfully booked';
+    // Close connection
+    mysqli_close($connection);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
     
 }
 

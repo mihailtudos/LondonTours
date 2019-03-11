@@ -68,6 +68,14 @@
   </div>
     <div class="container-fluid user-bookings-account text-center">
         <h1>Bookings</h1>
+            <?php 
+                // display a message if the booking was successful
+                if(isset($_SESSION['booked'])){
+                echo'<h2 class="success-msg">'.$_SESSION['booked'].'</h2>';
+                $_SESSION['booked'] = "";
+                unset($_SESSION['booked']);
+              }
+              ?>
     <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
@@ -85,12 +93,16 @@
             </thead>
             <tbody>
             <?php 
-            
+              $user ='';
               include 'includes/db_inc.php';
 
+              if(isset($_SESSION['userID'])){
+                $user = $_SESSION['userID'];
+              
+             
             //sanitize data that we get from the user
           //$searchKeyword = mysqli_real_escape_string($connection, $_POST['search-main']);
-          $query = "SELECT b._id_ , CONCAT(u._user_first_name_, ' ', u._user_last_name_ ) as 'user name', b._contact_email_ , b._contact_number_ , b._address_, t._title_, b._date_, b._number_of_tickets_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_ ";
+          $query = "SELECT b._id_ , CONCAT(u._user_first_name_, ' ', u._user_last_name_ ) as 'user name', b._contact_email_ , b._contact_number_ , b._address_, t._title_, b._date_, b._number_of_tickets_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_ Where u._user_id_ = $user";
           $results = mysqli_query($connection, $query);
           //number of rows returned after the query executed 
           $queryResults = mysqli_num_rows($results);
@@ -107,8 +119,7 @@
               <td>'.$row['_date_'].'</td>
               <td>'.$row['_number_of_tickets_'].'</td>
               <td>
-                <a class="edit-btn" href="../includes/edit.php?id='.$row['_id_'].'&action=adminEdit"><i class="fas fa-edit"></i></a>
-                <a class="delete-btn delete" href="../includes/delete.php?id='.$row['_id_'].'&action=booking"><i class="fas fa-trash-alt "></i></a>
+                <a class="edit-btn" href="includes/edit.php?id='.$row['_id_'].'&action=adminEdit"><i class="fas fa-edit"></i></a>
               </td>
               </tr>';
             }
@@ -116,6 +127,9 @@
             echo '<h4>no customer bookings found</h4>';
 
           }
+          }
+          // <a class="delete-btn delete" href="../includes/delete.php?id='.$row['_id_'].'&action=booking"><i class="fas fa-trash-alt "></i></a>
+
             ?>
               
             </tbody>

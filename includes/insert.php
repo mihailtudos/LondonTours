@@ -1,11 +1,20 @@
 <?php
 //checks where the request is coming
+include 'db_inc.php';
+
+$bookingID = trim(mysqli_real_escape_string($connection, $_GET['id']));
+echo $bookingID;
 if(isset($_POST['submit']) || isset($_POST['save'])){
     //call addBooking function which takes a boolean parameter 
     //if the parameter is true then create a new booking 
     $booking = true;
     addBooking($booking);
 } elseif(isset($_POST['buyNow'])){
+    //call addBooking function which takes a boolean parameter 
+    //if the parameter is true then create a new booking
+    $booking = true; 
+    addBooking($booking);    
+}  elseif(isset($_POST['save'])){
     //call addBooking function which takes a boolean parameter 
     //if the parameter is true then create a new booking
     $booking = true; 
@@ -57,7 +66,6 @@ function addBooking($booking){
     //double check if the fields are empty, if any found empty send the user back to the booking page
     if(empty($firstName) || empty($secondName) || empty($email) || 
         empty($phoneNumber) || empty($street) || empty($city) || empty($postcode)){
-        header("location:javascript://history.go(-1)");
         exit();
     } else {
         //check if input have specific format is valid 
@@ -73,9 +81,12 @@ function addBooking($booking){
                 if($reservationDate <= $currentDate){
                     header("location:javascript://history.go(-1)");
                     exit();
-                    
                 }else{//if the insert is coming from edit option then execut this sql query
                        if(isset($_POST['save'])){
+                           if(isset($_GET['id'])){
+                            $bookingID = trim(mysqli_real_escape_string($connection, $_GET['id']));
+
+                           }
                         //prepare the sql query    
                         $sql = "UPDATE `_booked_guided_tours_` 
                         SET `_tour_id_` = '$optionTour', 
@@ -87,16 +98,15 @@ function addBooking($booking){
                         `_address_` = '$street', 
                         `_city_` = '$city', 
                         `_postcode_` = '$postcode' 
-                        WHERE `_booked_guided_tours_`.`_id_` = '$bookingID';
-                        ";
+                        WHERE `_booked_guided_tours_`.`_id_` = '$bookingID';";
                         //execut the sql query and return back 
                         mysqli_query($connection, $sql);
                         //check if the row was inserted 
                             if (mysqli_affected_rows($connection)){
-                            $_SESSION['booked'] = 'Successfully booked';
+                            $_SESSION['booked'] = 'Successfully edited';
                             // Close connection
                             mysqli_close($connection);
-                            header('Location: ' . $_SERVER['HTTP_REFERER']);
+                            header("Location: ../bookings.php");
                             exit();
                             }else{
                                 //if no record inserted go back to the form 
@@ -104,10 +114,14 @@ function addBooking($booking){
                                 exit(); 
                             }
                     }else{
+                        //if the request is coming for creatin new booking then and isert sql query will be executed
                         $sql = " INSERT INTO `_booked_guided_tours_` 
-                        (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`, `book_date`, `_contact_email_`, `_contact_number_`, `_address_`, `_city_`,`_postcode_`) 
-                        VALUES (NULL, '$optionTour' , '$user_id', '$reservationDate', '$numberOfReservations', CURRENT_TIMESTAMP, ' $email', '$phoneNumber', '$street', '$city', '$postcode');";
+                        (`_id_`, `_tour_id_`, `_user_id_`, `_date_`, `_number_of_tickets_`, `book_date`, `_contact_email_`, 
+                        `_contact_number_`, `_address_`, `_city_`,`_postcode_`) 
+                        VALUES (NULL, '$optionTour' , '$user_id', '$reservationDate', '$numberOfReservations', CURRENT_TIMESTAMP, ' $email', 
+                        '$phoneNumber', '$street', '$city', '$postcode');";
                         mysqli_query($connection, $sql);
+                        //check if the row was inserted 
                             if (mysqli_affected_rows($connection)){
                                 $_SESSION['booked'] = 'Successfully booked';
                                 // Close connection
@@ -130,8 +144,6 @@ function addBooking($booking){
     session_destroy();
 }else{
     //if no record inserted go back to the form 
-    header("location:javascript://history.go(-1)");
-    exit(); 
     }
 }
 
