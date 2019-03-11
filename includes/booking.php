@@ -1,6 +1,4 @@
-
-
-
+        <!-- booking form  -->
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -161,7 +159,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" name="submit" type="submit">Continue to checkout</button>
+        <button class="btn btn-primary btn-lg btn-block" name="submit" type="submit"> Booking</button>
       </form>
   </div>
 

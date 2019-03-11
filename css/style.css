@@ -595,6 +595,13 @@ hr.light-100 {
     margin-top: -15px;
   }
 /* End ticket style */
+/* START quick_check_out page*/
+
+.quck-check-out-container{
+  margin-top: 200px;
+}
+
+/* END quick_check_out page */
 /* START check-out page style*/
 .checkout-container{
   margin-top: 170px;

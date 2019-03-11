@@ -1,7 +1,8 @@
-<?php 
+<?php
+  //include the navigation of the website 
   include 'navigation.php';
 ?>
-
+  <!-- include the css file and some style that make the menu option selected -->
 <style>
 <?php 
   include 'css/style.css';
@@ -12,9 +13,10 @@
   font-size: 20px;
   background: skyblue;
 }
-
 </style>
 
+
+<!-- start of the main container  -->
     <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Bookings</h1>
@@ -29,10 +31,12 @@
           </button>
         </div>
       </div>
+      <!-- container for the horizontal menu -->
       <div class="">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active submenu-font" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="true">View customer bookings <i class="fas fa-eye"></i> </a>
+          <a class="nav-link active submenu-font" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" 
+          aria-controls="pills-view" aria-selected="true">View customer bookings <i class="fas fa-eye"></i> </a>
         </li>
         <li class="nav-item">
           <a class="nav-link submenu-font" href="createBooking.php">Create booking <i class="fas fa-plus-circle"></i></a>
@@ -46,13 +50,8 @@
       </ul>
          <hr>
         <div class="tab-content" id="pills-tabContent">
-
+<!-- container that wraps the table and retrieved data -->
   <div class=" tab-pane fade show " id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
-
-        <?php 
-        include '../includes/booking.php';
-        ?>
-  
   </div>
   <div class="tab-pane fade show active" id="pills-view" role="tabpanel" aria-labelledby="pills-view-tab">
     <h2>View customer bookings</h2>
@@ -73,19 +72,23 @@
               </tr>
             </thead>
             <tbody>
-            <?php 
-            
+            <?php
+            //includes database connection script 
               include '../includes/db_inc.php';
-
-            //sanitize data that we get from the user
-          //$searchKeyword = mysqli_real_escape_string($connection, $_POST['search-main']);
-          $query = "SELECT b._id_ , CONCAT(u._user_first_name_, ' ', u._user_last_name_ ) as 'user name', b._contact_email_ , b._contact_number_ , b._address_, t._title_, b._date_, b._number_of_tickets_ FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ INNER JOIN _tours_ t on b._tour_id_ = t._id_ ";
+          //prepares the sql query
+          $query = "SELECT b._id_ , CONCAT(u._user_first_name_, ' ', u._user_last_name_ ) as 
+          'user name', b._contact_email_ , b._contact_number_ , b._address_, t._title_, b._date_, b._number_of_tickets_ 
+          FROM _booked_guided_tours_ b INNER JOIN _users_ u on b._user_id_ = u._user_id_ 
+          INNER JOIN _tours_ t on b._tour_id_ = t._id_ ";
+          //stores the results of the query
           $results = mysqli_query($connection, $query);
           //number of rows returned after the query executed 
           $queryResults = mysqli_num_rows($results);
-
+          //if there were records returned then fetch data in an associative array 
           if($queryResults > 0){ 
+          //fetch data in an associative array and display the data in an iterative way (while) until the end is reached 
           while($row = mysqli_fetch_assoc($results)){
+            //a table row will be created everytime the rows are assicated and should be equal with the number of records 
             echo '<tr>
               <td>'.$row['_id_'].'</td>
               <td>'.$row['user name'].'</td>
@@ -96,33 +99,34 @@
               <td>'.$row['_date_'].'</td>
               <td>'.$row['_number_of_tickets_'].'</td>
               <td>
-                <a class="edit-btn" href="../includes/edit.php?id='.$row['_id_'].'&action=adminEdit"><i class="fas fa-edit"></i></a>
-                <a class="delete-btn delete" href="../includes/delete.php?id='.$row['_id_'].'&action=booking"><i class="fas fa-trash-alt "></i></a>
+                
+                <a class="edit-btn" href="../includes/edit.php?id='.$row['_id_'].'&action=adminEdit">
+                <i class="fas fa-edit"></i></a>
+                <a class="delete-btn delete" href="../includes/delete.php?id='.$row['_id_'].'&action=booking">
+                <i class="fas fa-trash-alt "></i></a>
+
               </td>
               </tr>';
             }
+            mysqli_close($connection);
           } else {
             echo '<h4>no customer bookings found</h4>';
-
+            mysqli_close($connection);
           }
             ?>
-              
-            </tbody>
-          </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-  
-
-  </div>
-</div>
-
       </div>
-
     </main>
   </div>
-</div>
-
 
 <?php
+  //includes the footer of the web site
   include 'footer.php'
 ?>
+
+

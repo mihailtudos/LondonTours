@@ -1,4 +1,6 @@
 <?php
+
+
  include_once 'header.php';
 ?>
 <?php
@@ -105,7 +107,7 @@
                   $queryResults = mysqli_num_rows($results);
                   if($queryResults > 0){
                     $row = mysqli_fetch_assoc($results);
-                    echo'<form class="needs-validation" novalidate action="includes/buy_tickets.php" method="POST" autocomplete="off" >
+                    echo'<form class="needs-validation" novalidate action="includes/insert.php" method="POST" autocomplete="off" >
                           <div class="form-row">
                             <div>
                               <label for="date">Date</label>
@@ -117,7 +119,14 @@
                               <label class="margin-inputs" for="number">Number of tickets</label>
                               <input type="number" name="number" class="form-control col-auto margin-inputs" id="number" placeholder="number" value="number" min="1" required>
                               <input id="hide" type="number" name="id" value="'.$row['_id_'].'" >
-                              <input id="hide" type="text" name="title" value="'.$row['_title_'].'" >
+                              <input id="hide" type="text" name="firstName" value="'.$_SESSION['userFirstName'].'" >
+                              <input id="hide" type="text" name="secondName" value="'.$_SESSION['userLastName'].'" >
+                              <input id="hide" type="text" name="email" value="'.$_SESSION['userEmail'].'" >
+                              <input id="hide" type="text" name="phoneNumber" value="'.$_SESSION['userPhone'].'" >
+                              <input id="hide" type="text" name="street" value="'.$_SESSION['userStreet'].'" >
+                              <input id="hide" type="text" name="postcode" value="'.$_SESSION['userPostcode'].'" >
+                              <input id="hide" type="text" name="city" value="'.$_SESSION['userCity'].'" >
+                              <input id="hide" type="text" name="tour" value="'.$row['_title_'].'" >
                               <div class="valid-feedback">
                                 Looks good!
                               </div>
@@ -133,13 +142,14 @@
                                 You must agree before submitting.
                               </div>
                             </div>
-                          </div>
-                          <a href="check-out.php?id='.$row['_id_'].'"  name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</a>
-                          <!--<button type="submit" name="addItem" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>-->
-                          <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
-                        </form>
-                        ';
-                        echo '';
+                          </div>';
+                          if(isset($_SESSION['userPrivilege'])){
+                            echo '<button href="includes/insert.php" type"submit" name="buyNow" class="btn btn-lg btn-block btn-success"><i class="fas fa-credit-card"></i> Buy</button>
+                                  <a onclick="addItem('.$row['_id_'].')"  value="'.$row['_id_'].'"  id="addItem" name="'.$row['_id_'].'" class="btn btn-lg btn-block btn-primary"><i class="fas fa-cart-plus"></i> Add</a>
+                                  </form>';
+                          } else{
+                            echo ' <a href="#" data-toggle="modal" data-target="#loginForm"> log in in order to buy</a>';
+                          }
                   }
                   else{
                     echo'<h1>no available tickets</h1>';
@@ -147,9 +157,8 @@
                 }else{
                   echo'<h1>no available tickets</h1>';
                 }
-              ?>
+            ?>
         </li>
-        
     </div>
   </div>
 
